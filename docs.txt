@@ -1,0 +1,37 @@
+SOCKCESS SITE DOCS
+
+This site consists of 3 main components:
+
+
+
+1. Landing page
+
+This is where customers and prospective customers land when they first navigate to
+the website.
+
+This page contains the value proposition of sockcess, and yields information on who
+we are, what common questions exist about our service, how to contact us, and who is
+saying good things about us.
+
+This page also contains functionality for signing up for the service, signing into
+the service, and submitting a question to us.
+
+
+
+2. Post Sign-Up Slideshow and first selection
+
+This is the funnel we push people through after getting them to sign up. It consists
+of three slides, each identifying an element of our service (pick a sock, get the sock,
+login to your account to manage your shit).
+
+The first selection comes after the slideshow. Users can pick one of three choices:
+style1 style2 or RANDOM. After picking a given style, users are then prompted for
+their billing information: name, address, card number etc.
+
+
+
+3. User HomePage
+
+This is where users go. This site is very simple; users can pick their sock for the
+month, or they can manage their account settings, or they can log out. Easy Peasy.
+

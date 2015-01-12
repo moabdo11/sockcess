@@ -1,0 +1,22 @@
+{% extends "admin/base.html" %}
+
+{% block title %} | {{ site_title | default:_('Sockcess Admin') }}{% endblock %}
+
+
+{% block extrastyle %}
+<style>
+#header {
+    background-color: #058bcc;
+    
+}
+    
+    
+</style>
+{% endblock %}
+
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Sockcess Admin</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

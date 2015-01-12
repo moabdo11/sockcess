@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block nav %}
+
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/home">
+                    <img src="{% static "img/socklogosmall.png" %}" class="img-responsive" alt="">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right" id="sign-in-form">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+
+                    <li>
+                        <a href="/home">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="/logout">Logout</a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+{% endblock %}
+
+{% block intro %}
+
+<header class="video">
+        <div class="overlay"></div>
+        <div class="intro-content">
+
+            {% if messages %}
+            <div class='row'>
+                <div class='col-xs-12'>
+                    {% for message in messages %}
+                        <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+           {% endif %}
+           <h2>My Settings</h2>
+           <br />
+           <br />
+           <br />
+           <br />
+           <div class='row'>
+                <div class='col-xs-12'>
+                        <table class='col-xs-12' id="settings_menu">
+                              <tr> 
+                                <td><p>Shipping Address</p></td>
+                                <td><a href="/changeaddress" class="btn btn-outline-light">Change</a></td>
+                              </tr>
+                              <tr>
+                                <td><p></p></td>
+                              </tr>
+                              <tr>
+                                <td><p>Billing Info</p></td>
+                                <td><a href="/changebilling" class="btn btn-outline-light">Change</a></td>
+                              </tr>
+                              <tr>
+                                <td><p></p></td>
+                              </tr>
+                              <tr>
+                                <td><p>Delete My Account</p></td>
+                                <td><a href="/deleteuser" class="btn btn-outline-light">Delete Me</a></td>
+                              </tr>
+                        </table>
+                </div>
+           </div>
+
+        </div>
+
+    </header>
+
+{% endblock %}
+

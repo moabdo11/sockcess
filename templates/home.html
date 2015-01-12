@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block nav %}
+
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">
+                    <img src="{% static "img/socklogosmall.png" %}" class="img-responsive" alt="">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right" id="sign-in-form">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+
+                    <li>
+                        <a href="/myaccount">My Account</a>
+                    </li>
+
+                    <li>
+                        <a href="/logout">Logout</a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+            {% if messages %}
+
+            <div class='row'>
+                <div class='col-sm-6 col-sm-offset-3'>
+
+                    {% for message in messages %}
+
+                        <p{% if message.tags == "success" %} class="successful"{% endif %}><b>{{ message }}</b></p>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+            </div>
+
+           {% endif %}
+           
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+{% endblock %}
+
+{% block intro %}
+
+<header class="video">
+        <div class="overlay"></div>
+        <div class="intro-content">
+
+
+
+
+<aside class="cta-quote" style="background-image: url('')">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 text-center">
+                    
+                    {% if rando %}
+                        <span class="quote"> Your current sock selection is <strong>{{ rando }}</strong></span>
+                    {% else %}
+                        <span class="quote"> Your current sock selection is <strong>{{ img.style }}</strong></span>
+                    {% endif %}
+                    
+                    <hr class=" colored">
+                    <a href="/changethatshit" class="btn btn-outline-light">CLICK HERE TO CHANGE</a>
+                </div>
+            </div>
+
+        </div>
+    </aside>
+
+
+{% endblock %}

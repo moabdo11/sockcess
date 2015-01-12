@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ title }}{% endblock %}
+
+
+{% block nav %}
+
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded" style="background:#000; padding:10px;">
+        <div class="container" >
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/home">
+                    <img src="{% static "img/socklogosmall.png" %}" class="img-responsive" alt="">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right" id="sign-in-form">
+                    <li class="hidden">
+                        <a href="/home"></a>
+                    </li>
+
+                    <li>
+                        <a href="/myaccount">My Account</a>
+                    </li>
+
+                    <li>
+                        <a href="/home">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="/logout">Logout</a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+{% endblock %}
+
+{% block form %}
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Where Is The New Place For Us To Send Your Socks?</h2>
+                    <hr class="colored">
+                    <p> Please fill out all fields </p>
+                </div>
+            </div>
+            
+            
+            
+            {% if messages %}
+
+            <div class='row'>
+                <div class='col-sm-6 col-sm-offset-3'>
+
+                    {% for message in messages %}
+
+                        <p{% if message.tags == "success" %} class="successful"{% endif %}><b>{{ message }}</b></p>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+            </div>
+
+           {% endif %}
+           
+            
+            <div class="row content-row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <form name="sentMessage" id="contactForm" method="POST"> {% csrf_token %}
+                    
+                    
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>First Name</label>
+                                {{ form.first_name }}
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Last Name</label>
+                                {{ form.last_name }}
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                    
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Street</label>
+                                {{ form.street }}
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>City</label>
+                                {{ form.city }}
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>State</label>
+                                {{ form.state }}
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>ZipCode</label>
+                                {{ form.zipcode }}
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <button type="submit" class="btn btn-outline-dark">Change Me</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
