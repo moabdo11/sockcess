@@ -17,7 +17,7 @@ class SubscriberAdmin(admin.ModelAdmin):
         model = Subscriber
 
 class OrderAdmin(admin.ModelAdmin):
-
+    list_display = ['first_name', 'last_name', 'street', 'city', 'state', 'zipcode', 'sock_style']
     pass
 
 

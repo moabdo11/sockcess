@@ -75,7 +75,7 @@ $('.gallery-link').magnificPopup({
 // Formstone Wallpaper - Video Background Settings
 $("header.video").wallpaper({
     source: {
-        poster: "static/img/shots/brickwall2_af.jpg",
+        poster: "../static/img/shots/landing_stripes.jpg",
         // mp4: "static/mp4/Socks.mp4"
     }
 });

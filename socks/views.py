@@ -45,7 +45,7 @@ def home(request):
         else:
             return HttpResponseRedirect('/signup')
         
-    return render_to_response('index.html',
+    return render_to_response('index2.html',
                               locals(),
                               context_instance=RequestContext(request))
 
