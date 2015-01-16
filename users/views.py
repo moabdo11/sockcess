@@ -9,6 +9,23 @@ from dateutil.relativedelta import *
 from datetime import *
 
 
+
+
+
+
+"""
+
+This document is split into 3 sections: USER SIGNUP FUNCTIONS, USER ACCOUNT FUNCTIONS, and CHANGE USER ACCOUNT FUNCTION
+
+
+"""
+
+
+
+
+
+
+
 ####################################### USER SIGNUP FUNCTIONS #########################################################
 
 
@@ -106,7 +123,6 @@ def shippinginfo(request):
 
             return HttpResponseRedirect('/billinginfo')
 
-
     return render_to_response('shippinginfo.html',
                               locals(),
                               context_instance=RequestContext(request))
@@ -157,15 +173,31 @@ def billinginfo(request):
 
             order.save()
             messages.success(request, "Word. We got you.")
-
-
- 
             
         return HttpResponseRedirect('/home')
 
     return render_to_response('billinginfo.html',
                               locals(),
                               context_instance=RequestContext(request))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ####################################### USER ACCOUNT FUNCTIONS #########################################################
@@ -203,21 +235,10 @@ def userhome(request):
 
 
 
-
-
-
-
-
 def logoutuser(request):
     logout(request)
 
     return HttpResponseRedirect('/')
-
-
-
-
-
-
 
 
 def signin(request):
@@ -237,9 +258,7 @@ def signin(request):
                 login(request, user)
 
                 return HttpResponseRedirect('/home')
-                # ensure user exists in stripe
-
-             
+                # ensure user exists in stripe           
 
             else:
                 #user exists but account has been disabled
@@ -258,10 +277,6 @@ def signin(request):
                               context_instance=RequestContext(request))
 
 
-
-
-
-
 def myaccount(request):
     if not request.user.is_authenticated():
         return HttpResponseRedirect('/signin')
@@ -278,6 +293,20 @@ def myaccount(request):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+####################################### USER CHANGE-ACCOUNT FUNCTIONS #########################################################
 
 def change_address_info(request):
     if not request.user.is_authenticated():
@@ -441,6 +470,11 @@ def deleteuser(request):
     return render_to_response('deleteuser.html',
                               locals(),
                               context_instance=RequestContext(request))    
+
+
+
+
+
 
 
 

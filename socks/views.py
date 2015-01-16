@@ -91,3 +91,14 @@ def signup(request):
     return render_to_response('onlysignup.html',
                               locals(),
                               context_instance=RequestContext(request))
+
+
+
+
+def about(request):
+    
+    title = 'About | SockCess'
+    
+    return render_to_response('about.html',
+                              locals(),
+                              context_instance=RequestContext(request))
