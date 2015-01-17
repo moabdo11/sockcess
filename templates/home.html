@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "basehome.html" %}
 {% load staticfiles %}
 
 {% block title %}{{ title }}{% endblock %}
@@ -76,7 +76,7 @@
 <aside class="cta-quote" style="background-image: url('')">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 text-center">
+                <div class="col-sm-10 col-sm-offset-1 text-center">
                     
                     {% if rando %}
                         <span class="quote"> Your current sock selection is <strong>{{ rando }}</strong></span>

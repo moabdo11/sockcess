@@ -123,7 +123,7 @@ def shippinginfo(request):
 
             return HttpResponseRedirect('/billinginfo')
 
-    return render_to_response('shippinginfo.html',
+    return render_to_response('shipping.html',
                               locals(),
                               context_instance=RequestContext(request))
 
