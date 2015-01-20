@@ -1,0 +1,382 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Change Billing Info</title>
+
+<!-- CSS -->
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static "css/bootstrap/bootstrap.min.css" %}" rel="stylesheet" type="text/css">
+    <!-- Custom CSS -->
+    <link href="{% static "css/bootstrap/custom.css" %}" rel="stylesheet" type="text/css">
+    <!-- Font Awesome -->
+    <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+    <!-- Default Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,600,500,700,800,900' rel='stylesheet' type='text/css'>
+    <!-- Modern Style Fonts (Include these is you are using body.modern!) -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Cardo:400,400italic,700' rel='stylesheet' type='text/css'>
+    <!-- Vintage Style Fonts (Include these if you are using body.vintage!) -->
+    <link href='http://fonts.googleapis.com/css?family=Sanchez:400italic,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Cardo:400,400italic,700' rel='stylesheet' type='text/css'>
+    <!-- Plugin CSS -->
+    <link href="{% static "css/plugins/owl-carousel/owl.carousel.css" %}" rel="stylesheet" type="text/css">
+    <link href="{% static "css/plugins/owl-carousel/owl.theme.css" %}" rel="stylesheet" type="text/css">
+    <link href="{% static "css/plugins/owl-carousel/owl.transitions.css" %}" rel="stylesheet" type="text/css">
+    <link href="{% static "css/plugins/magnific-popup.css" %}" rel="stylesheet" type="text/css">
+    <link href="{% static "css/plugins/jquery.fs.wallpaper.css" %}" rel="stylesheet" type="text/css">
+
+
+
+
+
+    <link href="{% static "css/vitality-red-socks.css" %}" rel="stylesheet" type="text/css">
+
+
+<!-- JS -->
+    <!-- Retina.js - Load first for faster HQ mobile images. -->
+    <script src="{% static "js/plugins/retina/retina.min.js" %}"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <!-- IE8 support for HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+
+<!-- Payment Form -->
+
+    <script src="{% static "js/jquery.payment.js" %}"></script>
+
+    <style type="text/css" media="screen">
+    .has-error input {
+      border-width: 2px;
+    }
+
+    .validation.text-danger:after {
+      content: 'Validation failed';
+    }
+
+    .validation.text-success:after {
+      content: 'Validation passed';
+    }
+  </style>
+
+  <script>
+    jQuery(function($) {
+      $('[data-numeric]').payment('restrictNumeric');
+      $('.cc-number').payment('formatCardNumber');
+
+      $('.cc-cvc').payment('formatCardCVC');
+
+      $.fn.toggleInputError = function(erred) {
+        this.parent('.form-group').toggleClass('has-error', erred);
+        return this;
+      };
+
+      $('form').submit(function(e) {
+        e.preventDefault();
+
+        var cardType = $.payment.cardType($('.cc-number').val());
+        $('.cc-number').toggleInputError(!$.payment.validateCardNumber($('.cc-number').val()));
+        $('.cc-exp').toggleInputError(!$.payment.validateCardExpiry($('.cc-exp').payment('cardExpiryVal')));
+        $('.cc-cvc').toggleInputError(!$.payment.validateCardCVC($('.cc-cvc').val(), cardType));
+        $('.cc-brand').text(cardType);
+
+        $('.validation').removeClass('text-danger text-success');
+        $('.validation').addClass($('.has-error').length ? 'text-danger' : 'text-success');
+      });
+
+    });
+  </script>
+
+
+    <!-- stripe -->
+
+<!-- The required Stripe lib -->
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+  <!-- jQuery is used only for this example; it isn't required to use Stripe -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  <script type="text/javascript">
+    // This identifies your website in the createToken call below
+    Stripe.setPublishableKey('pk_test_lTk4gVujvxR0AHg7Ns8gPdbI');
+
+    var stripeResponseHandler = function(status, response) {
+      var $form = $('#payment-form');
+
+      if (response.error) {
+        // Show the errors on the form
+        $form.find('.payment-errors').text(response.error.message);
+        $form.find('button').prop('disabled', false);
+      } else {
+        // token contains id, last4, and card type
+        var token = response.id;
+        // Insert the token into the form so it gets submitted to the server
+        $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+        // and re-submit
+        $form.get(0).submit();
+      }
+    };
+
+    jQuery(function($) {
+      $('#payment-form').submit(function(e) {
+        var $form = $(this);
+
+        // Disable the submit button to prevent repeated clicks
+        $form.find('button').prop('disabled', true);
+
+        Stripe.card.createToken($form, stripeResponseHandler);
+
+        // Prevent the form from submitting with the default action
+        return false;
+      });
+    });
+  </script>
+
+
+<!-- WELCOME CAROUSEL STYLING -->
+
+<style>
+/* CAROUSEL
+-------------------------------------------------- */
+html, body {
+	height:100%;
+	margin:0;
+	padding:0;
+}
+
+
+.carousel, .item, .active {
+	height:100%;
+}
+.carousel-inner {
+	height:100%;
+}
+.carousel {
+	margin-bottom: -10px;
+}
+.carousel-caption {
+	z-index: 10;
+}
+.carousel .item {
+	background-color: #999;
+}
+.carousel .carousel-inner .bg {
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+.carousel .carousel-inner .bg1 {
+	background-image:url({% static "img/welcome_slides/Slide1.png" %});
+	background-position: center ;
+        background-size:cover;
+}
+.carousel .carousel-inner .bg2 {
+	background-image:url({% static "img/welcome_slides/Slide2.png" %});
+	background-position: center center;
+        background-size:cover;
+}
+.carousel .carousel-inner .bg3 {
+	background-image:url({% static "img/welcome_slides/Slide3.png" %});
+	background-position: center bottom;
+        background-size:cover;
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+
+  /* Remove the edge padding needed for mobile */
+  .marketing {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left:  15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left:  0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 25px;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 100px;
+  }
+}
+
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
+}
+
+</style>
+
+
+
+
+</head>
+
+
+{% block nav %}
+
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded" style="background:#000; padding:10px;">
+        <div class="container" >
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/home">
+                    <img src="{% static "img/socklogosmall.png" %}" class="img-responsive" alt="">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right" id="sign-in-form">
+                    <li class="hidden">
+                        <a href="/home"></a>
+                    </li>
+
+                    <li>
+                        <a href="/myaccount">My Account</a>
+                    </li>
+
+                    <li>
+                        <a href="/home">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="/logout">Logout</a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+{% endblock %}
+
+{% block form %}
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Please Add a New Card</h2>
+                    <hr class="colored">
+                </div>
+            </div>
+
+
+            {% if messages %}
+
+            <div class='row'>
+                <div class='col-sm-6 col-sm-offset-3'>
+
+                    {% for message in messages %}
+
+                        <p{% if message.tags == "success" %} class="successful"{% endif %}><b>{{ message }}</b></p>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+            </div>
+
+           {% endif %}
+
+
+            <form novalidate autocomplete="on" action="" method="POST" id="payment-form">{% csrf_token %}
+                <span class="payment-errors"></span>
+
+    <div class="row control-group">
+      <div class="form-group col-xs-12 floating-label-form-group controls">
+        <label for="cc-number" class="control-label">New Card number<small class="text-muted"></small></label>
+        <input data-stripe="number" id="cc-number" type="text" class="input-lg form-control cc-number" pattern="\d*" autocomplete="cc-number" placeholder="New Card number" required>
+      </div>
+    </div>
+
+    <div class="row control-group">
+      <div class="form-group col-xs-12 floating-label-form-group controls">
+        <label for="cc-exp" class="control-label">New Expiration Date</label>
+        <input data-stripe="exp-month" id="cc-exp" type="text" class="input-lg form-control cc-exp" pattern="\d*" autocomplete="cc-exp" placeholder="New Expiration Date MM" required maxlength="2">
+
+      </div>
+    </div>
+
+        <div class="row control-group">
+      <div class="form-group col-xs-12 floating-label-form-group controls">
+        <label for="cc-exp" class="control-label">New Expiration Date</label>
+        <input data-stripe="exp-year" id="cc-exp" type="text" class="input-lg form-control cc-exp" pattern="\d*" autocomplete="cc-exp" placeholder="New Expiration Date YYYY" required maxlength="4">
+
+      </div>
+    </div>
+
+    <div class="row control-group">
+      <div class="form-group col-xs-12 floating-label-form-group controls">
+        <label for="cc-cvc" class="control-label">New CVC</label>
+        <input data-stripe="cvc" id="cc-cvc" type="text" class="input-lg form-control cc-cvc" pattern="\d*" autocomplete="off" placeholder="New Security code (CVC)" required>
+      </div>
+    </div>
+
+      <br />
+
+
+
+  <button type="submit" class="btn btn-outline-dark">Change Me</button>
+
+
+
+</form>
+
+
+<div id="powered-by-stripe">
+    <a href="http://www.stripe.com/about"><img src="{% static "img/stripe/big.png" %}"</a>
+</div>
+
+
+
+
+
+{% endblock %}
+</html>

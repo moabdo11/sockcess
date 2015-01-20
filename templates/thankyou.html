@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 {% load staticfiles %}
 <html lang="en">
@@ -17,8 +18,10 @@
     <title>Word</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{% static "css/bootstrap/custom_bootstrap.css" %}" rel="stylesheet">
-
+    <link href="{% static "assets/css/bootstrap/custom_bootstrap.css" %}" rel="stylesheet">
+    <link href="{% static "assets/css/bootstrap/carousel.css" %}" rel="stylesheet">
+    <link href="{% static "assets/css/bootstrap/custom_carousel.css" %}" rel="stylesheet">
+    <link href="{% static "assets/css/bootstrap/custom.css" %}" rel="stylesheet">
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
@@ -29,7 +32,7 @@
     <![endif]-->
 
     <!-- Custom styles for this template -->
-    <link href="{% static "css/bootstrap/custom_carousel.css" %}" rel="stylesheet">
+    
     <link href='http://fonts.googleapis.com/css?family=Cardo:400,400italic,700' rel='stylesheet' type='text/css'>
   </head>
 
@@ -87,13 +90,13 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="{% static "js/bootstrap/bootstrap.js" %}"></script>
+    <script src="{% static "assets/js/bootstrap/bootstrap.js" %}"></script>
     <script src="docs.js"></script>
 
      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
     <!-- Bootstrap jQuery plugins compiled and minified -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{% static "assets/js/bootstrap/bootstrap.min.js"></script>
     <script>
       $(document).ready(function(){
         $('.carousel').carousel({

@@ -1,31 +1,14 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
+
 {% block title %}{{ title }}{% endblock %}
 
+
 {% block nav %}
-
+    <!-- Navigation -->
+    <!-- Note: navbar-default and navbar-inverse are both supported with this theme. -->
     <nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded">
-    
-
-                    {% if messages %}
-
-            <div class='row'>
-                <div class='col-sm-6 col-sm-offset-3'>
-
-                    {% for message in messages %}
-
-                        <p{% if message.tags == "success" %} class="successful"{% endif %}><b>{{ message }}</b></p>
-
-                    {% endfor %}
-
-                </div>
-            </div>
-            </div>
-
-           {% endif %}
-
-
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -36,56 +19,36 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#page-top">
-                    <img src="{% static "img/socklogosmall.png" %}" class="img-responsive" alt="">
+                    <img src="{% static "assets/img/logo/socklogosmall.png" %}" class="img-responsive" alt="">
                 </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right" id="sign-in-form">
+                <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    
-                    
-                    
-                    <!-- going to contain process, and value proposition -->
-                    <li>
-                        <a href="#about">About</a>
+                       <li>
+                        <a href="#team">The Team</a>
+                    </li>
+                     
+                 <li>
+                        <a href="#socks">The Socks</a>
+                    </li>
+                 
+                 <li>
+                        <a href="#pricing">The Price</a>
+                    </li>
+                 
+                 <li>
+                        <a href="#faq">FAQ</a>
                     </li>
                     
-                    
-                    
-                    
-                    <!--
-                    <li>
-                        <a href="#process"></a>
-                    </li>
-                    -->
-                    <li>
-                        <a href="#socks">Socks</a>
-                    </li>
-                    <li>
-                        <a href="#gift">Gift</a>        
-                    </li>
-                    <li>
-                        <a href="#pricing">Pricing</a>
-                    </li>
-                    <li>
-                        <a href="#testimonials">Press</a>
-                    </li>
                     <li>
                         <a href="/signin">Sign In</a>
-
                     </li>
-
-                    <li>
-                        <a href="#contact">Sign Up</a>
-                    </li>
-
-
                 </ul>
-
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -96,62 +59,74 @@
 
 {% block intro %}
 
-      <header class="video" >
+    <!-- Instructions: Set your background image using the URL below. -->
+    <header class="video">
         <div class="overlay"></div>
         <div class="intro-content">
-
-           <!--<img src="{% static "img/profile.png" %}" class="img-responsive img-centered" alt="">
-             <iframe allowfullscreen="" src="http://player.vimeo.com/video/52450428" frameborder="0" width="500" height="281"></iframe>-->
-            <div class="brand-name">Sockcess</div>
-            <!-- <hr class="colored"> -->
-            <div class="brand-name-subtext">custom socks delivered</div>
+            <!--<img src="{% static "assets/img/landing_image.jpg" %}" class="img-responsive img-centered" alt="">-->
+            <div class="brand-name">SockCess</div>
+            <div class="brand-name-subtext">Monthly Sock Subscriptions</div>
+            <hr class="colored">
+             <br />
+            
+            <a href="#contact" class="btn btn-outline-light" style="border-bottom-color:#fff;">SIGN UP NOW</a>
+            
         </div>
         <div class="scroll-down page-scroll">
-            <a class="btn" href="#about"><i class="fa fa-angle-down"></i></a>
+            <a class="btn" href="#process"><i class="fa fa-angle-down"></i></a>
         </div>
-
     </header>
 
 {% endblock %}
 
-{% block about %}
 
+{% block about %}
+                
     <section id="about">
         <div class="container-fluid">
+                
             <div class="row text-center">
-                <div class="col-lg-12">
-                    <h1>YOU NEED SOCKS TO SURVIVE</h1>
-                    <p>With these, you won't just survive, you will THRIVE.</p>
+                <div class="col-lg-12 wow fadeIn">
+                    <h1>About Us</h1>
+                    <p>Everything You Need To Know.</p>
                     <hr class="colored">
                 </div>
             </div>
+            
             <div class="row text-center content-row">
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-3 col-sm-6 wow fadeIn" data-wow-delay=".2s">
                     <div class="about-content">
-                        <i class="fa fa-tags fa-4x"></i>
-                        <h3>Ready for your feet</h3>
-                        <p>These socks will come in your size. It's hard to mess up with socks.</p>
+                        <a href="#team">
+                        <img src="{% static "assets/img/team/myass.jpg" %}" style="border-radius: 100%; height:200px; width:200px;">
+                        <h3>The Team</h3>
+                        <p> <i class="fa fa-heart fa-4x"></i></p></a>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
+                
+                <div class="col-md-3 col-sm-6 wow fadeIn" data-wow-delay=".4s">
                     <div class="about-content">
-                        <i class="fa fa-thumbs-o-up fa-4x"></i>
-                        <h3>Easy to wear</h3>
-                        <p>They're socks.</p>
+                        <a href="#process">
+                        <img src="{% static "assets/img/team/myass.jpg" %}" style="border-radius: 100%; height:200px; width:200px;">
+                        <h3>The Process</h3>
+                        <p><i class="fa fa-tags fa-4x"></i></p></a>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
+                
+                <div class="col-md-3 col-sm-6 wow fadeIn" data-wow-delay=".6s">
                     <div class="about-content">
-                        <i class="fa fa-money  fa-4x"></i>
-                        <h3>Sock it to me</h3>
-                        <p>Sockee sockee 9.99 dollar. You love them long time.</p>
+                             <a href="#socks">
+                        <img src="{% static "assets/img/team/myass.jpg" %}" style="border-radius: 100%; height:200px; width:200px;">
+                        <h3>The Socks</h3>
+                        <p><i class="fa fa-thumbs-o-up fa-4x"></i></p></a>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
+                
+                <div class="col-md-3 col-sm-6 wow fadeIn" data-wow-delay=".8s">
                     <div class="about-content">
-                        <i class="fa fa-heart fa-4x"></i>
-                        <h3>gift away</h3>
-                        <p>Everybody loves socks.</p>
+                         <a href="#faq">
+                        <img src="{% static "assets/img/team/myass.jpg" %}" style="border-radius: 100%; height:200px; width:200px;">
+                        <h3>FAQ</h3>
+                        <p><i class="fa fa-money  fa-4x"></i></p></a>
                     </div>
                 </div>
             </div>
@@ -160,15 +135,16 @@
 
 {% endblock %}
 
-{% block aside %}
 
-    <aside class="cta-quote" style="background-image: url('static/img/OSCAR.jpg');">
-        <div class="container">
+{% block filler %}
+
+    <aside class="cta-quote" style="background-image: url('static/assets/img/OSCAR.jpg');">
+        <div class="container wow fadeIn">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <span class="quote"> The only thing worse than having socks, is not having socks - Oscar Wilde </span>
                     <hr class=" colored">
-                    <a href="#pricing" class="btn btn-outline-light">SIGN UP NOW</a>
+                    <a href="#contact" class="btn btn-outline-light">SIGN UP NOW</a>
                 </div>
             </div>
         </div>
@@ -176,55 +152,152 @@
 
 {% endblock %}
 
-{% block process %}
 
-    <section id="process" class="services">
-        <div class="container">
-            <div class="row text-center">
+
+
+{% block team %}
+
+    <section id="team" class="bg-gray">
+        <div class="container text-center wow fadeIn">
+            <div class="row">
                 <div class="col-lg-12">
-                    <h2>How It Works</h2>
+                    <h2>Our Team</h2>
+                    <p>This is us</p>
                     <hr class="colored">
-                    <p>This is how you're getting your socks from now on. Good boy. Sit.</p>
                 </div>
             </div>
             <div class="row content-row">
-                <div class="col-md-4">
+                <div class="col-lg-12">
+                    <div class="about-carousel">
+                        <div class="item">
+                            <img src="{% static "assets/img/team/myass.jpg" %}" class="img-responsive" alt="" style="border-radius: 5px;">
+                            <div class="caption">
+                                <h3>Mo Abdo</h3>
+                                <hr class="colored">
+                                <p>Director of Marketing and Social Media</p>
+                                <ul class="list-inline social">
+                                    <li>
+                                        <a href="#"><i class="fa fa-facebook fa-fw"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-twitter fa-fw"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-linkedin fa-fw"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="item">
+                            <img src="{% static "assets/img/team/myass.jpg" %}" class="img-responsive" alt="" style="border-radius: 5px;">
+                            <div class="caption">
+                                <h3>Donal O'sullivan</h3>
+                                <hr class="colored">
+                                <p>Photographer and Graphic Designer</p>
+                                <ul class="list-inline social">
+                                    <li>
+                                        <a href="#"><i class="fa fa-facebook fa-fw"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-twitter fa-fw"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-linkedin fa-fw"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="item">
+                            <img src="{% static "assets/img/team/myass.jpg" %}" class="img-responsive" alt="" style="border-radius: 5px;">
+                            <div class="caption">
+                                <h3>Tali Oppenheimer</h3>
+                                <hr class="colored">
+                                <p>Developer</p>
+                                <ul class="list-inline social">
+                                    <li>
+                                        <a href="#"><i class="fa fa-facebook fa-fw"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-twitter fa-fw"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-linkedin fa-fw"></i></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <br />
+                    <br />
+                   
+                    <a href="#contact" class="btn btn-outline-dark" >SIGN UP NOW</a>
+                </div>
+            </div>
+       
+    </section>
+
+{% endblock %}
+
+{% block process %}
+
+    <section id="process" class="services" >
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-12 wow fadeIn">
+                    <h2>How It Works</h2>
+                    <hr class="colored">
+                    <p>This is how you're getting your socks from now on.</p>
+                </div>
+            </div>
+            <div class="row content-row">
+                <div class="col-md-4 wow fadeIn" data-wow-delay=".2s">
                     <div class="media">
                         <div class="pull-left">
                             <i class="fa fa-check-square-o"></i>
                         </div>
                         <div class="media-body">
-                            <h3 class="media-heading">Choose</h3>
+                        <h3 class="media-heading">Choose</h3>
                             <ul>
-                                <li>3 Custom Styles to choose from</li>
+                                <li>2 monthly styles to choose from</li>
                                 <li>Change styles whenever you like</li>
 
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 wow fadeIn" data-wow-delay=".4s">
                     <div class="media">
                         <div class="pull-left">
                             <i class="fa fa-truck"></i>
                         </div>
                         <div class="media-body">
-                            <h3 class="media-heading">Recieve</h3>
+                          <h3 class="media-heading">Recieve</h3>
                             <ul>
                                 <li>Recieve your socks every month</li>
                                 <li>Hassle free</li>
-                                <li>Always on time</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 wow fadeIn" data-wow-delay=".6s">
                     <div class="media">
                         <div class="pull-left">
                             <i class="fa fa-smile-o"></i>
                         </div>
                         <div class="media-body">
-                            <h3 class="media-heading">Enjoy</h3>
+                           <h3 class="media-heading">Enjoy</h3>
                             <ul>
                                 <li>Your feet will love you</li>
                                 <li>Other people will love your feet</li>
@@ -235,120 +308,265 @@
                 </div>
             </div>
         </div>
+        <br />
+        <div class="col-md-12">
+                <div class="col-md-4 col-md-offset-4 text-center">
+        <a href="#contact" class="btn btn-outline-dark">SIGN UP NOW</a>
+        </div>
+        </div>
     </section>
+    
+{% endblock %}
+
+
+
+
+{% block filler2 %}
+
+    <aside class="cta-quote" style="background-image: url('static/assets/img/aside.jpg');">
+        <div class="container wow fadeIn">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <span class="quote">"You need new socks." - Cary Grant</span>
+                    <hr class=" colored">
+                    <a href="#contact" class="btn btn-outline-dark">SIGN UP NOW</a>
+                </div>
+            </div>
+        </div>
+    </aside>
 
 {% endblock %}
+
+
+
+
+
 
 {% block socks %}
 
-    <section id="socks" class="portfolio-carousel">
-        <div class="item" style="background-image: url('static/img/shots/landing_stripes.jpg')">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-4 col-md-push-8">
-                        <div class="project-details">
-                            <img src="static/img/socklogosmall.png" class="img-responsive client-logo" alt="">
-                            <span class="project-name">Business</span>
-                            <span class="project-description">Cool socks to kick around in.</span>
-                            <hr class="colored">
-                            <a href="#portfolioModal1" data-toggle="modal" class="btn btn-outline-light">What you get  <i class="fa fa-long-arrow-right fa-fw"></i></a>
-                        </div>
-                    </div>
+    <section id="socks">
+        <div class="container text-center wow fadeIn">
+            <h2>The Socks</h2>
+            <hr class="colored">
+            <p>Be bold. Be SockCessful</p>
 
-                </div>
-            </div>
-        </div>
-
-        <div class="item" style="background-image: url('static/img/shots/close_up_af.jpg')">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-4 col-md-push-8">
-                        <div class="project-details">
-                            <img src="static/img/socklogosmall.png" class="img-responsive client-logo" alt="">
-                            <span class="project-name">Pleasure</span>
-                            <span class="project-description">Everybody already knows you smoke lots of weed anyway</span>
-                            <hr class="colored">
-                            <a href="#portfolioModal3" data-toggle="modal" class="btn btn-outline-light">What you get <i class="fa fa-long-arrow-right fa-fw"></i></a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-{% endblock %}
-
-{% block gift %}
-                
-
-
- <section id="gift" class="pricing" style="background-image: url('static/img/shots/closeup_af.jpg')">
-        <div class="container">
-            <div class="row text-center">
+            <div class="row content-row">
                 <div class="col-lg-12">
-                    <h2>Gift</h2>
-                    <hr class="colored">
-                    <p>Socks For All</p>
-                </div>
-            </div>
-
-                <div class="col-md-4 col-md-offset-4">
-                    <div class="pricing-item featured">
-                        <!-- <h3>Sign up</h3>
-                        <hr class="colored"> -->
-                        <div class="price"><span class="number"><sup>$</sup>9.99</span> / month</div>
-                        <ul class="list-group">
-                            <li class="list-group-item">Great Gift</li>
-                            <li class="list-group-item">Quality materials</li>
-                            <li class="list-group-item">Imagine The Surprise</li>
-                            <li class="list-group-item"></li>
-                            <li class="list-group-item">Change styles every month</li>
+                    <div class="portfolio-filter">
+                        <ul id="filters" class="clearfix">
+                            <li>
+                                <span class="filter active" data-filter="business pleasure">All</span>
+                            </li>
+                            <li>
+                                <span class="filter" data-filter="business">Business</span>
+                            </li>
+                            <li>
+                                <span class="filter" data-filter="graphic">Pleasure</span>
+                            </li>
                             
                         </ul>
-                        <a href="#contact" class="btn btn-outline-dark">Sign Up</a>
                     </div>
                 </div>
+            </div>
 
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="portfoliolist">
+
+                        <div class="portfolio identity" data-cat="identity" href="#portfolioModal1" data-toggle="modal">
+                            <div class="portfolio-wrapper">
+                                <img src="" alt="">
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <a class="text-title">Generic Inc.</a>
+                                        <span class="text-category">Brand Identity</span>
+                                    </div>
+                                    <div class="caption-bg"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio web" data-cat="web" href="#portfolioModal2" data-toggle="modal">
+                            <div class="portfolio-wrapper">
+                                <img src="assets/img/creative/portfolio/items/web/1.jpg" alt="">
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <a class="text-title">Brands</a>
+                                        <span class="text-category">Web Development</span>
+                                    </div>
+                                    <div class="caption-bg"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio graphic" data-cat="graphic" href="#portfolioModal3" data-toggle="modal">
+                            <div class="portfolio-wrapper">
+                                <img src="assets/img/creative/portfolio/items/graphic/1.jpg" alt="">
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <a class="text-title">Excellence</a>
+                                        <span class="text-category">Poster Design</span>
+                                    </div>
+                                    <div class="caption-bg"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio web" data-cat="web" href="#portfolioModal4" data-toggle="modal">
+                            <div class="portfolio-wrapper">
+                                <img src="assets/img/creative/portfolio/items/web/2.jpg" alt="">
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <a class="text-title">YouTV</a>
+                                        <span class="text-category">Web Development</span>
+                                    </div>
+                                    <div class="caption-bg"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio graphic" data-cat="graphic" href="#portfolioModal1" data-toggle="modal">
+                            <div class="portfolio-wrapper">
+                                <img src="assets/img/creative/portfolio/items/graphic/2.jpg" alt="">
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <a class="text-title">Office Supplies</a>
+                                        <span class="text-category">Graphic Design</span>
+                                    </div>
+                                    <div class="caption-bg"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio web" data-cat="web" href="#portfolioModal2" data-toggle="modal">
+                            <div class="portfolio-wrapper">
+                                <img src="assets/img/creative/portfolio/items/web/3.jpg" alt="">
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <a class="text-title">Fooder</a>
+                                        <span class="text-category">Mobile App</span>
+                                    </div>
+                                    <div class="caption-bg"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio graphic" data-cat="graphic" href="#portfolioModal3" data-toggle="modal">
+                            <div class="portfolio-wrapper">
+                                <img src="assets/img/creative/portfolio/items/graphic/3.jpg" alt="">
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <a class="text-title">Mountain Tea</a>
+                                        <span class="text-category">Graphic Design</span>
+                                    </div>
+                                    <div class="caption-bg"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio graphic" data-cat="graphic" href="#portfolioModal4" data-toggle="modal">
+                            <div class="portfolio-wrapper">
+                                <img src="assets/img/creative/portfolio/items/graphic/4.jpg" alt="">
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <a class="text-title">Checkmark</a>
+                                        <span class="text-category">Graphic Design</span>
+                                    </div>
+                                    <div class="caption-bg"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio identity" data-cat="identity" href="#portfolioModal1" data-toggle="modal">
+                            <div class="portfolio-wrapper">
+                                <img src="assets/img/creative/portfolio/items/identity/2.jpg" alt="">
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <a class="text-title">Demish</a>
+                                        <span class="text-category">Brand Identity</span>
+                                    </div>
+                                    <div class="caption-bg"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio web" data-cat="web" href="#portfolioModal2" data-toggle="modal">
+                            <div class="portfolio-wrapper">
+                                <img src="assets/img/creative/portfolio/items/web/4.jpg" alt="">
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <a class="text-title">OneRepublic</a>
+                                        <span class="text-category">Web Development</span>
+                                    </div>
+                                    <div class="caption-bg"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio graphic" data-cat="graphic" href="#portfolioModal3" data-toggle="modal">
+                            <div class="portfolio-wrapper">
+                                <img src="assets/img/creative/portfolio/items/graphic/5.jpg" alt="">
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <a class="text-title">Postable</a>
+                                        <span class="text-category">Graphic Design</span>
+                                    </div>
+                                    <div class="caption-bg"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio identity" data-cat="identity" href="#portfolioModal4" data-toggle="modal">
+                            <div class="portfolio-wrapper">
+                                <img src="assets/img/creative/portfolio/items/identity/3.jpg" alt="">
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <a class="text-title">Simpli Nota</a>
+                                        <span class="text-category">Brand Identity</span>
+                                    </div>
+                                    <div class="caption-bg"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
+        <a href="#contact" class="btn btn-block btn-full-width">Sign Up Now!</a>
     </section>
-
-
-
-
-
+    
 {% endblock %}
 
 
-{% block testimonials %}
 
-    <section id="testimonials" class="testimonials">
-        <div class="container">
+{% block press %}
+                
+                
+    <section class="testimonials bg-gray">
+        <div class="container wow fadeIn">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="testimonials-carousel">
                         <div class="item">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <p class="lead">"I enjoyed recieving these socks almost as much as I enjoy chillin with the homies" - Ann Coulter</p>
+                                    <p class="lead">"Working with SockCess was both a valuable and rewarding experience. My feet have never been happier"</p>
                                     <hr class="colored">
-                                    <p class="quote">Read the full artcile <a href="http://www.christianmingle.com" target='_blank'>here</a></p>
+                                    <p class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, temporibus, laborum, dignissimos doloremque corporis alias nostrum recusandae culpa id quisquam harum impedit sed sunt non obcaecati vero ipsam aut fugit?</p>
                                     <div class="testimonial-info">
                                         <div class="testimonial-img">
-                                            <img src="static/img/coulter.jpg" class="img-circle img-responsive" alt="">
+                                            <img src="assets/img/testimonials/1.jpg" class="img-circle img-responsive" alt="">
                                         </div>
                                         <div class="testimonial-author">
-                                            <span class="name">Ann Coulter</span>
-                                            <p class="small">Trap Lord</p>
+                                            <span class="name">Jim Walker</span>
+                                            <p class="small">Ex barefoot hippie</p>
                                             <div class="stars">
-                                                <!-- <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i> -->
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -358,16 +576,16 @@
                         <div class="item">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <p class="lead">"Sockcess is the future of fashion." - Dennis Rodman</p>
+                                    <p class="lead">"Wherever I go, people complement me on my feet."</p>
                                     <hr class="colored">
-                                    <p class="quote">Read the full artcile <a href="http://www.christianmingle.com" target='_blank'>here</a></p>
+                                    <p class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, temporibus, laborum, dignissimos doloremque corporis alias nostrum recusandae culpa id quisquam harum impedit sed sunt non obcaecati vero ipsam aut fugit?</p>
                                     <div class="testimonial-info">
                                         <div class="testimonial-img">
-                                            <img src="static/img/rodman.jpg" class="img-circle img-responsive" alt="">
+                                            <img src="assets/img/testimonials/1.jpg" class="img-circle img-responsive" alt="">
                                         </div>
                                         <div class="testimonial-author">
-                                            <span class="name">Dennis Rodman</span>
-                                            <p class="small">5 Star Personality and liason to North Korea</p>
+                                            <span class="name">Jim Walker</span>
+                                            <p class="small">sock lover</p>
                                             <div class="stars">
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
@@ -388,35 +606,35 @@
 
 {% endblock %}
 
+
 {% block pricing %}
 
-    <section id="pricing" class="pricing" style="background-image: url('static/img/shots/boston_backdrop_af.jpg')">
-        <div class="container">
+    <section id="pricing" class="pricing" style="background-image: url('static/assets/img/twophoto/greenaction.jpg')">
+        <div class="container wow fadeIn">
             <div class="row text-center">
                 <div class="col-lg-12">
                     <h2>Pricing</h2>
                     <hr class="colored">
-                    <p>No Such Thing As Free Lunch</p>
+                    <p></p>
                 </div>
             </div>
-
+            
+           
+           
+                
                 <div class="col-md-4 col-md-offset-4">
-                    <div class="pricing-item featured">
-                        <!-- <h3>Sign up</h3>
-                        <hr class="colored"> -->
+                    <div class="pricing-item featured-last">
+                        <h3>Subscribe</h3>
+                        <hr class="colored">
                         <div class="price"><span class="number"><sup>$</sup>9.99</span> / month</div>
                         <ul class="list-group">
-                            <li class="list-group-item">Mad socks</li>
-                            <li class="list-group-item">Quality materials</li>
-                            <li class="list-group-item">Money back if you hate them</li>
-                            <li class="list-group-item">Cancel anytime</li>
-                            <li class="list-group-item">Change styles every month</li>
-                            <li class="list-group-item">DO IT NOW</li>
+                            <li class="list-group-item">Free Shipping Forever</li>
+                            <li class="list-group-item">One Awesome Pair of Socks Per Month</li>
+                            <li class="list-group-item">Cancel At Anytime</li>
+                            <li class="list-group-item">Improved Quality of Life</li>
                         </ul>
-                        <a href="#contact" class="btn btn-outline-dark">Sign Up</a>
+                        <a href="#" class="btn btn-outline-dark">Sign Up</a>
                     </div>
-                </div>
-
                 </div>
             </div>
         </div>
@@ -425,10 +643,65 @@
 {% endblock %}
 
 
-{% block form %}
+
+{% block faq %}
+
+<section id="faq">
+                <div class="container wow fadeIn">
+                <div class="row">
+                <div class="col-lg-12 text-center">
+                      <h1>FAQ</h1>
+                      <hr class="colored">
+                </div>
+                </div>
+                
+                <div class="row text-center content-row">
+                <div class="col-md-4 col-sm-6">
+                                <h4>When Will I Get My Socks?</h4>
+                                <p>We answer the question here.</p>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                                <h4>Do I Get To Pick My Own Socks?</h4>
+                                 <p>We answer the question here.</p>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                                <h4>What If They Don't Fit?</h4>
+                                 <p>We answer the question here.</p>
+                </div>
+               
+                </div>
+                
+                 <div class="row text-center content-row">
+                <div class="col-md-4 col-sm-6">
+                                <h4>When Will I Get My Socks?</h4>
+                                 <p>We answer the question here.</p>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                                <h4>Do I Get To Pick My Own Socks?</h4>
+                                 <p>We answer the question here.</p>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                                <h4>What If They Don't Fit?</h4>
+                                 <p>We answer the question here.</p>
+                </div>
+               
+                </div>
+                
+                
+                
+                
+                </div>
+                <a href="#contact" class="btn btn-block btn-full-width">Sign Up Now!</a>
+</section>
+
+
+{% endblock %}
+
+
+{% block signup %}
 
     <section id="contact">
-        <div class="container">
+        <div class="container wow fadeIn">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Sign Up</h2>
@@ -477,15 +750,12 @@
     </section>
 {% endblock %}
 
-{% block faq %}
-<!--
-<a href="/faq">View our F.A.Q. and relieve your stress</a>
--->
-{% endblock %}
+
+  
 
 {% block footer %}
-
-    <footer class="footer" style="background-image: url('static/img/bg-footer.jpg')">
+                
+ <footer class="footer" style="background-image: url('static/assets/img/bg-footer.jpg')">
         <div class="container text-center">
             <div class="row">
                 <div class="col-md-4 contact-details">
@@ -520,15 +790,14 @@
                 </div>
             </div>
         </div>
-    </footer>
-
+    </footer>                         
+                
 {% endblock %}
 
+    <!-- Portfolio Modals -->
 
-{% block slideone %}
-
-<!-- Example Modal 1 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true" style="background-image: url('static/img/normalsocks.jpg')">
+    <!-- Example Modal 1 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true" style="background-image: url('assets/img/portfolio/bg-1.jpg')">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -540,36 +809,33 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 col-lg-offset-2">
-                         <!--   <img src="static/img/socklogosmall.png" class="img-responsive img-centered" alt="">  -->
-                        <div class="slide-text-background">
-
-                        <div class="shield">
-                            <h1>A Casual Pair of Socks For Your Feet</h1>
+                            <img src="assets/img/client-logos/logo-1.png" class="img-responsive img-centered" alt="">
+                            <h2>Project Title</h2>
                             <hr class="colored">
-                            <p><strong>A comfortable cotton poly-fiber blend built for comfort, but styled for winning. Rock with the winners. Wear socks. Be Sockcessful.</strong></p>
-                            <br />
-
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos modi in tenetur vero voluptatum sapiente dolores eligendi nemo iste ea. Omnis, odio enim sint quam dolorum dolorem. Nostrum, minus, ad.</p>
                         </div>
-<br />
+                        <div class="col-lg-12">
+                            <img src="assets/img/portfolio/mobile-screens.png" class="img-responsive img-centered" alt="">
                         </div>
-                        </div>
-                        
                         <div class="col-lg-8 col-lg-offset-2">
-                           <!-- <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>-->
-                            
+                            <ul class="list-inline item-details">
+                                <li>Client: <strong><a href="http://startbootstrap.com">Start Bootstrap</a></strong>
+                                </li>
+                                <li>Date: <strong><a href="http://startbootstrap.com">April 2014</a></strong>
+                                </li>
+                                <li>Service: <strong><a href="http://startbootstrap.com">Web Development</a></strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-{% endblock %}
-
-{% block slidetwo %}
 
     <!-- Example Modal 2 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true" style="background-image: url('static/img/dresssocks.jpg')">
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true" style="background-image: url('assets/img/portfolio/bg-2.jpg')">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -581,97 +847,19 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 col-lg-offset-2">
-                            <img src="static/img/socklogosmall.png" class="img-responsive img-centered" alt="">
-                            <h2>Option 2: Professional</h2>
+                            <img src="assets/img/client-logos/logo-2.png" class="img-responsive img-centered" alt="">
+                            <h2>Project Title</h2>
                             <hr class="colored">
-                            <p>Your boss cares more about the socks on your feet than he/she cares about you. Don't fuck up.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos modi in tenetur vero voluptatum sapiente dolores eligendi nemo iste ea. Omnis, odio enim sint quam dolorum dolorem. Nostrum, minus, ad.</p>
                         </div>
                         <div class="col-lg-12">
-                            <img src="static/img/these are socks.png" class="img-responsive img-centered" alt="">
+                            <img src="assets/img/portfolio/tablet-screens.png" class="img-responsive img-centered" alt="">
                         </div>
                         <div class="col-lg-8 col-lg-offset-2">
                             <ul class="list-inline item-details">
-                                <li>Designer: <strong><a href="http://www.moschino.com">Moschino</a></strong>
+                                <li>Client: <strong><a href="http://startbootstrap.com">Start Bootstrap</a></strong>
                                 </li>
-                                <!-- <li>Date: <strong><a href="http://startbootstrap.com">April 2014</a></strong>
-                                </li>
-                                <li>Service: <strong><a href="http://startbootstrap.com">Web Development</a></strong>
-                                </li> -->
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-{% endblock %}
-
-{% block slidethree %}
-
-     <!--Example Modal 3 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true" style="background-image: url('static/img/weedsocks.jpg')">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            
-                            <div class="slide-text-background">
-                            <div class="shield">
-                            <h2>Pleasure</h2>
-                            <hr class="colored">
-                           <p><strong>A comfortable cotton poly-fiber blend built for comfort, but styled for winning. Rock with the winners. Wear socks. Be Sockcessful.</strong></p>
-                           <!-- <p>A comfortable cotton poly-fiber blend built for comfort, but styled for styling. swag it out. Wear socks. Be Sockcessful.</p> -->
-                        </div>
-                        </div>
-                        </div>
-                        
-                       
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-{% endblock %}
-
-{% block slidefour %}
-
-    <!-- Example Modal 4
-    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true" style="background-image: url('static/img/hanes.jpg')">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <img src="static/img/socklogosmall.png" class="img-responsive img-centered" alt="">
-                            <h2>Hanes</h2>
-                            <hr class="colored">
-                            <p>I can't even</p>
-                        </div>
-                        <div class="col-lg-12">
-                            <img src="static/img/these are socks.png" class="img-responsive img-centered" alt="">
-                        </div>
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <ul class="list-inline item-details">
-                                <li>Designer: <strong><a href="http://www.moschino.com">Moschino</a></strong>
-                                </li>
-                              <!--   <li>Date: <strong><a href="http://startbootstrap.com">April 2014</a></strong>
+                                <li>Date: <strong><a href="http://startbootstrap.com">April 2014</a></strong>
                                 </li>
                                 <li>Service: <strong><a href="http://startbootstrap.com">Web Development</a></strong>
                                 </li>
@@ -684,5 +872,121 @@
         </div>
     </div>
 
-{% endblock %}
--->
+    <!-- Example Modal 3 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true" style="background-image: url('assets/img/portfolio/bg-3.jpg')">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <img src="assets/img/client-logos/logo-1.png" class="img-responsive img-centered" alt="">
+                            <h2>Project Title</h2>
+                            <hr class="colored">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos modi in tenetur vero voluptatum sapiente dolores eligendi nemo iste ea. Omnis, odio enim sint quam dolorum dolorem. Nostrum, minus, ad.</p>
+                        </div>
+                        <div class="col-lg-12">
+                            <img src="assets/img/portfolio/mobile-screens.png" class="img-responsive img-centered" alt="">
+                        </div>
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <ul class="list-inline item-details">
+                                <li>Client: <strong><a href="http://startbootstrap.com">Start Bootstrap</a></strong>
+                                </li>
+                                <li>Date: <strong><a href="http://startbootstrap.com">April 2014</a></strong>
+                                </li>
+                                <li>Service: <strong><a href="http://startbootstrap.com">Web Development</a></strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Example Modal 4 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true" style="background-image: url('assets/img/portfolio/bg-4.jpg')">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <img src="assets/img/client-logos/logo-2.png" class="img-responsive img-centered" alt="">
+                            <h2>Project Title</h2>
+                            <hr class="colored">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos modi in tenetur vero voluptatum sapiente dolores eligendi nemo iste ea. Omnis, odio enim sint quam dolorum dolorem. Nostrum, minus, ad.</p>
+                        </div>
+                        <div class="col-lg-12">
+                            <img src="assets/img/portfolio/tablet-screens.png" class="img-responsive img-centered" alt="">
+                        </div>
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <ul class="list-inline item-details">
+                                <li>Client: <strong><a href="http://startbootstrap.com">Start Bootstrap</a></strong>
+                                </li>
+                                <li>Date: <strong><a href="http://startbootstrap.com">April 2014</a></strong>
+                                </li>
+                                <li>Service: <strong><a href="http://startbootstrap.com">Web Development</a></strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Style Switcher - FOR DEMO PURPOSES ONLY -->
+    <div id="style-switcher" class="close-style-switcher animated bounce">
+        <!--Panel Button -->
+        <a class="panel-button"><i class="fa fa-gear fa-spin"></i></a>
+        <!-- Colors -->
+        <div class="segment">
+            <h4>Theme Colors</h4>
+            <a title="vitality-red" class="switcher red-bg"></a>
+            <a title="vitality-orange" class="switcher orange-bg"></a>
+            <a title="vitality-yellow" class="switcher yellow-bg"></a>
+            <a title="vitality-green" class="switcher green-bg"></a>
+            <a title="vitality-turquoise" class="switcher turquoise-bg"></a>
+            <a title="vitality-aqua" class="switcher aqua-bg"></a>
+            <a title="vitality-blue" class="switcher blue-bg"></a>
+            <a title="vitality-purple" class="switcher purple-bg"></a>
+            <a title="vitality-pink" class="switcher pink-bg"></a>
+            <a title="vitality-tan" class="switcher tan-bg"></a>
+        </div>
+        <div class="segment">
+            <h4>Samples</h4>
+            <ul class="list-unstyled">
+                <li><a href="agency.html">Agency</a>
+                </li>
+                <li><a href="creative.html">Creative <strong><small>(NEW)</small></strong></a>
+                </li>
+                <li><a href="culinary.html">Culinary</a>
+                </li>
+                <li><a href="fashion.html">Fashion</a>
+                </li>
+                <li><a href="legal.html">Legal</a>
+                </li>
+                <li><a href="video.html">Video</a>
+                </li>
+            </ul>
+        </div>
+        <div class="segment">
+            <a href="index.html">
+                <small>Back to Preview Page</small>
+            </a>
+        </div>
+    </div>
+    <!-- End Style Switcher -->

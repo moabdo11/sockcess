@@ -8,7 +8,7 @@ from users.forms import SignUpForm, SignInForm
 
 def home(request):
 
-    title = 'Sockcess'
+    title = 'Sockcess | Sock Subscriptions'
 
 
     form = SignUpForm(request.POST or None)
@@ -45,7 +45,7 @@ def home(request):
         else:
             return HttpResponseRedirect('/signup')
         
-    return render_to_response('index2.html',
+    return render_to_response('index.html',
                               locals(),
                               context_instance=RequestContext(request))
 

@@ -5,7 +5,7 @@
 
 {% block nav %}
 
-    <nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded">
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded" style="background:#000; padding:10px;">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -16,36 +16,12 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/">
-                    <img src="{% static "img/socklogosmall.png" %}" class="img-responsive" alt="">
+                    <img src="{% static "assets/img/logo/socklogosmall.png" %}" class="img-responsive" alt="">
                 </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a href="#about">About</a>
-                    </li>
-                    <li>
-                        <a href="#process">Process</a>
-                    </li>
-                    <li>
-                        <a href="#socks">Socks</a>
-                    </li>
-                    <li>
-                        <a href="#testimonials">Press</a>
-                    </li>
-                    <li>
-                        <a href="#pricing">Pricing</a>
-                    </li>
-                    <li>
-                        <a href="/#contact">Sign Up</a>
-                    </li>
-                </ul>
-            </div>
+            
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
@@ -53,7 +29,7 @@
 
 {% endblock %}
 
-{% block form %}
+{% block signup %}
 
     <section id="contact">
         <div class="container">
