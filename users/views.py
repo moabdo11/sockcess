@@ -136,7 +136,7 @@ def billinginfo(request):
     #sock = Address.objects.get(sock_style = sub_style)
 
     if request.POST:
-        stripe.api_key = "sk_test_KSTtdSq7rzZAPRYKOlol91J4"
+        stripe.api_key = "sk_live_honqsfBszGpd3pFfSXCpdYCT"
 
         # Get the credit card details submitted by the form
         token = request.POST['stripeToken']
@@ -384,7 +384,7 @@ def change_billing_info(request):
             user = User.objects.filter(email = email)[0]
         subscriber = Subscriber.objects.get(customer=user)
         stripe_id = subscriber.stripe_id
-        stripe.api_key = "sk_test_KSTtdSq7rzZAPRYKOlol91J4"
+        stripe.api_key = "sk_live_honqsfBszGpd3pFfSXCpdYCT"
         token = request.POST['stripeToken']
         customer = stripe.Customer.retrieve(stripe_id)
         
@@ -446,12 +446,12 @@ def deleteuser(request):
 
         if choice == 'yes':
             #try:
-            info = Order.objects.get(email = u.username)
+            info = Subscriber.objects.get(customer = u)
             #except:
                 #info = Order.objects.filter(email = request.user.username)
              #   nada = 'nada'
             stripe_id  = info.stripe_id
-            stripe.api_key = "sk_test_KSTtdSq7rzZAPRYKOlol91J4"
+            stripe.api_key = "sk_live_honqsfBszGpd3pFfSXCpdYCT"
 
             cu = stripe.Customer.retrieve(stripe_id)
             cu.delete()
