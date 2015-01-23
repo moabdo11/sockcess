@@ -101,3 +101,4 @@ docs/_build/
 target/
 
 socks/settings/local.py
+socks/settings/local.pyc
