@@ -22,7 +22,7 @@ SECRET_KEY = '^aaz(sb^g_n%)!x46z9e)o&ovq*ky035m1(%$nr)5=g+jo#tx3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = ['besockcessful.com','http://www.besockcessful.com','www.besockcessful.com']
 
