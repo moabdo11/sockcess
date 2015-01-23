@@ -64,8 +64,8 @@ DATABASES = {
             # The following settings are not used with sqlite3:
             'USER': 'topp',
             'PASSWORD': 'B@con123',
-            'HOST': '',                      # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
-            'PORT': '',                      # Set to empty string for default.
+            'HOST': 'ec2-54-83-9-127.compute-1.amazonaws.com',                      # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
+            'PORT': '5432',                      # Set to empty string for default.
         }
     }
 
