@@ -18,7 +18,7 @@ DATABASES['default'] =  dj_database_url.config()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
-ALLOWED_HOSTS = ['besockcessful.com','http://www.besockcessful.com','www.besockcessful.com']
+ALLOWED_HOSTS = ['*']
 
 # Static asset configuration
 import os
