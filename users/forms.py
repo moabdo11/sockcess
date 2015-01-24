@@ -7,7 +7,8 @@ from django.core.validators import EMPTY_VALUES
 from django.forms import ValidationError
 from django.forms.fields import Field, RegexField, Select, CharField
 from django.utils.encoding import smart_text
-from django.utils.translation import ugettext_lazy 
+from django.utils.translation import ugettext_lazy
+from django.utils.translation import ugettext_lazy as _
 from .models import Subscriber, Sock
 from django.contrib.auth.models import User
 from django.forms import widgets, Field
