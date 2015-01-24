@@ -3,6 +3,10 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    
+    # Admin URLS
+    url(r'^admin/', include(admin.site.urls)),                   
+                       
     # BasePage URLS
     url(r'^$', 'socks.views.home', name='home'),
     url(r'about/', 'socks.views.about', name='about'),
@@ -30,7 +34,7 @@ urlpatterns = patterns('',
     url(r'shippinginfo/', 'users.views.shippinginfo', name='shippinginfo'),
     url(r'billinginfo/', 'users.views.billinginfo', name='billinginfo'),
 
-    # Admin URLS
+    
 
-    url(r'^admin/', include(admin.site.urls)),
+
 )

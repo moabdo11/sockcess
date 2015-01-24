@@ -7,39 +7,43 @@ from django.core.validators import EMPTY_VALUES
 from django.forms import ValidationError
 from django.forms.fields import Field, RegexField, Select, CharField
 from django.utils.encoding import smart_text
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy 
 from .models import Subscriber, Sock
 from django.contrib.auth.models import User
+from django.forms import widgets, Field
+
 #from django.contrib.localflavor import forms
 
 
-"""
-class UStateSelect(Select):
-    
-    def __init__(self, attrs=None):
-        from .us_states import STATE_CHOICES
-        super(USStateSelect, self).__init__(attrs, choices=State_Choices)
-        
-class USPSSelect(Select):
-    
-    def __init__(self, attrs=None):
-        from .us_states import USPS_CHOICES
-        super(USPSSelect, self).__init__(attrs, choices=USPS_CHOICES)
 
-"""
+
+my_default_errors = {
+       'required': 'This field is required',
+       'invalid': 'Someone has already signed up with this email',
+    }
+
+Field.default_error_messages = {
+    'required': ugettext_lazy("This field is mandatory"),
+    'invalid': 'Someone has already signed up with this email',
+}
+
 
 class SignUpForm(forms.ModelForm):
     
-    verify_password = forms.CharField(max_length=55, widget=forms.PasswordInput(render_value=False))
+    email = forms.CharField(max_length=55, required=True, widget=forms.EmailInput( attrs = {'class': 'form-control','placeholder':'Email', 'error_messages': my_default_errors,}))
+    password = forms.CharField(max_length=55, required=True, widget=forms.PasswordInput(render_value=False, attrs = {'class': 'form-control','placeholder':'Re-Enter Password', 'error_messages': my_default_errors,}))
+    verify_password = forms.CharField(max_length=55, required=True, widget=forms.PasswordInput(render_value=False, attrs = {'class': 'form-control','placeholder':'Re-Enter Password', 'error_messages': my_default_errors,}), )
     #verify_email = forms.EmailField()
-    
+          
     class Meta:
         model = User
         fields = ['email', 'password']
+    
+    #widgets = {
+     #       'email': forms.EmailInput( attrs = {'class': 'form-control','placeholder':'Email', 'error_messages': my_default_errors,} ),
+     #       'password': forms.PasswordInput( attrs = {'class': 'form-control','placeholder':'Re-Enter Password', 'error_messages': my_default_errors,}),
+     #   }    
         
-        widgets = {
-            'password': forms.PasswordInput(),
-        }
         
     def clean_email(self):
         email = self.cleaned_data['email']
@@ -54,8 +58,12 @@ class SignUpForm(forms.ModelForm):
         return HttpResponseRedirect('/signup')
         
     def clean(self):
-        password = self.cleaned_data['password']
+        if self.cleaned_data['password']:
+            password = self.cleaned_data['password']
+        else:
+            raise forms.ValidationError(_("Please enter your email!"))
         verify_password = self.cleaned_data['verify_password']
+            
         if password and verify_password and password != verify_password:
             raise forms.ValidationError(_("The passwords do not match."))
         return self.cleaned_data

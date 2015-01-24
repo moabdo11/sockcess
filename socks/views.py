@@ -17,11 +17,6 @@ def home(request):
 
     form = SignUpForm(request.POST or None)
 
-    form.fields['email'].widget.attrs = {'class': 'form-control','placeholder':'Email'}
-    form.fields['password'].widget.attrs = {'class': 'form-control','placeholder':'Password'}
-    form.fields['verify_password'].widget.attrs = {'class': 'form-control','placeholder':'Re-Enter Password'}
-    #form.fields['verify_email'].widget.attrs = {'class': 'form-control','placeholder':'Re-Enter Email'}
-
     if request.POST:
         if form.is_valid():
             usern = form.cleaned_data['email']
@@ -56,9 +51,10 @@ def home(request):
                         return HttpResponseRedirect('/signin')
                 else:
                     #credentials are wrong or user does not exist
+                    messages.success(request,"Sorry, something is not right with your credentials. Make sure your passwords match")
                     return HttpResponseRedirect('/signup')
-        else:
-            return HttpResponseRedirect('/signup')
+        messages.success(request,"Sorry, something is not right with your credentials. Make sure your passwords match")
+        return HttpResponseRedirect('/signup')
         
     return render_to_response('index.html',
                               locals(),
@@ -70,12 +66,17 @@ def home(request):
 
 def signup(request):
 
+    my_default_errors = {
+        'required': 'This field is required',
+        'invalid': 'Someone has already signed up with this email',
+    }
+
     title = 'Sign Up'
     form = SignUpForm(request.POST or None)
 
-    form.fields['email'].widget.attrs = {'class': 'form-control','placeholder':'Email'}
-    form.fields['password'].widget.attrs = {'class': 'form-control','placeholder':'Password'}
-    form.fields['verify_password'].widget.attrs = {'class': 'form-control','placeholder':'Re-Enter Password'}
+    form.fields['email'].widget.attrs = {'class': 'form-control','placeholder':'Your Email Here', 'error_messages': my_default_errors,}
+    form.fields['password'].widget.attrs = {'class': 'form-control','placeholder':'Password', 'error_messages': my_default_errors,}
+    form.fields['verify_password'].widget.attrs = {'class': 'form-control','placeholder':'Re-Enter Password', 'error_messages': my_default_errors,}
     #form.fields['verify_email'].widget.attrs = {'class': 'form-control','placeholder':'Re-Enter Email'}
 
     if form.is_valid():
@@ -87,6 +88,13 @@ def signup(request):
             user = User.objects.create_user(username = usern,
                                             email = emai,
                                             password = passw)
+            
+            try:
+                list = mailchimp.utils.get_connection().get_list_by_id('4d3d1b0805')
+                list.subscribe(emai, {'EMAIL': emai})
+            except:
+                title=emai
+            
             user.save()
 
             user = authenticate(username=usern, password=passw)
@@ -95,11 +103,7 @@ def signup(request):
                 if user.is_active:
                     login(request, user)
                     
-                    try:
-                        list = mailchimp.utils.get_connection().get_list_by_id('4d3d1b0805')
-                        list.subscribe(emai, {'EMAIL': emai})
-                    except:
-                        title=emai
+
                     
                     return HttpResponseRedirect('/thankyou')
                 else:
@@ -107,12 +111,24 @@ def signup(request):
                     return HttpResponseRedirect('/faq')
             else:
                 #credentials are wrong or user does not exist
-                messages.success(request,"Oops! Looks like there was something wrong with your credentials. Please re-enter them here")
+                messages.error(request,"Oops! Looks like there was something wrong with your credentials. Please re-enter them here")
                 return HttpResponseRedirect('/signup')
+    
+    messages.error(request,"Oops! Looks like there was something wrong with your credentials. Please re-enter them here")
         
+    
     return render_to_response('onlysignup.html',
                               locals(),
                               context_instance=RequestContext(request))
 
 
 
+
+
+
+"""
+    form.fields['email'].widget.attrs = {'class': 'form-control','placeholder':'Email'}
+    form.fields['password'].widget.attrs = {'class': 'form-control','placeholder':'Password'}
+    form.fields['verify_password'].widget.attrs = {'class': 'form-control','placeholder':'Re-Enter Password'}
+    #form.fields['verify_email'].widget.attrs = {'class': 'form-control','placeholder':'Re-Enter Email'}
+"""

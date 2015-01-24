@@ -66,11 +66,13 @@ div.myButton input {
 }
 
 .successful {
+    
     color:white;
     text-align:center;
-    background: red;
+    background: #f26f21;
     border-radius:15px;
     opacity:.6;
+    width:800px;
 }
 
 .shield {
