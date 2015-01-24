@@ -6,6 +6,10 @@ from django.core.context_processors import csrf
 from django.contrib.auth.models import User
 from users.forms import SignUpForm, SignInForm
 
+import mailchimp
+from mailchimp import utils
+
+
 def home(request):
 
     title = 'Sockcess | Sock Subscriptions'
@@ -30,12 +34,23 @@ def home(request):
                                             password = passw)
                 user.save()
 
+
+
                 user = authenticate(username=usern, password=passw)
 
                 if user is not None:
                     if user.is_active:
                         login(request, user)
+                        
+                        try:
+                            list = mailchimp.utils.get_connection().get_list_by_id('4d3d1b0805')
+                            list.subscribe(emai, {'EMAIL': emai})
+                        except:
+                            title=emai
+                            
                         return HttpResponseRedirect('/thankyou')
+                    
+                    
                     else:
                         #user exists but account has been disabled
                         return HttpResponseRedirect('/signin')
@@ -79,6 +94,13 @@ def signup(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
+                    
+                    try:
+                        list = mailchimp.utils.get_connection().get_list_by_id('4d3d1b0805')
+                        list.subscribe(emai, {'EMAIL': emai})
+                    except:
+                        title=emai
+                    
                     return HttpResponseRedirect('/thankyou')
                 else:
                     #user exists but account has been disabled
@@ -94,11 +116,3 @@ def signup(request):
 
 
 
-
-def about(request):
-    
-    title = 'About | SockCess'
-    
-    return render_to_response('about.html',
-                              locals(),
-                              context_instance=RequestContext(request))
