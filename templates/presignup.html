@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block nav %}
+
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded" style="background:#000; padding:10px;">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img src="{% static "assets/img/logo/socklogosmall.png" %}" class="img-responsive" alt="">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+{% endblock %}
+
+{% block signup %}
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Sign Up</h2>
+                    <hr class="colored">
+                    <p>20% Off</p>
+                </div>
+            </div>
+
+
+            <div class="row content-row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <form name="sentMessage" id="contactForm" method="POST"> {% csrf_token %}
+                        <div class="row control-group">
+
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                
+                                {% if messages %}
+
+            <div class='row'>
+                <div class='col-sm-6 col-sm-offset-3'>
+
+                    {% for message in messages %}
+
+                        <p{% if message.tags == "success" or message.tags == "error" %} class="successful"{% endif %}><b>{{ message }}</b></p>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+            </div>
+
+           {% endif %}
+                                
+                                {% if form.email.errors %}
+                                    <br />
+                                    <b><p class="successful">Looks like you already have an account with us!</p></b><a href='/signin'>Sign In</a>
+                                {% endif %}
+                                
+                                
+                                
+                                <label>Email Address</label>
+                                {{ form.email }}
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Password</label>
+                                {{ form.password }}
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+
+                                <label>Re-Enter Password</label>
+                                {{ form.verify_password }}
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <button type="submit" class="btn btn-outline-dark">Sign Me Up</button>
+                            </div>    
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
