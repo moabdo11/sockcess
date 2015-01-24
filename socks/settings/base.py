@@ -19,6 +19,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '^aaz(sb^g_n%)!x46z9e)o&ovq*ky035m1(%$nr)5=g+jo#tx3'
 
+MAILCHIMP_API_KEY = '5cab85a1a02d2277fe606e56213148a5-us9'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
