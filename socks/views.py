@@ -4,7 +4,8 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.core.context_processors import csrf
 from django.contrib.auth.models import User
-from users.forms import SignUpForm, SignInForm
+#from users.forms import SignUpForm, SignInForm
+from users.newforms import UserForm
 
 import mailchimp
 from mailchimp import utils
@@ -15,8 +16,9 @@ def home(request):
     title = 'Sockcess | Sock Subscriptions'
 
 
-    form = SignUpForm(request.POST or None)
-
+    #form = SignUpForm(request.POST or None)
+    form = UserForm(request.POST or None)
+    
     if request.POST:
         if form.is_valid():
             usern = form.cleaned_data['email']
@@ -72,7 +74,7 @@ def signup(request):
     }
 
     title = 'Sign Up'
-    form = SignUpForm(request.POST or None)
+    form = UserForm(request.POST or None)
 
     form.fields['email'].widget.attrs = {'class': 'form-control','placeholder':'Your Email Here', 'error_messages': my_default_errors,}
     form.fields['password'].widget.attrs = {'class': 'form-control','placeholder':'Password', 'error_messages': my_default_errors,}
@@ -114,7 +116,7 @@ def signup(request):
                 messages.error(request,"Oops! Looks like there was something wrong with your credentials. Please re-enter them here")
                 return HttpResponseRedirect('/signup')
     
-    messages.error(request,"Oops! Looks like there was something wrong with your credentials. Please re-enter them here")
+    #messages.error(request,"Oops! Looks like there was something wrong with your credentials. Please re-enter them here")
         
     
     return render_to_response('onlysignup.html',

@@ -71,6 +71,10 @@
                                     <b><p class="successful">Looks like you already have an account with us!</p></b><a href='/signin'>Sign In</a>
                                 {% endif %}
                                 
+                                {% if form.password.errors %}
+                                    <br />
+                                    <b><p class="successful">Make sure your passwords</p></b><a href='/signin'>Sign In</a>
+                                {% endif %}
                                 
                                 
                                 <label>Email Address</label>
