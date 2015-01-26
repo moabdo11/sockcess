@@ -21,7 +21,7 @@ class Sock(models.Model):
     sale_price = models.DecimalField(max_digits=4, decimal_places=2, default=9.99)
     shipping_cost_from_china_per_unit = models.DecimalField(max_digits=4, decimal_places=2, default=0.00)
     shipping_cost_to_customer_per_unit = models.DecimalField(max_digits=4, decimal_places=2, default=0.00)
-    picture = models.ImageField(upload_to='*img')
+    picture = models.ImageField(upload_to='static/assets/img/socks/')
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
