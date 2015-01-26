@@ -105,7 +105,3 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
-
-
-MEDIA_SERVER_URL = 'http://www.besockcessful.com/'
-MEDIA_URL = os.path.join(MEDIA_SERVER_URL, 'img/')
