@@ -645,25 +645,7 @@
 
 {% block signup %}
 
-<script>
-                
-               $(document).ready(function (){
-    validate();
-    $('#inputemail, #inputpassword, #inputverify_password').change(validate);
-});
 
-function validate(){
-    if ($('#inputName').val().length   >   0   &&
-        $('#inputEmail').val().length  >   0   &&
-        $('#inputTel').val().length    >   0) {
-        $("input[type=submit]").prop("disabled", false);
-    }
-    else {
-        $("input[type=submit]").prop("disabled", true);
-    }
-} 
-                
-</script>
 
     <section id="contact">
         <div class="container wow fadeIn">
