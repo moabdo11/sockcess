@@ -9,12 +9,7 @@ urlpatterns = patterns('',
                        
     # BasePage URLS
     url(r'^$', 'socks.views.home', name='home'),
-    #url(r'about/', 'socks.views.about', name='about'),
     url(r'signup/', 'socks.views.signup', name='signup'),
-
-    ### NEED TO FINISH INTEGRATING FAQ PAGE ###
-
-    #url(r'faq/', 'socks.views.faq', name='faq'),
 
 
     # User URLS

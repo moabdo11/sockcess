@@ -1,3 +1,4 @@
+
 /*!
  * Vitality v1.3.2 (http://themes.startbootstrap.com/vitality-v1.3.2)
  * Copyright 2014 Start Bootstrap Themes.
@@ -86,8 +87,8 @@ $('.gallery-link').magnificPopup({
 // Formstone Wallpaper - Video Background Settings
 $("header.video").wallpaper({
     source: {
-        poster: "static/assets/img/landing_image.jpg",
-        mp4: "static/assets/mp4/VideoLoop50PercentOpacity.mp4"
+        poster: "https://sockcessfullydone.s3.amazonaws.com/assets/img/landing_image.jpg?AWSAccessKeyId=AKIAIXCOMXT3BTDJK3EA",    
+        mp4: "https://s3.amazonaws.com/sockcessfullydone/assets/mp4/VideoLoop50PercentOpacity.mp4"
     }
 });
 
