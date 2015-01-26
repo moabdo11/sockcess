@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.core.context_processors import csrf
 from django.contrib.auth.models import User
-
+from users.newforms import UserForm
 
 
 
@@ -16,13 +16,11 @@ from django.contrib.auth.models import User
 def signup(request):
 
     title = 'Discounted Sign Up'
-    form = SignUpForm(request.POST or None)
-
-    form.fields['email'].widget.attrs = {'class': 'form-control','placeholder':'Email'}
-    form.fields['password'].widget.attrs = {'class': 'form-control','placeholder':'Password'}
-    form.fields['verify_password'].widget.attrs = {'class': 'form-control','placeholder':'Re-Enter Password'}
-    #form.fields['verify_email'].widget.attrs = {'class': 'form-control','placeholder':'Re-Enter Email'}
-
+    form = UserForm(request.POST or None)
+    
+    request.session['discount'] = True
+    
+    
     if form.is_valid():
         usern = form.cleaned_data['email']
         emai = usern

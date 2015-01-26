@@ -45,7 +45,7 @@ def firstchoice(request):
     title='choose your destiny'
 
     #Get sock objects for user to pick from
-    #random = Sock.objects.get(style = 'random')
+    
     business = Sock.objects.filter(style='business').latest('id')
     pleasure = Sock.objects.filter(style = 'pleasure').latest('id')
 
@@ -140,13 +140,22 @@ def billinginfo(request):
 
         # Get the credit card details submitted by the form
         token = request.POST['stripeToken']
-
-        # Create a Customer
-        customer = stripe.Customer.create(
-         card=token,
-         plan="baseplan",
-         email=email
-        )
+        
+        if request.session['discount'] == True:
+            # Create a Customer with Discount
+            customer = stripe.Customer.create(
+            card=token,
+            plan="baseplan",
+            email=email,
+            coupon="presignup",
+            )
+        else:
+            # Create a Customer
+            customer = stripe.Customer.create(
+            card=token,
+            plan="baseplan",
+            email=email
+            )
         
         # Create an Order
         pk = request.user.id

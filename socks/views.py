@@ -76,10 +76,6 @@ def signup(request):
     title = 'Sign Up'
     form = UserForm(request.POST or None)
 
-    form.fields['email'].widget.attrs = {'class': 'form-control','placeholder':'Your Email Here', 'error_messages': my_default_errors,}
-    form.fields['password'].widget.attrs = {'class': 'form-control','placeholder':'Password', 'error_messages': my_default_errors,}
-    form.fields['verify_password'].widget.attrs = {'class': 'form-control','placeholder':'Re-Enter Password', 'error_messages': my_default_errors,}
-    #form.fields['verify_email'].widget.attrs = {'class': 'form-control','placeholder':'Re-Enter Email'}
 
     if form.is_valid():
         usern = form.cleaned_data['email']

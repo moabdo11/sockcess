@@ -25,7 +25,7 @@ class UserForm(forms.Form):
     
     
     email = forms.CharField(max_length=55, required=True, widget=forms.EmailInput( attrs = {'class': 'form-control','placeholder':'Email', 'error_messages': my_default_errors,}))
-    password = forms.CharField(max_length=55, required=True, widget=forms.PasswordInput(render_value=False, attrs = {'class': 'form-control','placeholder':'Re-Enter Password', 'error_messages': my_default_errors,}))
+    password = forms.CharField(max_length=55, required=True, widget=forms.PasswordInput(render_value=False, attrs = {'class': 'form-control','placeholder':'Password', 'error_messages': my_default_errors,}))
     verify_password = forms.CharField(max_length=55, required=True, widget=forms.PasswordInput(render_value=False, attrs = {'class': 'form-control','placeholder':'Re-Enter Password', 'error_messages': my_default_errors,}), )
 
 
