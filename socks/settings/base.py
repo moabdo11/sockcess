@@ -106,3 +106,13 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+
+
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATICFILES_STORAGE = DEFAULT_FILE_STORAGE
+AWS_ACCESS_KEY_ID = 'AKIAIXCOMXT3BTDJK3EA'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'sockcessfullydone'
+STATIC_URL = '//s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/' 
