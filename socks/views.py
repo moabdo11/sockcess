@@ -21,6 +21,7 @@ def home(request):
     
     if request.POST:
         if form.is_valid():
+            
             usern = form.cleaned_data['email']
             emai = usern
             passw = form.cleaned_data['password']

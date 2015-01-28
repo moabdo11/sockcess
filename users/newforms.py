@@ -20,7 +20,9 @@ Field.default_error_messages = {
 class UserForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super(UserForm, self).__init__(*args, **kwargs)
-        self.fields['email'].required=True
+        self.fields['email'].required = True
+        self.fields['password'].required = True
+        self.fields['verify_password'].required = True
     
     
     
@@ -30,7 +32,9 @@ class UserForm(forms.Form):
 
 
     def clean_email(self):
-        
+        data = self.cleaned_data
+        if email or password or verify_password not in data:
+            raise forms.ValidationError(_("Please fill out all fields"))
         email = self.cleaned_data['email']
         
         try:
@@ -42,7 +46,12 @@ class UserForm(forms.Form):
         return HttpResponseRedirect('/signup')
         
     def clean(self):
+        email = self.cleaned_data['email']
+        password = self.cleaned_data['password']
+        verify_password = self.cleaned_data['verify_password']
 
+        if not email or password or verify_password:
+            raise forms.ValidationError(_("Please fill out all fields"))
         password = self.cleaned_data['password']
         
         verify_password = self.cleaned_data['verify_password']

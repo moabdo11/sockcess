@@ -30,7 +30,14 @@ Field.default_error_messages = {
 
 
 class SignUpForm(forms.ModelForm):
-    
+    def __init__(self, *args, **kwargs):
+        super(SignUpForm, self).__init__(*args, **kwargs)
+        self.fields['email'].required = True
+        self.fields['password'].required = True
+        self.fields['verify_password'].required = True
+
+
+
     email = forms.CharField(max_length=55, required=True, widget=forms.EmailInput( attrs = {'class': 'form-control','placeholder':'Email', 'error_messages': my_default_errors,}))
     password = forms.CharField(max_length=55, required=True, widget=forms.PasswordInput(render_value=False, attrs = {'class': 'form-control','placeholder':'Re-Enter Password', 'error_messages': my_default_errors,}))
     verify_password = forms.CharField(max_length=55, required=True, widget=forms.PasswordInput(render_value=False, attrs = {'class': 'form-control','placeholder':'Re-Enter Password', 'error_messages': my_default_errors,}), )
