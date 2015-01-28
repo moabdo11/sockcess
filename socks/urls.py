@@ -30,6 +30,6 @@ urlpatterns = patterns('',
     url(r'billinginfo/', 'users.views.billinginfo', name='billinginfo'),
 
     # Discounted Signup URL
-    url(r'discount20%off1stmonth/', 'socks.presignup_view.signup', name='signup'),
+    url(r'discount20percentoff1stmonth/', 'socks.presignup_view.signup', name='signup'),
 
 )
