@@ -15,7 +15,8 @@ def home(request):
 
     title = 'Sockcess | Sock Subscriptions'
 
-
+    c = {}
+    c.update(csrf(request))
     #form = SignUpForm(request.POST or None)
     form = UserForm(request.POST or None)
     
@@ -74,7 +75,8 @@ def signup(request):
         'required': 'This field is required',
         'invalid': 'Someone has already signed up with this email',
     }
-
+    c = {}
+    c.update(csrf(request))
     title = 'Sign Up'
     form = UserForm(request.POST or None)
 
