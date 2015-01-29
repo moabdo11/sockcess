@@ -66,16 +66,20 @@
 
            {% endif %}
                                 
-                                {% if form.email.errors %}
-                                    <br />
-                                    <b><p class="successful">Looks like you already have an account with us!</p></b><a href='/signin'>Sign In</a>
-                                {% endif %}
-                                
-                                {% if form.password.errors %}
-                                    <br />
-                                    <b><p class="successful">Make sure your passwords</p></b><a href='/signin'>Sign In</a>
-                                {% endif %}
-                                
+            {% if form.errors %}
+            
+                <div class='col-sm-10 col-sm-offset-1'>
+    {% for field in form %}
+      
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="successful">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+
+    </div>
+{% endif %}
                                 
                                 <label>Email Address</label>
                                 {{ form.email }}
