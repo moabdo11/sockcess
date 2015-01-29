@@ -10,21 +10,12 @@ from datetime import *
 
 
 
-
-
-
 """
 
 This document is split into 3 sections: USER SIGNUP FUNCTIONS, USER ACCOUNT FUNCTIONS, and CHANGE USER ACCOUNT FUNCTION
 
 
 """
-
-
-
-
-
-
 
 ####################################### USER SIGNUP FUNCTIONS #########################################################
 
@@ -190,25 +181,6 @@ def billinginfo(request):
                               context_instance=RequestContext(request))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ####################################### USER ACCOUNT FUNCTIONS #########################################################
 
 
@@ -241,7 +213,6 @@ def userhome(request):
         return render_to_response('home.html',
                                   locals(),
                                   context_instance=RequestContext(request))
-
 
 
 def logoutuser(request):
@@ -297,22 +268,6 @@ def myaccount(request):
     return render_to_response('myaccount.html',
                              locals(),
                              context_instance=RequestContext(request))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ####################################### USER CHANGE-ACCOUNT FUNCTIONS #########################################################
@@ -408,7 +363,6 @@ def change_billing_info(request):
                               context_instance=RequestContext(request))
 
 
-
 def change_sock(request):
     
     title = 'Time For A Change'
@@ -440,8 +394,6 @@ def change_sock(request):
     return render_to_response('changesockselection.html',
                               locals(),
                               context_instance=RequestContext(request))
-
-
 
 
 def deleteuser(request):
@@ -479,14 +431,6 @@ def deleteuser(request):
     return render_to_response('deleteuser.html',
                               locals(),
                               context_instance=RequestContext(request))    
-
-
-
-
-
-
-
-
 
 
 #######################################################################################################################################

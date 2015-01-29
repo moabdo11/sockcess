@@ -56,8 +56,9 @@ def home(request):
                     #credentials are wrong or user does not exist
                     messages.success(request,"Sorry, something is not right with your credentials. Make sure your passwords match")
                     return HttpResponseRedirect('/signup')
-        messages.success(request,"Sorry, something is not right with your credentials. Make sure your passwords match")
-        return HttpResponseRedirect('/signup')
+        #messages.success(request,"Sorry, something is not right with your credentials. Make sure your passwords match")
+        args = {}
+        args['form'] = form
         
     return render_to_response('index.html',
                               locals(),
