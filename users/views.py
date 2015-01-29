@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from .models import Subscriber, Sock, Order
 from django.contrib import messages
 from django.contrib.auth import authenticate, logout, login
+from django.core.context_processors import csrf
 from .forms import SubscriberForm, SignInForm
 import stripe, time, datetime, json
 from dateutil.relativedelta import *
@@ -32,7 +33,9 @@ def thankyou(request):
 
 
 def firstchoice(request):
-
+    
+    c = {}
+    c.update(csrf(request))
     title='choose your destiny'
 
     #Get sock objects for user to pick from
@@ -62,7 +65,9 @@ def shippinginfo(request):
         request.session['sock_pick']
     except:
         return HttpResponseRedirect('/first')
-
+    
+    c = {}
+    c.update(csrf(request))
     title='Sock Destination'
     pk = request.user.id
     c = User.objects.get(pk = pk)
@@ -120,7 +125,9 @@ def shippinginfo(request):
 
 
 def billinginfo(request):
-
+    
+    c = {}
+    c.update(csrf(request))
     title = 'Subscribe Now'
     email = request.user.username
     sub_style = request.session['sock_pick']
@@ -222,6 +229,9 @@ def logoutuser(request):
 
 
 def signin(request):
+    
+    c = {}
+    c.update(csrf(request))
     signin_form = SignInForm(request.POST or None)
     title = 'Sign In'
     signin_form.fields['email'].widget.attrs = {'class': 'form-control','placeholder':'Email'}
@@ -261,6 +271,7 @@ def myaccount(request):
     if not request.user.is_authenticated():
         return HttpResponseRedirect('/signin')
     else:
+        
         title = 'My Account'
         #messages.success(request, 'welcome to your account settings.')
 
@@ -277,7 +288,8 @@ def change_address_info(request):
         return HttpResponseRedirect('/signin')
     else:
         title = 'Change Shipping Address'
-        
+        c = {}
+        c.update(csrf(request))
         # current user info
         pk = request.user.id
         user = User.objects.get(pk = pk)
@@ -337,7 +349,8 @@ def change_billing_info(request):
     
     title = 'Change How You Pay'
     email = request.user.username
-    
+    c = {}
+    c.update(csrf(request))
 
     
     if request.POST:
@@ -365,6 +378,8 @@ def change_billing_info(request):
 
 def change_sock(request):
     
+    c = {}
+    c.update(csrf(request))
     title = 'Time For A Change'
     email = request.user.username
     business = Sock.objects.filter(style = 'business').latest('id')
@@ -397,7 +412,9 @@ def change_sock(request):
 
 
 def deleteuser(request):
-
+    
+    c = {}
+    c.update(csrf(request))
     title="Are You Sure?"
     if request.POST:
         choice = request.POST.get('choice')
