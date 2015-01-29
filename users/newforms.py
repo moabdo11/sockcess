@@ -20,19 +20,6 @@ Field.default_error_messages = {
 
 
 
-class UserField(forms.CharField):
-    def clean(self, value):
-        super(UserField, self).clean(value)
-        try:
-            User.objects.get(username=value)
-            raise forms.ValidationError("Someone is already using this email. Please pick another.")
-        except User.DoesNotExist:
-            return value
-
-
-
-
-
 class UserForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super(UserForm, self).__init__(*args, **kwargs)
@@ -67,30 +54,3 @@ class UserForm(forms.Form):
             self.clean_password()
             return super(UserForm, self).clean(*args, **kwargs)
         raise forms.ValidationError('Please Fill Out All Fields')
-
-
-
-
-"""
-    def clean(self):
-        cleaned_data = super(UserForm, self).clean()
-        email = cleaned_data.get("email")
-        password = cleaned_data.get("password")
-        verify_password = cleaned_data.get("verify_password")
-
-        if email and password and verify_password in cleaned_data:
-
-            try:
-                User.objects.get(username=email)
-            except:
-                if password and verify_password and password != verify_password:
-                    raise forms.ValidationError(_("The passwords do not match."))
-                
-            raise forms.ValidationError(_("someone already has an account set up with this email! "))
-
-            
-        raise forms.ValidationError("Please Fill Out All Fields In The Signup Form")
-        return cleaned_data
-        
-"""
-

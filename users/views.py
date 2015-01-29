@@ -7,6 +7,7 @@ from .forms import SubscriberForm, SignInForm
 import stripe, time, datetime, json
 from dateutil.relativedelta import *
 from datetime import *
+from django import forms
 
 
 
@@ -72,12 +73,12 @@ def shippinginfo(request):
         old_subscriber = Subscriber.objects.filter(customer = request.user)
         old_subscriber.delete()
 
-    form.fields['first_name'].widget.attrs = {'class': 'form-control','placeholder':'First Name'}
-    form.fields['last_name'].widget.attrs = {'class': 'form-control','placeholder':'Last Name'}
-    form.fields['street'].widget.attrs = {'class': 'form-control','placeholder':'Street'}
-    form.fields['city'].widget.attrs = {'class': 'form-control','placeholder':'City'}
-    form.fields['state'].widget.attrs = {'class': 'form-control','placeholder':'State'}
-    form.fields['zipcode'].widget.attrs = {'class': 'form-control','placeholder':'Zipcode'}
+    form.fields['first_name'].widget.attrs = {'class': 'form-control','placeholder':'First Name', 'required': 'True'}
+    form.fields['last_name'].widget.attrs = {'class': 'form-control','placeholder':'Last Name','required': 'True'}
+    form.fields['street'].widget.attrs = {'class': 'form-control','placeholder':'Street','required': 'True'}
+    form.fields['city'].widget.attrs = {'class': 'form-control','placeholder':'City','required': 'True'}
+    form.fields['state'].widget.attrs = {'class': 'form-control','placeholder':'State','required': 'True'}
+    form.fields['zipcode'].widget.attrs = {'class': 'form-control','placeholder':'Zipcode','required': 'True'}
 
     if request.POST:
         if request.session['sock_pick'] == 'random':
@@ -113,6 +114,7 @@ def shippinginfo(request):
             subscriber.save()
 
             return HttpResponseRedirect('/billinginfo')
+      
 
     return render_to_response('shipping.html',
                               locals(),
@@ -224,8 +226,8 @@ def logoutuser(request):
 def signin(request):
     signin_form = SignInForm(request.POST or None)
     title = 'Sign In'
-    signin_form.fields['email'].widget.attrs = {'class': 'form-control','placeholder':'Email'}
-    signin_form.fields['password'].widget.attrs = {'class': 'form-control','placeholder':'Password'}
+    signin_form.fields['email'].widget.attrs = {'class': 'form-control','placeholder':'Email','required': 'True'}
+    signin_form.fields['password'].widget.attrs = {'class': 'form-control','placeholder':'Password','required': 'True'}
 
     if request.POST:
         username = request.POST.get('email')
@@ -293,12 +295,12 @@ def change_address_info(request):
         
         # form
         form = SubscriberForm(request.POST or None)
-        form.fields['first_name'].widget.attrs = {'class': 'form-control','required': 'True','placeholder': 'New First Name'}
-        form.fields['last_name'].widget.attrs = {'class': 'form-control','required': 'True','placeholder': 'New Last Name'}
-        form.fields['street'].widget.attrs = {'class': 'form-control','required': 'True','placeholder': 'New Street Address'}
-        form.fields['city'].widget.attrs = {'class': 'form-control','required': 'True','placeholder': 'New City'}
-        form.fields['state'].widget.attrs = {'class': 'form-control','required': 'True','placeholder': 'New State'}
-        form.fields['zipcode'].widget.attrs = {'class': 'form-control','required': 'True','placeholder': 'New Zipcode'}
+        form.fields['first_name'].widget.attrs = {'class': 'form-control','required': 'True','placeholder': 'New First Name','required': 'True'}
+        form.fields['last_name'].widget.attrs = {'class': 'form-control','required': 'True','placeholder': 'New Last Name', 'required': 'True'}
+        form.fields['street'].widget.attrs = {'class': 'form-control','required': 'True','placeholder': 'New Street Address','required': 'True'}
+        form.fields['city'].widget.attrs = {'class': 'form-control','required': 'True','placeholder': 'New City','required': 'True'}
+        form.fields['state'].widget.attrs = {'class': 'form-control','required': 'True','placeholder': 'New State','required': 'True'}
+        form.fields['zipcode'].widget.attrs = {'class': 'form-control','required': 'True','placeholder': 'New Zipcode','required': 'True'}
         
         
         if request.POST:
