@@ -1,6 +1,6 @@
 from django.db import models
-#from django.contrib.localflavor.us.us_states import STATE_CHOICES
-#from django.contrib.localflavor.us.forms import USStateField
+from localflavor.us.us_states import STATE_CHOICES
+from localflavor.us.models import USStateField
 from django.contrib.auth.models import User
 from django.utils.encoding import smart_unicode
 
@@ -37,7 +37,7 @@ class Subscriber(models.Model):
     last_name = models.CharField(max_length=50)
     street = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
-    state = models.CharField(max_length=2)
+    state = USStateField(choices = STATE_CHOICES)
     zipcode = models.CharField(max_length=7)
     sock_genre = models.CharField(max_length=10)
     sock_style = models.TextField()

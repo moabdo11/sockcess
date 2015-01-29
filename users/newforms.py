@@ -1,6 +1,7 @@
 from django import forms
 from django.forms import widgets, Field 
 from django.contrib.auth.models import User
+from .models import Subscriber
 from django.utils.translation import ugettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
@@ -71,26 +72,8 @@ class UserForm(forms.Form):
 
 
 
-"""
-    def clean(self):
-        cleaned_data = super(UserForm, self).clean()
-        email = cleaned_data.get("email")
-        password = cleaned_data.get("password")
-        verify_password = cleaned_data.get("verify_password")
+class ShippingForm(forms.ModelForm):
+       class Meta:
+              model = Subscriber 
 
-        if email and password and verify_password in cleaned_data:
-
-            try:
-                User.objects.get(username=email)
-            except:
-                if password and verify_password and password != verify_password:
-                    raise forms.ValidationError(_("The passwords do not match."))
-                
-            raise forms.ValidationError(_("someone already has an account set up with this email! "))
-
-            
-        raise forms.ValidationError("Please Fill Out All Fields In The Signup Form")
-        return cleaned_data
-        
-"""
 

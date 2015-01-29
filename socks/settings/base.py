@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'users',
     'south',
     'storages',
+    
 )
 
 MIDDLEWARE_CLASSES = (
