@@ -77,12 +77,12 @@ def shippinginfo(request):
         old_subscriber = Subscriber.objects.filter(customer = request.user)
         old_subscriber.delete()
 
-    form.fields['first_name'].widget.attrs = {'class': 'form-control','placeholder':'First Name'}
-    form.fields['last_name'].widget.attrs = {'class': 'form-control','placeholder':'Last Name'}
-    form.fields['street'].widget.attrs = {'class': 'form-control','placeholder':'Street'}
-    form.fields['city'].widget.attrs = {'class': 'form-control','placeholder':'City'}
-    #form.fields['state'].widget.attrs = {'class': 'form-control',}
-    form.fields['zipcode'].widget.attrs = {'class': 'form-control','placeholder':'Zipcode'}
+    form.fields['first_name'].widget.attrs = {'class': 'form-control','placeholder':'First Name','required':'True'}
+    form.fields['last_name'].widget.attrs = {'class': 'form-control','placeholder':'Last Name','required':'True'}
+    form.fields['street'].widget.attrs = {'class': 'form-control','placeholder':'Street','required':'True'}
+    form.fields['city'].widget.attrs = {'class': 'form-control','placeholder':'City','required':'True'}
+    form.fields['state'].widget.attrs = {'class': 'form-control','placeholder': 'State','required':'True', 'maxlength': '30'}
+    form.fields['zipcode'].widget.attrs = {'class': 'form-control','placeholder':'Zipcode','required':'True','maxlength':'5'}
 
     if request.POST:
         if request.session['sock_pick'] == 'random':
