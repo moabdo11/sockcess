@@ -1,6 +1,7 @@
 from django import forms
 from django.forms import widgets, Field 
 from django.contrib.auth.models import User
+from .models import Subscriber
 from django.utils.translation import ugettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
@@ -54,3 +55,4 @@ class UserForm(forms.Form):
             self.clean_password()
             return super(UserForm, self).clean(*args, **kwargs)
         raise forms.ValidationError('Please Fill Out All Fields')
+

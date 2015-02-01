@@ -1,6 +1,5 @@
 from django.db import models
-#from django.contrib.localflavor.us.us_states import STATE_CHOICES
-#from django.contrib.localflavor.us.forms import USStateField
+
 from django.contrib.auth.models import User
 from django.utils.encoding import smart_unicode
 
@@ -15,8 +14,8 @@ class Sock(models.Model):
     )
     style = models.CharField(max_length=9,
                              choices=STYLE_CHOICE)
-    sub_style = models.CharField(max_length=35)
-    supplier = models.CharField(max_length=35)
+    sub_style = models.TextField()
+    supplier = models.CharField(max_length=150)
     cost_per_unit = models.DecimalField(max_digits=4, decimal_places=2, default=0.00)
     sale_price = models.DecimalField(max_digits=4, decimal_places=2, default=9.99)
     shipping_cost_from_china_per_unit = models.DecimalField(max_digits=4, decimal_places=2, default=0.00)
@@ -37,10 +36,10 @@ class Subscriber(models.Model):
     last_name = models.CharField(max_length=50)
     street = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
-    state = models.CharField(max_length=2)
+    state = models.CharField(max_length=50)
     zipcode = models.CharField(max_length=7)
     sock_genre = models.CharField(max_length=10)
-    sock_style = models.CharField(max_length=25)
+    sock_style = models.TextField()
     stripe_id = models.TextField()
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)

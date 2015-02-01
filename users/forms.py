@@ -97,4 +97,4 @@ class SubscriberForm(forms.ModelForm):
     zipcode = forms.CharField()
     class Meta:
         model = Subscriber
-        fields = ['street', 'city','customer']
+        fields = ['street', 'city','state','zipcode','customer']
