@@ -26,6 +26,8 @@ def thankyou(request):
     if not request.user.is_authenticated():
         return HttpResponseRedirect('/signin')
     else:
+        c = {}
+        c.update(csrf(request))
         title = 'Thanks For Signing Up'
 
     return render_to_response('thankyou.html',
