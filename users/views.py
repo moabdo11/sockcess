@@ -55,7 +55,7 @@ def firstchoice(request):
         request.session['sock_pick'] = selection
         return HttpResponseRedirect('/shippinginfo')
  
-    return render_to_response('firstchoice.html',
+    return render_to_response('first_choice.html',
                               locals(),
                               context_instance=RequestContext(request))
 
@@ -145,6 +145,8 @@ def billinginfo(request):
         
         try:
             request.session['discount']
+            price = '7.99'
+            disclaimer = '* Regular billing of $9.99 / month will resume after first month'
             # Create a Customer with Discount
             customer = stripe.Customer.create(
             card=token,
@@ -154,6 +156,7 @@ def billinginfo(request):
             )
         except:
             # Create a Customer
+            price = '9.99'
             customer = stripe.Customer.create(
             card=token,
             plan="baseplan",

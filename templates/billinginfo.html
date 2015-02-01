@@ -286,7 +286,11 @@ html, body {
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Billing Info</h2>
+                    <h3>{{ price }}</h3>
                     <hr class="colored">
+                    {% if disclaimer %}
+                      <p>{{ disclaimer }}</p>
+                    {% endif %}
                 </div>
             </div>
 

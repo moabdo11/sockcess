@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+        {% block title %}{{ title }}{% endblock %}
+
+
+{% block nav %}
+
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">
+                    <img src="{% static "assets/img/logo/socklogosmall.png" %}" class="img-responsive" alt="">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right" id="sign-in-form">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    
+                    <li>
+                        <b>{{ email }}<b>    
+                    </li>    
+                </ul>
+                
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+
+
+{% endblock %}
+{% block intro %}
+
+<header class="video">
+        <div class="overlay"></div>
+        <div class="intro-content" style="width:90%;">
+            <h1>CHOOSE YOUR DESTINY</h1><br />
+
+                        {% if messages %}
+            <div class='row'>
+                <div class='col-xs-12 text-center'>
+                    {% for message in messages %}
+                        <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+           {% endif %}
+            
+           
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <h3 class="text-center text-danger">
+                SELECT YOUR STYLE
+            </h3>
+        </div>
+    </div>
+    
+    
+   <div class="row clearfix">
+                <div class="col-lg-12">
+                    <form method="post">{% csrf_token %}
+                    <div class="about-carousel">
+                        
+                        <div class="item">
+                            
+                            <button type="submit" name="selection" id="biz" value="{{ business.sub_style }}" style="border-radius:5px; padding:0px; margin:0px;" ><img alt="50x50" src="{{ business.picture.url }}" class="img-responsive" style=" width:300px; height:400px; border-radius:5px;"/></button>
+                            
+                        </div>
+                        
+                        <div class="item">
+                             
+
+                            <button type="submit"  name="selection" id="ran" value="random" style="border-radius:5px; padding:0px; margin:0px;"><img alt="50x50" src="{%static "assets/img/mystery sock-2.jpg"%}" class="img-responsive"  style=" width:300px; height:400px; border-radius:5px;"/></button>
+                        </div>
+                        
+                        <div class="item">
+                           
+
+                            <button type="submit"  name="selection" id="cas" value="{{ pleasure.sub_style }}" style="border-radius:5px; padding:0px; margin:0px;"><img alt="50x50" src="{{ pleasure.picture.url }}" class="img-responsive"  style="padding-bottom:15px; width:300px; height:400px; border-radius:5px;"/></button>
+                            
+                        </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        </div>
+        
+        
+    </header>
+    
+{% endblock %}
+
+
+
+
+
+ <div class="container text-center wow fadeIn">
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                      <div class="row clearfix">
+                            <div class="col-md-12 column">
+                                <h3 class="text-center text-danger">
+                                    SELECT YOUR STYLE
+                                </h3>
+                            </div>
+                        </div>
+                    <hr class="colored">
+                </div>
+            </div>
+            <div class="row content-row">
+                <div class="col-lg-12">
+                    <form method="post">{% csrf_token %}
+                    <div class="about-carousel">
+                        
+                        <div class="item">
+                            
+                            <button type="submit" class="btn btn-outline-light" name="selection" id="biz" value="{{ business.sub_style }}"><img alt="50x50" src="{{ business.picture.url }}" class="img-responsive" style="padding-bottom:15px; width:300px; height:400px; border-radius:5px;"/></button>
+                            
+                        </div>
+                        
+                        <div class="item">
+                             
+
+                            <button type="submit" class="btn btn-outline-light" name="selection" id="ran" value="random"><img alt="50x50" src="{%static "assets/img/mystery sock-2.jpg"%}" class="img-responsive"  style="padding-bottom:15px; width:300px; height:400px; border-radius:5px;"/></button>
+                        </div>
+                        
+                        <div class="item">
+                           
+
+                            <button type="submit" class="btn btn-outline-light" name="selection" id="cas" value="{{ pleasure.sub_style }}"><img alt="50x50" src="{{ pleasure.picture.url }}" class="img-responsive"  style="padding-bottom:15px; width:300px; height:400px; border-radius:5px;"/></button>
+                            
+                        </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
