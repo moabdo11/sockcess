@@ -83,7 +83,7 @@ def shippinginfo(request):
     form.fields['last_name'].widget.attrs = {'class': 'form-control','placeholder':'Last Name','required':'True'}
     form.fields['street'].widget.attrs = {'class': 'form-control','placeholder':'Street','required':'True'}
     form.fields['city'].widget.attrs = {'class': 'form-control','placeholder':'City','required':'True'}
-    form.fields['state'].widget.attrs = {'class': 'form-control','placeholder': 'State','pattern': '"[A-Za-z]{2,50}"','required':'True'}
+    form.fields['state'].widget.attrs = {'class': 'form-control','placeholder': 'State','required':'True'}
     form.fields['zipcode'].widget.attrs = {'class': 'form-control','placeholder':'Zipcode','required':'True','maxlength':'5'}
 
 
@@ -138,12 +138,13 @@ def billinginfo(request):
     #sock = Address.objects.get(sock_style = sub_style)
 
     if request.POST:
-        stripe.api_key = "sk_live_honqsfBszGpd3pFfSXCpdYCT"
+        stripe.api_key = "sk_test_KSTtdSq7rzZAPRYKOlol91J4"
 
         # Get the credit card details submitted by the form
         token = request.POST['stripeToken']
         
-        if request.session['discount'] == True:
+        try:
+            request.session['discount']
             # Create a Customer with Discount
             customer = stripe.Customer.create(
             card=token,
@@ -151,7 +152,7 @@ def billinginfo(request):
             email=email,
             coupon="presignup",
             )
-        else:
+        except:
             # Create a Customer
             customer = stripe.Customer.create(
             card=token,
