@@ -249,8 +249,8 @@ def signin(request):
     c.update(csrf(request))
     signin_form = SignInForm(request.POST or None)
     title = 'Sign In'
-    signin_form.fields['email'].widget.attrs = {'class': 'form-control','placeholder':'Email','required': 'True'}
-    signin_form.fields['password'].widget.attrs = {'class': 'form-control','placeholder':'Password','required': 'True'}
+    #signin_form.fields['email'].widget.attrs = {'class': 'form-control','placeholder':'Email','required': 'True'}
+    #signin_form.fields['password'].widget.attrs = {'class': 'form-control','placeholder':'Password','required': 'True'}
 
     if request.POST:
         username = request.POST.get('email')

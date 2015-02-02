@@ -80,7 +80,20 @@
 
            {% endif %}
 
+            {% if form.errors %}
             
+                <div class='col-sm-10 col-sm-offset-1'>
+    {% for field in form %}
+      
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="successful">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+
+    </div>
+{% endif %}
             <div class="row content-row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <form name="sentMessage" id="contactForm" method="POST" novalidate> {% csrf_token %}
