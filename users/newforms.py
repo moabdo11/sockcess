@@ -64,7 +64,6 @@ class SignInForm(forms.Form):
         self.fields['email'].required = True
         self.fields['password'].required = True
 
-    email = forms.CharField(mex_length=55, required=True, widget=forms.EmailInput( attrs = {'class': 'form-control','placeholder':'Email','required': 'True'}))
+    email = forms.CharField(max_length=55, required=True, widget=forms.EmailInput( attrs = {'class': 'form-control','placeholder':'Email','required': 'True'}))
     password = forms.CharField(max_length=55, required=True, widget=forms.PasswordInput(render_value=False, attrs = {'class': 'form-control','placeholder':'Password', }))
 
-    
