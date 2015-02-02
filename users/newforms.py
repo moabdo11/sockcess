@@ -64,8 +64,9 @@ class SignInForm(forms.Form):
         self.fields['email'].required = True
         self.fields['password'].required = True
 
-    email = forms.CharField(max_length=55, required=True, widget=forms.EmailInput( attrs = {'class': 'form-control','placeholder':'Email','required': 'True'}))
+    email = forms.CharField(max_length=55, required=True, widget=forms.EmailInput( attrs = {'class': 'form-control','placeholder':'Email',}))
     password = forms.CharField(max_length=55, required=True, widget=forms.PasswordInput(render_value=False, attrs = {'class': 'form-control','placeholder':'Password', }))
+
 
     def clean_email(self):
         value = self.data['email']
@@ -74,6 +75,7 @@ class SignInForm(forms.Form):
             return value
         except:
             raise forms.ValidationError("We do not recognize your username")
+
 
     def clean(self, *args, **kwargs):
         if self.data['email'] and self.data['password']:
