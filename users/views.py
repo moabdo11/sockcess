@@ -245,6 +245,10 @@ def logoutuser(request):
 
 def signin(request):
     
+    my_default_errors = {
+        'required': 'This field is required',
+        'invalid': 'Someone has already signed up with this email',
+    }
     c = {}
     c.update(csrf(request))
     signin_form = SignInForm(request.POST or None)
