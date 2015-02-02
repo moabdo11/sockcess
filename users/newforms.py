@@ -74,7 +74,7 @@ class SignInForm(forms.Form):
             User.objects.get(username=value)
             return value
         except:
-            raise forms.ValidationError("We do not recognize your username <br /> <a href="/signup">Create Account</a>)
+            raise forms.ValidationError("We do not recognize your username <br /> <a href='/signup'>Create Account</a>")
 
 
     def clean(self, *args, **kwargs):
