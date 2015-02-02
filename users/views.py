@@ -244,7 +244,7 @@ def logoutuser(request):
 
 
 def signin(request):
-    
+
     my_default_errors = {
         'required': 'This field is required',
         'invalid': 'Someone has already signed up with this email',
@@ -255,32 +255,33 @@ def signin(request):
     title = 'Sign In'
     #signin_form.fields['email'].widget.attrs = {'class': 'form-control','placeholder':'Email','required': 'True'}
     #signin_form.fields['password'].widget.attrs = {'class': 'form-control','placeholder':'Password','required': 'True'}
+    if request.POST:
+        if signin_form.is_valid():
+            username = signin_form.cleaned_data['email']
+            password = signin_form.cleaned_data['password']
 
-    if signin_form.is_valid():
-        username = signin_form.cleaned_data['email']
-        password = signin_form.cleaned_data['password']
+            user = authenticate(username=username, password=password)
 
-        user = authenticate(username=username, password=password)
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
 
-        if user is not None:
-            if user.is_active:
-                login(request, user)
+                    return HttpResponseRedirect('/home')
+                    # ensure user exists in stripe           
 
-                return HttpResponseRedirect('/home')
-                # ensure user exists in stripe           
-
-            else:
-                #user exists but account has been disabled
-                user.is_active = True
-                user.save()
+                else:
+                    #user exists but account has been disabled
+                    user.is_active = True
+                    user.save()
                
-                return HttpResponseRedirect('/shippinginfo')
-        else:
-            #credentials are wrong or user does not exist
-            messages.error(request, "we do not recognize that user/pass combo ho")
+                    return HttpResponseRedirect('/shippinginfo')
+            else:
+                #credentials are wrong or user does not exist
+                messages.error(request, "we do not recognize that user/pass combo ho")
 
-            return HttpResponseRedirect('/signin')
-
+                return HttpResponseRedirect('/signin')
+        args = {}
+        args['form'] = form    
     return render_to_response('signin.html',
                               locals(),
                               context_instance=RequestContext(request))
