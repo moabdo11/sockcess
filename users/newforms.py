@@ -56,3 +56,15 @@ class UserForm(forms.Form):
             return super(UserForm, self).clean(*args, **kwargs)
         raise forms.ValidationError('Please Fill Out All Fields')
 
+
+
+class SignInForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        super(SignInForm, self).__init__(*args, **kwargs)
+        self.fields['email'].required = True
+        self.fields['password'].required = True
+
+    email = forms.CharField(mex_length=55, required=True, widget=forms.EmailInput( attrs = {'class': 'form-control','placeholder':'Email','required': 'True'}))
+    password = forms.CharField(max_length=55, required=True, widget=forms.PasswordInput(render_value=False, attrs = {'class': 'form-control','placeholder':'Password', }))
+
+    
