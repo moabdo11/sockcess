@@ -252,9 +252,9 @@ def signin(request):
     #signin_form.fields['email'].widget.attrs = {'class': 'form-control','placeholder':'Email','required': 'True'}
     #signin_form.fields['password'].widget.attrs = {'class': 'form-control','placeholder':'Password','required': 'True'}
 
-    if request.POST:
-        username = request.POST.get('email')
-        password = request.POST.get('password')
+    if signin_form.is_valid():
+        username = signin_form.cleaned_data['email']
+        password = signin_form.cleaned_data['password']
 
         user = authenticate(username=username, password=password)
 
