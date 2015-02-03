@@ -40,22 +40,6 @@
 
             </div>
 
-            {% if messages %}
-
-            <div class='row'>
-                <div class='col-sm-10 col-sm-offset-1'>
-
-                    {% for message in messages %}
-
-                        <p{% if message.tags == "success" %} class="successful"{% endif %}><b>{{ message }}</b></p>
-
-                    {% endfor %}
-
-                </div>
-            </div>
-            </div>
-
-           {% endif %}
            
             <!-- /.navbar-collapse -->
         </div>
@@ -82,6 +66,22 @@
                 <div class="col-sm-4 col-sm-offset-3">
                 <div style="background-color:#000; opacity:0.8;border-radius:5px; padding:10px; width:500px;">
                     
+            {% if messages %}
+
+            <div class='row'>
+                <div class='col-sm-10 col-sm-offset-1'>
+
+                    {% for message in messages %}
+
+                        <p{% if message.tags == "success" %} class="successful"{% endif %}><b>{{ message }}</b></p>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+            </div>
+
+           {% endif %}
                     {% if rando %}
                         <span class="brand-name-subtext"> Your current sock selection is <strong>{{ rando }}</strong></span>
                     {% else %}
