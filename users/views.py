@@ -88,7 +88,7 @@ def shippinginfo(request):
     form.fields['last_name'].widget.attrs = {'class': 'form-control','placeholder':'Last Name','required':'True'}
     form.fields['street'].widget.attrs = {'class': 'form-control','placeholder':'Street','required':'True'}
     form.fields['city'].widget.attrs = {'class': 'form-control','placeholder':'City','required':'True'}
-    form.fields['state'].widget.attrs = {'class': 'form-control','placeholder': 'State','required':'True'}
+    form.fields['state'].widget.attrs = {'class': 'form-control','placeholder': 'State','required':'True','maxlength':'2'}
     form.fields['zipcode'].widget.attrs = {'class': 'form-control','placeholder':'Zipcode','required':'True','maxlength':'5'}
 
 
