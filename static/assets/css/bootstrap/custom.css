@@ -90,6 +90,10 @@ div.myButton input {
  */
 
 
+.picselect{
+    
+}
+
 #main {
     position: fixed;
     height: 100%;
@@ -165,15 +169,16 @@ div.myButton input {
 }
 /* Initial positioning of slides: Note that we could use 
 hue-rotate instead of images, but that is not performant. */
- li#zero {
+
+li#business {
     left: calc(25em * 1);
-    background: url("./../zero.jpg");
+    
 }
-li#one {
+li#random {
     left: calc(25em * 2);
     background: url("./../one.jpg");
 }
-li#two {
+li#pleasure {
     left: calc(25em * 3);
     background: url("./../two.jpg");
 }
