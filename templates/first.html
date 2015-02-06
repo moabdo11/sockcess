@@ -29,13 +29,13 @@
             
             <div class="row" style="text-align: center;">
                 <form method="post" style="margin:auto;">{% csrf_token %} 
-                    <div class="col-md-4 sock-selection" style="background: url('{{ business.picture.url }}');width:30%;height:800px;border:solid 1px #fff;margin-left:5%;">
+                    <div class="col-md-4 sock-selection" style="background: url('{{ business.picture.url }}');margin-left:5%;">
                         
                     </div>
-                    <div class="col-md-4 sock-selection" style="background: url('{%static 'assets/img/mystery sock-2.jpg'%}');width:30%;height:800px;border:solid 1px #fff;">
+                    <div class="col-md-4 sock-selection" style="background: url('{%static 'assets/img/mystery sock-2.jpg'%}');">
                         
                     </div>
-                    <div class="col-md-4 sock-selection" style="background: url('{{ pleasure.picture.url }}');width:30%;height:800px;border:solid 1px #fff;margin-right:5%;">
+                    <div class="col-md-4 sock-selection" style="background: url('{{ pleasure.picture.url }}');margin-right:5%;">
                         
                     </div>
                 </form>

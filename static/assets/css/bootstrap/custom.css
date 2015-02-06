@@ -93,9 +93,15 @@ div.myButton input {
     width:30%;
     height:1000px;
     border:solid 1px #000 !important;
+      -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
 }
 
 .sock-selection:hover {
     -webkit-filter: saturate(0);
+    width:40%;
 }
 
