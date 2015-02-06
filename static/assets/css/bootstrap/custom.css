@@ -89,7 +89,13 @@ div.myButton input {
  SELECTION SCREEN CSS
  */
 
+.sock-selection {
+    width:30%;
+    height:1000px;
+    border:solid 1px #000 !important;
+}
 
-
-
+.sock-selection:hover {
+    -webkit-filter: saturate(0);
+}
 
