@@ -108,3 +108,6 @@ div.myButton input {
     width:31%;
 }
 
+.sock-selection:hover .caption{
+    visibility:visible;
+}
