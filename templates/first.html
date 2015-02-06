@@ -30,13 +30,13 @@
             <div class="row" style="text-align: center;">
                 <form method="post" style="margin:auto;">{% csrf_token %} 
                     <div class="col-md-4 sock-selection img-responsive" style="background: url('{{ business.picture.url }}');margin-left:5%;">
-                       <div class="caption">
+                       
                                     <div class="caption" style="visibility: hidden;">
                                         <h3>Business</h3>
                                         <hr class="colored">
                                             <button type="submit" name="selection" id="biz" value="{{ business.sub_style }}" >I Want This </button>
                                     </div>
-                                </div> 
+                                
                     </div>
                     <div class="col-md-4 sock-selection img-responsive" style="background: url('{%static 'assets/img/mystery sock-2.jpg'%}');">
                         
