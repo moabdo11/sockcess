@@ -60,7 +60,7 @@ def firstchoice(request):
             request.session['sock_pick'] = selection
             return HttpResponseRedirect('/shippinginfo')
  
-    return render_to_response('first_choice.html',
+    return render_to_response('first.html',
                               locals(),
                               context_instance=RequestContext(request))
 
