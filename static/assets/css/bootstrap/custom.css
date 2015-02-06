@@ -94,14 +94,18 @@ div.myButton input {
     height:1000px;
     border:solid 1px #000 !important;
       -webkit-transition: all 1s ease;
-     -moz-transition: all 1s ease;
-       -o-transition: all 1s ease;
-      -ms-transition: all 1s ease;
-          transition: all 1s ease;
+     -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+          transition: all 0.5s ease;
 }
 
 .sock-selection:hover {
     -webkit-filter: saturate(0);
+    -moz-filter: saturate(0);
+    -o-filter: saturate(0);
+    -ms-filter: saturate(0);
+    -transition: saturate(0);
     width:31%;
 }
 
