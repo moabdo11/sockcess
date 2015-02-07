@@ -29,20 +29,35 @@
             
             <div class="row" style="text-align: center;">
                 <form method="post" style="margin:auto;">{% csrf_token %} 
-                    <div class="col-md-4 sock-selection img-responsive" style="background: url('{{ business.picture.url }}');   background-repeat: no-repeat;
-    background-size: contain;background-size: cover; margin-left:5%;">
+
+                
+
+                    <div class="col-md-4 sock-selection img-responsive" style="background: url('{{ business.picture.url }}'); margin-left:5%; ">
                        
-                                    <div class="caption" style="visibility: hidden;">
+                                    <div class="caption">
                                         <h3>Business</h3>
                                         <hr class="colored">
-                                            <button type="submit" name="selection" id="biz" value="{{ business.sub_style }}" >I Want This </button>
+                                            <button class="btn btn-outline-light" type="submit" name="selection" id="biz" value="{{ business.sub_style }}" >I Want This </button>
                                     </div>
                                 
                     </div>
-                    <div class="col-md-4 sock-selection img-responsive" style="background: url('{%static 'assets/img/mystery sock-2.jpg'%}');">
+                
+                    <div class="col-md-4 sock-selection img-responsive" style="background: url('{%static 'assets/img/mystery sock-2.jpg'%}');background-size: contain;background-repeat: no-repeat;">
                         
+                             <div class="caption">
+                                        <h3>Random</h3>
+                                        <hr class="colored">
+                                            <button class="btn btn-outline-light" type="submit" name="selection" id="biz" value="random" >I Want This </button>
+                                    </div>
+
                     </div>
-                    <div class="col-md-4 sock-selection img-responsive" style="background: url('{{ pleasure.picture.url }}');background-size: contain;">
+                    <div class="col-md-4 sock-selection img-responsive" style="background: url('{{ pleasure.picture.url }}');">
+
+                                <div class="caption">
+                                        <h3>Pleasure</h3>
+                                        <hr class="colored">
+                                            <button class="btn btn-outline-light" type="submit" name="selection" id="biz" value="{{ pleasure.sub_style }}" >I Want This </button>
+                                    </div>
                         
                     </div>
                 </form>
