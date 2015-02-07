@@ -69,7 +69,7 @@
     <tr>
     <div class="row clearfix">
         <div class="col-md-4">
-            <img alt="50x50" src="/{{ business.picture.url }}" width="150px" height="150px" style="padding-bottom:15px;"/> 
+            <img alt="50x50" src="{{ business.picture.url }}" width="150px" height="150px" style="padding-bottom:15px;"/> 
             <button type="submit" class="btn btn-outline-light" name="selection" id="biz" value="{{ business.sub_style }}"> Business</button>
         </div>
         <div class="col-md-4 column">
@@ -77,23 +77,14 @@
             <button type="submit" class="btn btn-outline-light" name="selection" id="ran" value="random">Random</button>
         </div>
         <div class="col-md-4 column">
-            <img alt="50x50" src="/{{ pleasure.picture.url }}" width="150px" height="150px" style="padding-bottom:15px;"/> 
+            <img alt="50x50" src="{{ pleasure.picture.url }}" width="150px" height="150px" style="padding-bottom:15px;"/> 
             <button type="submit" class="btn btn-outline-light" name="selection" id="cas" value="{{ pleasure.sub_style }}">Pleasure</button>
             </tr>
                 </form>
             </table>
         </div>
     </div>
-<!-- </div>
-                <form method="post">{% csrf_token %}
-                <tr>
-                    <td><div class="myButton"><INPUT type="image" src="{% static "img/socks/business.jpg" %}"  name="selection" id="biz" value="biz"></div></td>
-                    <td><div class="myButton"><INPUT type="image" src="{% static "img/socks/random.jpg" %}" name="selection" id="ran" value="random"></div></td>
-                    <td><div class="myButton"><INPUT type="image" src="{% static "img/socks/casual.jpg" %}" name="selection" id="cas" value="cas"></div></td>
-                    
-                </tr>
-                </form>
-            </table> -->
+
         
         </div>
         

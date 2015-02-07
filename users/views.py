@@ -4,7 +4,8 @@ from .models import Subscriber, Sock, Order
 from django.contrib import messages
 from django.contrib.auth import authenticate, logout, login
 from django.core.context_processors import csrf
-from .forms import SubscriberForm, SignInForm
+from .forms import SubscriberForm
+from .newforms import SignInForm
 import stripe, time, datetime, json
 from dateutil.relativedelta import *
 from datetime import *
@@ -26,6 +27,8 @@ def thankyou(request):
     if not request.user.is_authenticated():
         return HttpResponseRedirect('/signin')
     else:
+        c = {}
+        c.update(csrf(request))
         title = 'Thanks For Signing Up'
 
     return render_to_response('thankyou.html',
@@ -34,28 +37,30 @@ def thankyou(request):
 
 
 def firstchoice(request):
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect('/signin')
+    else:
+        c = {}
+        c.update(csrf(request))
+        title='choose your destiny'
+
+        #Get sock objects for user to pick from
     
-    c = {}
-    c.update(csrf(request))
-    title='choose your destiny'
-
-    #Get sock objects for user to pick from
-    
-    business = Sock.objects.filter(style='business').latest('id')
-    pleasure = Sock.objects.filter(style = 'pleasure').latest('id')
+        business = Sock.objects.filter(style='business').latest('id')
+        pleasure = Sock.objects.filter(style = 'pleasure').latest('id')
 
 
-    #user info
-    email = request.user.username
-    custid = request.user.id
-    if request.POST:
-        #get selected sock
-        selection = request.POST.get('selection')
-        #store selected sock in session
-        request.session['sock_pick'] = selection
-        return HttpResponseRedirect('/shippinginfo')
+        #user info
+        email = request.user.username
+        custid = request.user.id
+        if request.POST:
+            #get selected sock
+            selection = request.POST.get('selection')
+            #store selected sock in session
+            request.session['sock_pick'] = selection
+            return HttpResponseRedirect('/shippinginfo')
  
-    return render_to_response('first_choice.html',
+    return render_to_response('first.html',
                               locals(),
                               context_instance=RequestContext(request))
 
@@ -83,7 +88,7 @@ def shippinginfo(request):
     form.fields['last_name'].widget.attrs = {'class': 'form-control','placeholder':'Last Name','required':'True'}
     form.fields['street'].widget.attrs = {'class': 'form-control','placeholder':'Street','required':'True'}
     form.fields['city'].widget.attrs = {'class': 'form-control','placeholder':'City','required':'True'}
-    form.fields['state'].widget.attrs = {'class': 'form-control','placeholder': 'State','required':'True'}
+    form.fields['state'].widget.attrs = {'class': 'form-control','placeholder': 'State','required':'True','maxlength':'2'}
     form.fields['zipcode'].widget.attrs = {'class': 'form-control','placeholder':'Zipcode','required':'True','maxlength':'5'}
 
 
@@ -129,50 +134,52 @@ def shippinginfo(request):
 
 
 def billinginfo(request):
-    
-    c = {}
-    c.update(csrf(request))
-    title = 'Subscribe Now'
-    email = request.user.username
-    sub_style = request.session['sock_pick']
-    #sock = Address.objects.get(sock_style = sub_style)
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect('/signin')
+    else:
+        c = {}
+        c.update(csrf(request))
+        title = 'Subscribe Now'
+        email = request.user.username
+        sub_style = request.session['sock_pick']
+        #sock = Address.objects.get(sock_style = sub_style)
 
-    if request.POST:
-        stripe.api_key = "sk_test_KSTtdSq7rzZAPRYKOlol91J4"
+        if request.POST:
+            stripe.api_key = "sk_test_KSTtdSq7rzZAPRYKOlol91J4"
 
-        # Get the credit card details submitted by the form
-        token = request.POST['stripeToken']
+            # Get the credit card details submitted by the form
+            token = request.POST['stripeToken']
         
-        try:
-            request.session['discount']
-            price = '7.99'
-            disclaimer = '* Regular billing of $9.99 / month will resume after first month'
-            # Create a Customer with Discount
-            customer = stripe.Customer.create(
-            card=token,
-            plan="baseplan",
-            email=email,
-            coupon="presignup",
-            )
-        except:
-            # Create a Customer
-            price = '9.99'
-            customer = stripe.Customer.create(
-            card=token,
-            plan="baseplan",
-            email=email
-            )
+            try:
+                request.session['discount']
+                price = '7.99'
+                disclaimer = '* Regular billing of $9.99 / month will resume after first month'
+                # Create a Customer with Discount
+                customer = stripe.Customer.create(
+                card=token,
+                plan="baseplan",
+                email=email,
+                coupon="presignup",
+                )
+            except:
+                # Create a Customer
+                price = '9.99'
+                customer = stripe.Customer.create(
+                card=token,
+                plan="baseplan",
+                email=email
+                )
         
-        # Create an Order
-        pk = request.user.id
-        cust = User.objects.get(pk = pk)
-        subscriber = Subscriber.objects.get(customer = cust)
+            # Create an Order
+            pk = request.user.id
+            cust = User.objects.get(pk = pk)
+            subscriber = Subscriber.objects.get(customer = cust)
         
-        if subscriber:
-            subscriber.stripe_id = customer.id
-            subscriber.save()
-            #ts = time.time()
-            order = Order.objects.create(
+            if subscriber:
+                subscriber.stripe_id = customer.id
+                subscriber.save()
+                #ts = time.time()
+                order = Order.objects.create(
                                         customer = cust,
                                         first_name = subscriber.first_name,
                                         last_name = subscriber.last_name,
@@ -184,12 +191,12 @@ def billinginfo(request):
                                         sock_style = request.session['sock_pick'],
                                        
                                         #timestamp = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-            )
+                )
 
-            order.save()
-            messages.success(request, "Word. We got you.")
+                order.save()
+                messages.success(request, "Word. We got you.")
             
-        return HttpResponseRedirect('/home')
+                return HttpResponseRedirect('/home')
 
     return render_to_response('billinginfo.html',
                               locals(),
@@ -237,39 +244,40 @@ def logoutuser(request):
 
 
 def signin(request):
-    
+
     c = {}
     c.update(csrf(request))
-    signin_form = SignInForm(request.POST or None)
+    form = SignInForm(request.POST or None)
     title = 'Sign In'
-    signin_form.fields['email'].widget.attrs = {'class': 'form-control','placeholder':'Email','required': 'True'}
-    signin_form.fields['password'].widget.attrs = {'class': 'form-control','placeholder':'Password','required': 'True'}
-
+    #signin_form.fields['email'].widget.attrs = {'class': 'form-control','placeholder':'Email','required': 'True'}
+    #signin_form.fields['password'].widget.attrs = {'class': 'form-control','placeholder':'Password','required': 'True'}
     if request.POST:
-        username = request.POST.get('email')
-        password = request.POST.get('password')
+        if form.is_valid():
+            username = form.cleaned_data['email']
+            password = form.cleaned_data['password']
 
-        user = authenticate(username=username, password=password)
+            user = authenticate(username=username, password=password)
 
-        if user is not None:
-            if user.is_active:
-                login(request, user)
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
 
-                return HttpResponseRedirect('/home')
-                # ensure user exists in stripe           
+                    return HttpResponseRedirect('/home')
+                    # ensure user exists in stripe           
 
-            else:
-                #user exists but account has been disabled
-                user.is_active = True
-                user.save()
+                else:
+                    #user exists but account has been disabled
+                    user.is_active = True
+                    user.save()
                
-                return HttpResponseRedirect('/shippinginfo')
-        else:
-            #credentials are wrong or user does not exist
-            messages.error(request, "we do not recognize that user/pass combo ho")
+                    return HttpResponseRedirect('/shippinginfo')
+            else:
+                #credentials are wrong or user does not exist
+                messages.error(request, "we do not recognize that user/pass combo ho")
 
-            return HttpResponseRedirect('/signin')
-
+                return HttpResponseRedirect('/signin')
+        args = {}
+        args['form'] = form    
     return render_to_response('signin.html',
                               locals(),
                               context_instance=RequestContext(request))

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+        {% block title %}{{ title }}{% endblock %}
+
+
+{% block nav %}
+
+
+<nav style="border-bottom: solid 1px #fff;background: #000;">
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <h3 class="text-center text-danger">
+                        SELECT YOUR STYLE
+                    </h3>
+                </div>
+            </div>
+        </div>
+</nav>
+
+{% endblock %}
+
+{% block intro %}
+<div class="clearfix"></div>
+<header class="video wallpaper">
+        <div class="intro-content" style="width:100%;height:100%">
+        <div class="container-fluid" style="text-align: center;margin: auto;bottom:0;">
+            
+            <div class="row" style="text-align: center;">
+                <form method="post" style="margin:auto;">{% csrf_token %} 
+                    <div class="col-md-4 sock-selection img-responsive" style="background: url('{{ business.picture.url }}');margin-left:5%;">
+                       
+                                    <div class="caption" style="visibility: hidden;">
+                                        <h3>Business</h3>
+                                        <hr class="colored">
+                                            <button type="submit" name="selection" id="biz" value="{{ business.sub_style }}" >I Want This </button>
+                                    </div>
+                                
+                    </div>
+                    <div class="col-md-4 sock-selection img-responsive" style="background: url('{%static 'assets/img/mystery sock-2.jpg'%}');">
+                        
+                    </div>
+                    <div class="col-md-4 sock-selection img-responsive" style="background: url('{{ pleasure.picture.url }}');">
+                        
+                    </div>
+                </form>
+            </div>        
+        </div>
+    </div>
+</header>
+{% endblock %}

@@ -58,6 +58,8 @@
                     <h2>Sign In</h2>
                     <hr class="colored">
                     <p>Welcome Back</p>
+                    <p>{% csrf_token %}</p>
+                    <p> {{ csrf_token }}</p>
                 </div>
             </div>
             
@@ -80,21 +82,35 @@
 
            {% endif %}
 
+           {% if form.errors %}
             
+                <div class='col-sm-10 col-sm-offset-1'>
+    {% for field in form %}
+      
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="successful">
+            <strong>{{ error|escape }}</strong>
+        </div>
+        <a href="/signup">Create Account</a>
+    {% endfor %}
+
+    </div>
+{% endif %}
             <div class="row content-row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <form name="sentMessage" id="contactForm" method="POST" novalidate> {% csrf_token %}
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Email Address</label>
-                                {{ signin_form.email }}
+                                {{ form.email }}
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Password</label>
-                                {{ signin_form.password }}
+                                {{ form.password }}
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
