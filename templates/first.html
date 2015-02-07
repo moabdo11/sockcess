@@ -29,7 +29,8 @@
             
             <div class="row" style="text-align: center;">
                 <form method="post" style="margin:auto;">{% csrf_token %} 
-                    <div class="col-md-4 sock-selection img-responsive" style="background: url('{{ business.picture.url }}');margin-left:5%;">
+                    <div class="col-md-4 sock-selection img-responsive" style="background: url('{{ business.picture.url }}');   background-repeat: no-repeat;
+    background-size: contain;background-size: cover; margin-left:5%;">
                        
                                     <div class="caption" style="visibility: hidden;">
                                         <h3>Business</h3>
@@ -41,7 +42,7 @@
                     <div class="col-md-4 sock-selection img-responsive" style="background: url('{%static 'assets/img/mystery sock-2.jpg'%}');">
                         
                     </div>
-                    <div class="col-md-4 sock-selection img-responsive" style="background: url('{{ pleasure.picture.url }}');">
+                    <div class="col-md-4 sock-selection img-responsive" style="background: url('{{ pleasure.picture.url }}');background-size: contain;">
                         
                     </div>
                 </form>
