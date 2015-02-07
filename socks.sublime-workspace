@@ -28,58 +28,26 @@
 			}
 		},
 		{
-			"file": "templates/home.html",
+			"file": "templates/firstchoice.html",
 			"settings":
 			{
-				"buffer_size": 2872,
+				"buffer_size": 5389,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "users/views.py",
+			"file": "templates/first_choice.html",
 			"settings":
 			{
-				"buffer_size": 17248,
+				"buffer_size": 7461,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "templates/shipping.html",
+			"file": "static/assets/css/bootstrap/custom.css",
 			"settings":
 			{
-				"buffer_size": 5186,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "socks/presignup_view.py",
-			"settings":
-			{
-				"buffer_size": 2001,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "site_visits/views.py",
-			"settings":
-			{
-				"buffer_size": 382,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "socks/views.py",
-			"settings":
-			{
-				"buffer_size": 4689,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/onlysignup.html",
-			"settings":
-			{
-				"buffer_size": 4209,
+				"buffer_size": 1680,
 				"line_ending": "Unix"
 			}
 		},
@@ -87,15 +55,31 @@
 			"file": "templates/base.html",
 			"settings":
 			{
-				"buffer_size": 7254,
+				"buffer_size": 7245,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "users/newforms.py",
+			"file": "templates/billinginfo.html",
 			"settings":
 			{
-				"buffer_size": 2114,
+				"buffer_size": 11742,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/changeaddress.html",
+			"settings":
+			{
+				"buffer_size": 5796,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "socks/settings/local.py",
+			"settings":
+			{
+				"buffer_size": 3169,
 				"line_ending": "Unix"
 			}
 		}
@@ -127,25 +111,41 @@
 	},
 	"expanded_folders":
 	[
+		"/home/dev/webdev/newsockcess/socks",
+		"/home/dev/webdev/newsockcess/socks/socks",
 		"/home/dev/webdev/newsockcess/socks/static",
 		"/home/dev/webdev/newsockcess/socks/static/assets",
+		"/home/dev/webdev/newsockcess/socks/static/assets/css",
+		"/home/dev/webdev/newsockcess/socks/static/assets/css/bootstrap",
+		"/home/dev/webdev/newsockcess/socks/static/assets/img",
+		"/home/dev/webdev/newsockcess/socks/static/assets/img/team",
 		"/home/dev/webdev/newsockcess/socks/static/assets/js",
 		"/home/dev/webdev/newsockcess/socks/static/assets/js/plugins",
+		"/home/dev/webdev/newsockcess/socks/templates",
 		"/home/dev/webdev/newsockcess/socks/users"
 	],
 	"file_history":
 	[
+		"/home/dev/webdev/newsockcess/socks/templates/thankyou.html",
+		"/home/dev/webdev/newsockcess/socks/users/views.py",
+		"/home/dev/webdev/newsockcess/socks/users/newforms.py",
+		"/home/dev/webdev/newsockcess/socks/socks/views.py",
+		"/home/dev/webdev/newsockcess/socks/socks/urls.py",
+		"/home/dev/webdev/newsockcess/socks/socks/presignup_view.py",
+		"/home/dev/webdev/newsockcess/socks/socks/worker.py",
+		"/home/dev/webdev/newsockcess/socks/templates/base.html",
+		"/home/dev/webdev/newsockcess/socks/templates/home.html",
+		"/home/dev/webdev/newsockcess/socks/templates/shipping.html",
+		"/home/dev/webdev/newsockcess/socks/site_visits/views.py",
+		"/home/dev/webdev/newsockcess/socks/templates/onlysignup.html",
 		"/home/dev/webdev/newsockcess/socks/users/forms.py",
 		"/home/dev/webdev/newsockcess/socks/static/assets/css/bootstrap/custom_bootstrap.css",
 		"/home/dev/webdev/newsockcess/socks/static/assets/css/bootstrap/custom.css",
-		"/home/dev/webdev/newsockcess/socks/socks/urls.py",
 		"/home/dev/webdev/newsockcess/socks/socks/settings/base.py",
 		"/home/dev/webdev/newsockcess/socks/socks/settings/production.py",
 		"/home/dev/webdev/newsockcess/socks/static/assets/css/bootstrap/bootstrap.min.css",
 		"/home/dev/webdev/newsockcess/socks/static/assets/css/vitality-orange.css",
-		"/home/dev/webdev/newsockcess/socks/site_visits/views.py",
 		"/home/dev/webdev/newsockcess/socks/site_visits/models.py",
-		"/home/dev/webdev/newsockcess/socks/templates/home.html",
 		"/home/dev/webdev/newsockcess/socks/templates/firstchoice.html",
 		"/home/dev/webdev/newsockcess/socks/templates/deleteuser.html",
 		"/home/dev/webdev/newsockcess/socks/templates/changesockselection.html",
@@ -153,12 +153,7 @@
 		"/home/dev/webdev/newsockcess/socks/templates/changeaddress.html",
 		"/home/dev/webdev/newsockcess/socks/templates/billinginfo.html",
 		"/home/dev/webdev/newsockcess/socks/templates/basehome.html",
-		"/home/dev/webdev/newsockcess/socks/socks/views.py",
-		"/home/dev/webdev/newsockcess/socks/templates/base.html",
-		"/home/dev/webdev/newsockcess/socks/templates/thankyou.html",
-		"/home/dev/webdev/newsockcess/socks/templates/shipping.html",
 		"/home/dev/webdev/newsockcess/socks/templates/presignup.html",
-		"/home/dev/webdev/newsockcess/socks/templates/onlysignup.html",
 		"/home/dev/webdev/newsockcess/socks/templates/myaccount.html",
 		"/home/dev/webdev/newsockcess/socks/users/models.py",
 		"/home/dev/webdev/newsockcess/socks/socks/settings/local.py",
@@ -201,7 +196,7 @@
 	"groups":
 	[
 		{
-			"selected": 9,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -217,8 +212,8 @@
 						"selection":
 						[
 							[
-								2035,
-								2035
+								9415,
+								9415
 							]
 						],
 						"settings":
@@ -228,139 +223,85 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 357.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "templates/home.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2872,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1651,
-								1651
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 204.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "users/views.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 17248,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5455,
-								5455
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 306.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "templates/shipping.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5186,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1037,
-								1037
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 204.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "socks/presignup_view.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2001,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								424,
-								424
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 204.0,
+						"translation.y": 3553.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "site_visits/views.py",
+					"buffer": 1,
+					"file": "templates/firstchoice.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 382,
+						"buffer_size": 5389,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5389,
+								5389
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1534.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "templates/first_choice.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7461,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3468,
+								3468
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1245.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"file": "static/assets/img/team/myass.jpg",
+					"semi_transient": true,
+					"stack_index": 3,
+					"type": "image"
+				},
+				{
+					"buffer": 3,
+					"file": "static/assets/css/bootstrap/custom.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1680,
 						"regions":
 						{
 						},
@@ -373,90 +314,32 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "socks/views.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4689,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1620,
-								1620
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
+							"syntax": "Packages/CSS/CSS.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 306.0,
+						"translation.x": -0.0,
+						"translation.y": 459.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "templates/onlysignup.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4209,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2785,
-								2785
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 867.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
+					"buffer": 4,
 					"file": "templates/base.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7254,
+						"buffer_size": 7245,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								262,
-								262
+								5667,
+								5667
 							]
 						],
 						"settings":
@@ -466,19 +349,49 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1887.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "users/newforms.py",
+					"buffer": 5,
+					"file": "templates/billinginfo.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2114,
+						"buffer_size": 11742,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9282,
+								9282
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4386.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "templates/changeaddress.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5796,
 						"regions":
 						{
 						},
@@ -491,15 +404,45 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 255.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "socks/settings/local.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3169,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2008,
+								2008
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 510.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
