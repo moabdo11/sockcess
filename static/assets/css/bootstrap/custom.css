@@ -91,7 +91,9 @@ div.myButton input {
 
 .sock-selection {
     /*width:30%;*/
-    height:968px;
+    height:100%;
+    margin:0;
+    padding:0;
     border:solid 1px #000 !important;
     background-repeat: no-repeat;
     background-size: contain;
