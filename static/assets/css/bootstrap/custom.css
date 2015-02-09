@@ -92,7 +92,7 @@ div.myButton input {
 .sock-selection-wrap{
     position:relative;
     overflow: visible;
-
+    z-index:1;
 }
 
 .sock-selection-wrap:hover {
