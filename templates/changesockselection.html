@@ -1,14 +1,29 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-<head>
-        {% block title %}{{ title }}{% endblock %}
+       
 
-      
-</head>
+{% block title %}{{ title }}{% endblock %}
 
-{% block intro %}
-<nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded">
-        <div class="container">
+
+{% block nav %}
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded" style="background:#000; padding:10px;">
+
+
+
+
+
+        <div class="container" >
+
+
+
+                
+
+                
+
+
+
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -20,20 +35,31 @@
                 <a class="navbar-brand" href="/home">
                     <img src="{% static "assets/img/logo/socklogosmall.png" %}" class="img-responsive" alt="">
                 </a>
+
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right" id="sign-in-form">
                     <li class="hidden">
-                        <a href="#page-top"></a>
+                        <a href="/home"></a>
                     </li>
-                    
+
                     <li>
-                        <b>{{ email }}<b>    
-                    </li>    
+                        <a href="/myaccount">My Account</a>
+                    </li>
+
+                    <li>
+                        <a href="/home">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="/logout">Logout</a>
+                    </li>
+
+
                 </ul>
-                
+
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -41,54 +67,56 @@
     </nav>
 
 
-<header class="video0">
-        <div class="overlay"></div>
-        <div class="intro-content">
-            <h1>CHANGE YOUR DESTINY</h1><br />
 
-                        {% if messages %}
-            <div class='row'>
-                <div class='col-xs-12 text-center'>
-                    {% for message in messages %}
-                        <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
-                    {% endfor %}
-                </div>
-            </div>
-           {% endif %}
-            
-            <table class="buttonContainer">
 
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <h3 class="text-center text-danger">
-                SELECT YOUR NEW STYLE
-            </h3>
-        </div>
-    </div>
-    <form method="post">{% csrf_token %}
-    <tr>
-    <div class="row clearfix">
-        <div class="col-md-4">
-            <img alt="50x50" src="{{ business.picture.url }}" width="150px" height="150px" style="padding-bottom:15px;"/> 
-            <button type="submit" class="btn btn-outline-light" name="selection" id="biz" value="{{ business.sub_style }}"> Business</button>
-        </div>
-        <div class="col-md-4 column">
-            <img alt="50x50" src="{%static "assets/img/mystery sock-2.jpg"%}" width="150px" height="150px" style="padding-bottom:15px;"/> 
-            <button type="submit" class="btn btn-outline-light" name="selection" id="ran" value="random">Random</button>
-        </div>
-        <div class="col-md-4 column">
-            <img alt="50x50" src="{{ pleasure.picture.url }}" width="150px" height="150px" style="padding-bottom:15px;"/> 
-            <button type="submit" class="btn btn-outline-light" name="selection" id="cas" value="{{ pleasure.sub_style }}">Pleasure</button>
-            </tr>
-                </form>
-            </table>
-        </div>
-    </div>
 
-        
-        </div>
-        
-        
-    </header>
-    
 {% endblock %}
+
+{% block intro %}
+<div class="clearfix"></div>
+<header class="video wallpaper">
+        <div class="intro-content" style="width:100%;height:100%">
+        <div class="container-fluid">
+        
+            
+            <div class="row" style="text-align: center;">
+                <form method="post" style="margin:auto;">{% csrf_token %} 
+
+           
+                    <div class="col-sm-4 sock-selection img-responsive" style="background: url('{{ business.picture.url }}');background-size: contain;background-repeat: no-repeat;">
+                       
+                                    <div class="caption">
+                                        <h3>Business</h3>
+                                        <hr class="colored">
+                                        <button class="btn btn-outline-light" type="submit" name="selection" id="biz" value="{{ business.sub_style }}" >I Want This </button>
+                                    </div>
+                                
+                    </div>
+                
+                    <div class="col-sm-4 sock-selection img-responsive item" style="background: url('{%static 'assets/img/mystery sock-2.jpg'%}');background-size: contain;background-repeat: no-repeat;">
+                        
+                             <div class="caption">
+                                        <h3>Random</h3>
+                                        <hr class="colored">
+                                            <button class="btn btn-outline-light" type="submit" name="selection" id="biz" value="random" >I Want This </button>
+                                    </div>
+
+                    </div>
+                    <div class="col-sm-4 item sock-selection img-responsive" style="background: url('{{ pleasure.picture.url }}');background-size: contain;background-repeat: no-repeat;">
+
+                                <div class="caption">
+                                        <h3>Pleasure</h3>
+                                        <hr class="colored">
+                                            <button class="btn btn-outline-light" type="submit" name="selection" id="biz" value="{{ pleasure.sub_style }}" >I Want This </button>
+                                    </div>
+                        
+                    </div>
+                </form>
+            </div>        
+        </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+
