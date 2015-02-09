@@ -110,7 +110,8 @@ div.myButton input {
     -moz-filter: saturate(0);
     -o-filter: saturate(0);
     -ms-filter: saturate(0);
-    width:31%;
+    width:34%;
+    overflow: hidden;
 }
 
 .sock-selection .caption{
