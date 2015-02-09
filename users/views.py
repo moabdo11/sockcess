@@ -408,6 +408,9 @@ def change_sock(request):
         addr = Subscriber.objects.get(customer = user)
         
         if sock_style == 'random':
+            if addr.sock_style == 'random':
+                messages.success(request, "You didn't change a fucking thing. Idiot.")
+                return HttpResponseRedirect('/home')   
             addr.sock_genre = 'random'
             addr.sock_style = 'random'
         else:    
