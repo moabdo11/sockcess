@@ -89,6 +89,15 @@ div.myButton input {
 /*
  SELECTION SCREEN CSS
  */
+.sock-selection-wrap{
+    position:relative;
+    overflow: visible;
+
+}
+
+.sock-selection-wrap:hover {
+    z-index: 2;
+}
 
 .sock-selection {
     /*width:30%;*/

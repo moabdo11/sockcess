@@ -31,7 +31,7 @@
             <div class="row" style="text-align: center;">
                 <form method="post" style="margin:auto;">{% csrf_token %} 
 
-           
+                <div class="sock-selection-wrap">
                     <div class="col-sm-4 sock-selection img-responsive" style="background: url('{{ business.picture.url }}');background-size: cover;background-repeat: no-repeat;">
                        
                                     <div class="caption">
@@ -40,10 +40,11 @@
                                         <p>Get your ankles meeting ready</p>
                                         <button class="btn btn-outline-light" type="submit" name="selection" id="biz" value="{{ business.sub_style }}" >I Want This </button>
                                     </div>
-                                
+                </div>
                     </div>
                 
-                    <div class="col-sm-4 sock-selection img-responsive item" style="background: url('{%static 'assets/img/mystery sock-2.jpg'%}');background-size: contain;background-repeat: no-repeat;">
+                <div class="sock-selection-wrap">
+                    <div class="col-sm-4 sock-selection img-responsive item" style="background: url('{%static 'assets/img/mystery sock-2.jpg'%}');background-size: cover;background-repeat: no-repeat;">
                         
                              <div class="caption">
                                         <h3>Random</h3>
@@ -51,9 +52,11 @@
                                         <p>you'll never get the same pair twice</p>
                                             <button class="btn btn-outline-light" type="submit" name="selection" id="biz" value="random" >I Want This</button>
                                     </div>
-
+                </div>                        
                     </div>
-                    <div class="col-sm-4 item sock-selection img-responsive" style="background: url('{{ pleasure.picture.url }}');background-size: contain;background-repeat: no-repeat; margin-right:3%;">
+
+                <div class="sock-selection-wrap">
+                    <div class="col-sm-4 item sock-selection img-responsive" style="background: url('{{ pleasure.picture.url }}');background-size: cover;background-repeat: no-repeat;">
 
                                 <div class="caption">
                                         <h3>Pleasure</h3>
@@ -61,7 +64,7 @@
                                         <p>Swag on these hoes</p>
                                             <button class="btn btn-outline-light" type="submit" name="selection" id="biz" value="{{ pleasure.sub_style }}" >I Want This </button>
                                     </div>
-                        
+                        </div>
                     </div>
                 </form>
             </div>        
