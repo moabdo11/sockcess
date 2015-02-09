@@ -412,7 +412,7 @@ def change_sock(request):
             addr.sock_style = 'random'
         else:    
             s = Sock.objects.get(sub_style = sock_style)
-            if addr.sock_genre = s.style:
+            if addr.sock_genre == s.style:
                 messages.success(request, "You didn't change a fucking thing. Idiot.")
                 return HttpResponseRedirect('/home')
             addr.sock_genre = s.style
