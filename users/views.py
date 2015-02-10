@@ -194,7 +194,7 @@ def billinginfo(request):
                 )
 
                 order.save()
-                messages.success(request, "Welcome to the family. Your socks are bring prepared. We will notify you when they ship.")
+                messages.success(request, "Welcome to the family. Your socks are being prepared. We will notify you when they ship.")
             
                 return HttpResponseRedirect('/home')
 
