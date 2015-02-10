@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+
+
+{% block footer %}
+                
+ <footer class="footer" style="background-image: url('{% static 'assets/img/bg-footer.jpg' %}' ); top:0; bottom:0; right:0; left:0; height:100%;">
+        <div class="container text-center">
+            <div class="row">
+                {% if messages %}
+    <div class='col-sm-10 col-sm-offset-1'>
+    {% for message in messages %}
+    <div class="successful">
+        <strong>{{ message }}</strong>
+    {% endfor %}
+    </div>
+    </div>
+{% endif %}
+       
+
+                <div class="col-md-6 contact-details">
+                    <h4><i class="fa fa-map-marker"></i> Address</h4>
+                    <p>Team Sockcess, 30 Clay St, Cambridge, MA, 02140</p>
+                </div> 
+                <div class="col-md-4 contact-details">
+                    <h4><i class="fa fa-envelope"></i> Email</h4>
+                    <p><a href="mailto:ass@aol.com">info@besockcessful.com</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row social">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li><a href="https://www.facebook.com/pages/SockCess/831556083552097"><i class="fa fa-facebook fa-fw fa-5x"></i></a>
+                        </li>
+                        <li><a href="http://i.instagram.com/besockcessful/"><i class="fa fa-instagram fa-fw fa-5x"></i></a>
+                        </li>
+                       <!--  <li><a href="#"><i class="fa fa-linkedin fa-fw fa-2x"></i></a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="row copyright">
+                <div class="col-lg-12">
+                    <p class="small">&copy; 2014 GAAW</p>
+                </div>
+            </div>
+        </div>
+    </footer>                         
+                
+{% endblock %}
