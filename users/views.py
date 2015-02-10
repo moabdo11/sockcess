@@ -205,7 +205,7 @@ def billinginfo(request):
 
 def confirmemail(request):
 
-    messages.success(request,'Thanks for confirming your email.')
+    messages.success(request,"Thanks for confirming your email.")
 
     return render_to_response('index.html',
                                   locals(),
