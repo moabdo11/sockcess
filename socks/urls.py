@@ -28,6 +28,7 @@ urlpatterns = patterns('',
     url(r'choose/', 'users.views.firstchoice', name='choose'),
     url(r'shippinginfo/', 'users.views.shippinginfo', name='shippinginfo'),
     url(r'billinginfo/', 'users.views.billinginfo', name='billinginfo'),
+    url(r'confirmemail/','users.views.confirmemail', name='confirmemail'),
 
     # Discounted Signup URL
     url(r'discount20percentoff1stmonth/', 'socks.presignup_view.signup', name='signup'),

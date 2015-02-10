@@ -203,6 +203,16 @@ def billinginfo(request):
                               context_instance=RequestContext(request))
 
 
+def confirmemail(request):
+
+    messages.success(request,'Thanks for confirming your email.')
+
+    return render_to_response('index.html',
+                                  locals(),
+                                  context_instance=RequestContext(request))
+
+
+
 ####################################### USER ACCOUNT FUNCTIONS #########################################################
 
 
