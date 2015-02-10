@@ -108,7 +108,16 @@ STATICFILES_DIRS = (
 )
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
+#Email info
 
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'besockcessful.tali@gmail.com'
+EMAIL_HOST_PASSWORD = 'T@l1i3sin'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+#Static file hosting
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 STATICFILES_STORAGE = DEFAULT_FILE_STORAGE

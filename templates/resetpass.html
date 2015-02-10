@@ -3,11 +3,10 @@
 
 {% block title %}{{ title }}{% endblock %}
 
-
 {% block nav %}
 
-<nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded" style="background:#000; padding:10px;">
-        <div class="container" >
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded" style="background:#000; padding:10px;">
+        <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -22,24 +21,7 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <!--<ul class="nav navbar-nav navbar-right" id="sign-in-form">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-
-                    <li>
-                        <a href="/home">Home</a>
-                    </li>
-
-                    <li>
-                        <a href="/logout">Logout</a>
-                    </li>
-
-
-                </ul>-->
-
-            </div>
+            
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
@@ -47,44 +29,44 @@
 
 {% endblock %}
 
-
-
 {% block signup %}
 
     <section id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Sign In</h2>
+                    <h2>Enter New Password</h2>
                     <hr class="colored">
-                    <p>Welcome Back</p>
-                    
-                   
+                    <p></p>
                 </div>
             </div>
-            
 
+
+            <div class="row content-row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <form name="sentMessage" id="contactForm" method="POST"> {% csrf_token %}
+                        
+
+                            
+                                
             {% if messages %}
 
             <div class='row'>
-                <div class='col-sm-6 col-sm-offset-3'>
+                <div class='col-sm-10 col-sm-offset-0'>
 
                     {% for message in messages %}
 
                         <p{% if message.tags == "success" or message.tags == "error" %} class="successful"{% endif %}><b>{{ message }}</b></p>
 
                     {% endfor %}
-                <br />
-                <a href="/signup">Create An Account</a>
-                <br />
-                <a href="/forgotpass">Forgot Password</a>
+
                 </div>
             </div>
-            </div>
+            
 
            {% endif %}
-
-           {% if form.errors %}
+                                
+            {% if form.errors %}
             
                 <div class='col-sm-10 col-sm-offset-1'>
     {% for field in form %}
@@ -94,24 +76,13 @@
         <div class="successful">
             <strong>{{ error|escape }}</strong>
         </div>
-        <a href="/signup">Create Account</a>
-        <br/>
-        
-        <a href="/forgotpass">Forgot Password</a>
     {% endfor %}
 
     </div>
 {% endif %}
-            <div class="row content-row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <form name="sentMessage" id="contactForm" method="POST" novalidate> {% csrf_token %}
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Email Address</label>
-                                {{ form.email }}
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
+                                
+                       
+
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Password</label>
@@ -119,14 +90,20 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+
+                                <label>Re-Enter Password</label>
+                                {{ form.verify_password }}
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
                         <br>
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-outline-dark">Sign Me In</button>
-                                
-                                
-                            </div>
+                                <button type="submit" class="btn btn-outline-dark">Reset Password</button>
+                            </div>    
                         </div>
                     </form>
                 </div>
@@ -134,8 +111,3 @@
         </div>
     </section>
 {% endblock %}
-
-
-
-
-

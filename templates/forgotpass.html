@@ -55,9 +55,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Sign In</h2>
+                    <h2>Forgot My Password</h2>
                     <hr class="colored">
-                    <p>Welcome Back</p>
+                    <p>{{ message }}</p>
                     
                    
                 </div>
@@ -75,9 +75,7 @@
 
                     {% endfor %}
                 <br />
-                <a href="/signup">Create An Account</a>
-                <br />
-                <a href="/forgotpass">Forgot Password</a>
+                <a href="/signup">Create Account</a>
                 </div>
             </div>
             </div>
@@ -95,9 +93,6 @@
             <strong>{{ error|escape }}</strong>
         </div>
         <a href="/signup">Create Account</a>
-        <br/>
-        
-        <a href="/forgotpass">Forgot Password</a>
     {% endfor %}
 
     </div>
@@ -112,18 +107,12 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Password</label>
-                                {{ form.password }}
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
+                       
                         <br>
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-outline-dark">Sign Me In</button>
+                                <button type="submit" class="btn btn-outline-dark">Send my password</button>
                                 
                                 
                             </div>

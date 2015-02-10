@@ -83,3 +83,49 @@ class SignInForm(forms.Form):
             self.clean_email()
             return super(SignInForm, self).clean(*args, **kwargs)
         raise forms.ValidationError('Please Fill Out All Fields')
+       
+       
+
+class ForgotPassForm(forms.Form):
+       def __init__(self, *args, **kwargs):
+              super(ForgotPassForm, self).__init__(*args, **kwargs)
+              self.fields['email'].required = True
+              
+       email = forms.CharField(max_length=55, required=True, widget=forms.EmailInput( attrs = {'class': 'form-control','placeholder':'Email',}))
+       
+       def clean_email(self):
+              value = self.data['email']
+              try:
+                     User.objects.get(username=value)
+                     return value
+              except:
+                     raise forms.ValidationError("We do not recognize that email address")
+              
+       def clean(self, *args, **kwargs):
+              if self.data['email']:
+                     self.clean_email()
+                     return super(ForgotPassForm, self).clean(*args, **kwargs)
+              raise forms.ValidationError('Please fill out all fields')
+       
+       
+class ResetPassForm(forms.Form):
+       def __init__(self, *args, **kwargs):
+              super(ResetPassForm, self).__init__(*args, **kwargs)
+              self.fields['password'].required = True
+              self.fields['verify_password'].required = True
+              
+       password = forms.CharField(max_length=55, required=True, widget=forms.PasswordInput(render_value=False, attrs = {'class': 'form-control','placeholder':'Password', }))
+       verify_password = forms.CharField(max_length=55, required=True, widget=forms.PasswordInput(render_value=False, attrs = {'class': 'form-control','placeholder':'Re-Enter Password', }))
+       
+       def clean_password(self):
+              if self.data['password'] != self.data['verify_password']:
+                     raise forms.ValidationError('Passwords are not the same')
+              return self.data['password']
+       
+       def clean(self, *args, **kwargs):
+              if self.data['password'] and self.data['verify_password']:
+                     self.clean_password()
+                     return super(ResetPassForm, self).clean(*args, **kwargs)
+              raise forms.ValidationError('Please fill out all fields')
+       
+       

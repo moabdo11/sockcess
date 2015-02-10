@@ -5,7 +5,12 @@ admin.autodiscover()
 urlpatterns = patterns('',
     
     # Admin URLS
-    url(r'^admin/', include(admin.site.urls)),                   
+    url(r'^admin/', include(admin.site.urls)),
+    
+    # Password Reset URLS
+    url(r'forgotpass/', 'users.views.forgotpass', name='forgotpass'),
+    url(r'after/', 'users.views.after', name='after'),
+    url(r'resetpassword/(?P<email>\d+)/$', 'users.views.resetpass', name='resetpass'),
                        
     # BasePage URLS
     url(r'^$', 'socks.views.home', name='home'),

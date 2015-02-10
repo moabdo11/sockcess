@@ -1,53 +1,108 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
+{% block title %}{{ title }}{% endblock %}
+
+
+{% block nav %}
+
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded" style="background:#000; padding:10px;">
+        <div class="container" >
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img src="{% static "assets/img/logo/socklogosmall.png" %}" class="img-responsive" alt="">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <!--<ul class="nav navbar-nav navbar-right" id="sign-in-form">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+
+                    <li>
+                        <a href="/home">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="/logout">Logout</a>
+                    </li>
+
+
+                </ul>-->
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+{% endblock %}
 
 
 
-{% block footer %}
-                
- <footer class="footer" style="background-image: url('{% static 'assets/img/bg-footer.jpg' %}' ); top:0; bottom:0; right:0; left:0; height:100%;">
-        <div class="container text-center">
+{% block signup %}
+
+    <section id="contact">
+        <div class="container">
             <div class="row">
-                {% if messages %}
-    <div class='col-sm-10 col-sm-offset-1'>
-    {% for message in messages %}
-    <div class="successful">
-        <strong>{{ message }}</strong>
+                <div class="col-lg-12 text-center">
+                    <h2>We've Sent You a Reset Link</h2>
+                    <hr class="colored">
+                    <p>Check your email</p>
+                    
+                   
+                </div>
+            </div>
+            
+
+            {% if messages %}
+
+            <div class='row'>
+                <div class='col-sm-6 col-sm-offset-3'>
+
+                    {% for message in messages %}
+
+                        <p{% if message.tags == "success" or message.tags == "error" %} class="successful"{% endif %}><b>{{ message }}</b></p>
+
+                    {% endfor %}
+                <br />
+                <a href="/signup">Create Account</a>
+                </div>
+            </div>
+            </div>
+
+           {% endif %}
+
+           {% if form.errors %}
+            
+                <div class='col-sm-10 col-sm-offset-1'>
+    {% for field in form %}
+      
     {% endfor %}
-    </div>
+    {% for error in form.non_field_errors %}
+        <div class="successful">
+            <strong>{{ error|escape }}</strong>
+        </div>
+        <a href="/signup">Create Account</a>
+    {% endfor %}
+
     </div>
 {% endif %}
-       
-
-                <div class="col-md-6 contact-details">
-                    <h4><i class="fa fa-map-marker"></i> Address</h4>
-                    <p>Team Sockcess, 30 Clay St, Cambridge, MA, 02140</p>
-                </div> 
-                <div class="col-md-4 contact-details">
-                    <h4><i class="fa fa-envelope"></i> Email</h4>
-                    <p><a href="mailto:ass@aol.com">info@besockcessful.com</a>
-                    </p>
-                </div>
-            </div>
-            <div class="row social">
-                <div class="col-lg-12">
-                    <ul class="list-inline">
-                        <li><a href="https://www.facebook.com/pages/SockCess/831556083552097"><i class="fa fa-facebook fa-fw fa-5x"></i></a>
-                        </li>
-                        <li><a href="http://i.instagram.com/besockcessful/"><i class="fa fa-instagram fa-fw fa-5x"></i></a>
-                        </li>
-                       <!--  <li><a href="#"><i class="fa fa-linkedin fa-fw fa-2x"></i></a>
-                        </li> -->
-                    </ul>
-                </div>
-            </div>
-            <div class="row copyright">
-                <div class="col-lg-12">
-                    <p class="small">&copy; 2014 GAAW</p>
-                </div>
-            </div>
+           
         </div>
-    </footer>                         
-                
+    </section>
 {% endblock %}
+
+
+
+
+

@@ -5,12 +5,12 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, logout, login
 from django.core.context_processors import csrf
 from .forms import SubscriberForm
-from .newforms import SignInForm
+from .newforms import SignInForm, ForgotPassForm, ResetPassForm
 import stripe, time, datetime, json
 from dateutil.relativedelta import *
 from datetime import *
 from django import forms
-
+from django.core.mail import send_mail
 
 
 """
@@ -213,6 +213,57 @@ def confirmemail(request):
                                   context_instance=RequestContext(request))
 
 
+def forgotpass(request):
+    
+    title="Forgot Password"
+    c = {}
+    c.update(csrf(request))
+    form = ForgotPassForm(request.POST or None)
+    message = "Give us the email associated with your account, and we will send your password"
+    
+    if request.POST:
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            user = User.objects.get(email = email)
+            idd = user.id
+            if user:
+                send_mail('Team Sockcess Password Reset', 'click here to reset your password: http://www.besockcessful.com/resetpassword/%d' % idd,'besockcessful.tali@gmail.com',[email], fail_silently=False )
+                message = "We've sent you an email with a link to reset your password"
+                return HttpResponseRedirect('/after')
+            
+    return render_to_response('forgotpass.html',
+                                  locals(),
+                                  context_instance=RequestContext(request))
+
+
+def after(request):
+    title = "Forgot Password"
+    
+    return render_to_response('after.html',
+                              locals(),
+                              context_instance=RequestContext(request))
+
+
+def resetpass(request, email):
+    
+    c={}
+    c.update(csrf(request))
+    form = ResetPassForm(request.POST or None)
+    
+    if request.POST:
+        if form.is_valid():
+            password = form.cleaned_data['password']
+            
+            u = User.objects.get(id=email)
+            u.set_password(password)
+            u.save()
+            
+            messages.success(request,'Your password has been reset')
+            return HttpResponseRedirect('/signin')
+    
+    return render_to_response('resetpass.html',
+                              locals(),
+                              context_instance=RequestContext(request))
 
 ####################################### USER ACCOUNT FUNCTIONS #########################################################
 
