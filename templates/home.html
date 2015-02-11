@@ -120,10 +120,11 @@
                             <i class="fa fa-check-square-o"></i>
                         </div>
                         <div class="media-body">
-                        <h3 class="media-heading">Choose</h3>
+                        <h3 class="media-heading">My Orders</h3>
                             <ul>
-                                <li>2 monthly styles to choose from</li>
-                                <li>Change styles whenever you like</li>
+                            {% for order in orders %}
+                                <li>{{ order.sock_style }}</li>
+                            {% endfor %}
 
                             </ul>
                         </div>
@@ -135,10 +136,12 @@
                             <i class="fa fa-truck"></i>
                         </div>
                         <div class="media-body">
-                          <h3 class="media-heading">Recieve</h3>
+                          <h3 class="media-heading">My Address</h3>
                             <ul>
-                                <li>Recieve your socks every month</li>
-                                <li>Hassle free</li>
+                                <li>{{ address.street }}</li>
+                                <li>{{ address.city }}</li>
+                                <li>{{ address.state }}</li>
+                                <li>{{ address.zipcode }}</li>
                             </ul>
                         </div>
                     </div>

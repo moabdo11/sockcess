@@ -278,7 +278,9 @@ def userhome(request):
         custid = request.user.id
         user = User.objects.get(pk = custid)
         address = Subscriber.objects.get(customer = user)
-        
+        orders = Order.objects.filter(customer=user)
+
+
         if address.sock_style == 'random':
             rando = 'random'
         else:
