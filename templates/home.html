@@ -67,7 +67,7 @@
 {% block filler %}
 
 {% if rando %}
-    <aside class="cta-quote" style="background: url('{% static 'assets/img/mystery sock-2.jpg' %}' )no-repeat center center fixed; background-size:cover; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; ">   
+    <aside class="cta-quote" style="background: url('{% static 'assets/img/mystery sock-2.jpg' %}' ); background-size 100% 100%;">   
 {% else %} 
     <aside class="cta-quote" style="background: url('{{ img.picture.url }}' ) no-repeat center center fixed; background-size:cover; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;">
 {% endif %}
