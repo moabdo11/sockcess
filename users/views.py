@@ -409,6 +409,7 @@ def change_address_info(request):
                     address.first_name = new_first_name
                     address.last_name = new_last_name
                     address.street = new_street
+                    address.city = new_city
                     address.state = new_state
                     address.zipcode = new_zipcode
                     address.save()
