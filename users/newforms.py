@@ -42,7 +42,7 @@ class UserForm(forms.Form):
     def clean_email(self):
         value = self.data['email']
         try:
-            User.objects.get(username=value)
+            User.objects.get(email=value)
             raise forms.ValidationError("Someone is already using this email. Please pick another.")
         except User.DoesNotExist:
             return value
@@ -71,7 +71,7 @@ class SignInForm(forms.Form):
     def clean_email(self):
         value = self.data['email']
         try:
-            User.objects.get(username=value)
+            User.objects.get(email=value)
             return value
         except:
             raise forms.ValidationError("We do not recognize your username")
@@ -96,7 +96,7 @@ class ForgotPassForm(forms.Form):
        def clean_email(self):
               value = self.data['email']
               try:
-                     User.objects.get(username=value)
+                     User.objects.get(email=value)
                      return value
               except:
                      raise forms.ValidationError("We do not recognize that email address")
