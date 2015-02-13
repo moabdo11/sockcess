@@ -120,12 +120,30 @@
                             <i class="fa fa-check-square-o"></i>
                         </div>
                         <div class="media-body">
-                        <h3 class="media-heading">My Orders</h3>
+                        <h3 class="media-heading">My Last Orders</h3>
                             <ul>
                             {% for order in orders %}
                                 <li>{{ order.sock_style }}</li>
                             {% endfor %}
 
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeIn" data-wow-delay=".6s">
+                    <div class="media">
+                        <div class="pull-left">
+                            <i class="fa fa-smile-o"></i>
+                        </div>
+                        <div class="media-body">
+                           <h3 class="media-heading">My Current Selection</h3>
+                            <ul>
+                                {% if rando %}
+                                    <li>{{ rando }}</li>
+                                {% else %}
+                                    <li>{{ img.sub_style }}</li>
+                                {% endif %}
+                                
                             </ul>
                         </div>
                     </div>
@@ -146,21 +164,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 wow fadeIn" data-wow-delay=".6s">
-                    <div class="media">
-                        <div class="pull-left">
-                            <i class="fa fa-smile-o"></i>
-                        </div>
-                        <div class="media-body">
-                           <h3 class="media-heading">Enjoy</h3>
-                            <ul>
-                                <li>Your feet will love you</li>
-                                <li>Other people will love your feet</li>
-                                <li>Seriously</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
         <br />
