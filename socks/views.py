@@ -83,6 +83,7 @@ def signup(request):
 
     if form.is_valid():
         usern = form.cleaned_data['email']
+        usern = usern.lower()
         emai = usern
         passw = form.cleaned_data['password']
 

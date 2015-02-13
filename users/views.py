@@ -224,6 +224,7 @@ def forgotpass(request):
     if request.POST:
         if form.is_valid():
             email = form.cleaned_data['email']
+            email = email.lower()
             user = User.objects.get(email = email)
             idd = user.id
             if user:
@@ -318,6 +319,7 @@ def signin(request):
     if request.POST:
         if form.is_valid():
             username = form.cleaned_data['email']
+            username = username.lower()
             password = form.cleaned_data['password']
 
             user = authenticate(username=username, password=password)
