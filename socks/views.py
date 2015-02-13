@@ -24,11 +24,12 @@ def home(request):
         if form.is_valid():
             
             usern = form.cleaned_data['email']
+            usern = usern.lower()
             emai = usern
             passw = form.cleaned_data['password']
 
             if usern and emai and passw:
-                user = User.objects.create_user(username = usern,
+                user = User.objects.create_user(username = usern[:30],
                                             email = emai,
                                             password = passw)
                 user.save()
@@ -88,9 +89,9 @@ def signup(request):
         passw = form.cleaned_data['password']
 
         if usern and emai and passw:
-            user = User.objects.create_user(username = usern,
+            user = User.objects.create_user(username = usern[:30],
                                             email = emai,
-                                            password = passw)
+                                            password = passw,)
             
             try:
                 list = mailchimp.utils.get_connection().get_list_by_id('4d3d1b0805')

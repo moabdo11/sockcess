@@ -322,7 +322,7 @@ def signin(request):
             username = username.lower()
             password = form.cleaned_data['password']
 
-            user = authenticate(username=username, password=password)
+            user = authenticate(username=username[:30], password=password)
 
             if user is not None:
                 if user.is_active:
