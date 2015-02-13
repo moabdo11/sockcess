@@ -41,6 +41,7 @@ class UserForm(forms.Form):
 
     def clean_email(self):
         value = self.data['email']
+        value = value.lower()
         try:
             User.objects.get(username=value)
             raise forms.ValidationError("Someone is already using this email. Please pick another.")
@@ -70,6 +71,7 @@ class SignInForm(forms.Form):
 
     def clean_email(self):
         value = self.data['email']
+        value = value.lower()
         try:
             User.objects.get(username=value)
             return value
@@ -95,6 +97,7 @@ class ForgotPassForm(forms.Form):
        
        def clean_email(self):
               value = self.data['email']
+              value = value.lower()
               try:
                      User.objects.get(username=value)
                      return value
