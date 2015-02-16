@@ -10,12 +10,7 @@
         <div class="container" >
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+                
                 <a class="navbar-brand" href="/">
                     <img src="{% static "assets/img/logo/sockcess-tiny.png" %}" class="img-responsive" alt="">
                 </a>
@@ -27,7 +22,8 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
                     <li>
                         <a href="/home">Home</a>
                     </li>
@@ -52,52 +48,40 @@
 {% block signup %}
 
     <section id="contact" style="background: url('{% static 'assets/img/OSCAR.jpg' %}' ); height:100%;">
-        <div class="container">
+        <div class="container" style="height:100;">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Welcome To The Family</h2>
+                <div class="col-md-8 col-sm-12 col-xs-12 col-md-offset-2 col-sm-offset-0 xs-offset-0 text-center">
+                    <h2 style="color:#fff; text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  ">Enjoy The Socks</h2>
                     <hr class="colored">
-                    
-                    
+
+                    <div class="row text-center content-row">
+                    <div class="col-md-8 col-sm-12 col-xs-12 col-md-offset-2 col-sm-offset-0 xs-offset-0" style="background-color: rgba(0,0,0,0.5);border-radius:20px;padding:15px;">
+                    <p style="color:#fff;">Thanks for confirming your email, you will receive an email notification when your socks have shipped.</p>
+                    </div>  
+                    </div>
                    
-                </div>
-            </div>
+ 
             
+             
+                    
+                    <div class="row text-center content-row">
+                        
+                            
+                    <a href="/signin"> <button class="btn btn-outline-light" style="background-color:#000;;" name="choice" value="Sign In">Sign In</button></a>
+                    <a href="/"><button class="btn btn-outline-light" style="background-color:#000;" name="choice" value="Share With A Friend">Share With A Friend</button></a>
+                   
+                  
+                    </div>  
+                        
 
-            {% if messages %}
-
-            <div class='row'>
-                <div class='col-sm-6 col-sm-offset-3'>
-
-                    {% for message in messages %}
-
-                        <p{% if message.tags == "success" or message.tags == "error" %} class="successful"{% endif %}><b>{{ message }}</b></p>
-
-                    {% endfor %}
-                <br />
-                <a href="/signup">Create Account</a>
-                </div>
-            </div>
-            </div>
-
-           {% endif %}
-
-           {% if form.errors %}
+                    
             
-                <div class='col-sm-10 col-sm-offset-1'>
-    {% for field in form %}
-      
-    {% endfor %}
-    {% for error in form.non_field_errors %}
-        <div class="successful">
-            <strong>{{ error|escape }}</strong>
-        </div>
-        <a href="/signup">Create Account</a>
-    {% endfor %}
-
-    </div>
-{% endif %}
-           
+                                  </div>
+            </div>
         </div>
     </section>
 {% endblock %}
