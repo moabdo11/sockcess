@@ -208,7 +208,7 @@ def confirmemail(request):
     title = "Thanks!"
     messages.success(request,"Thanks for confirming your email.")
 
-    return render_to_response('after.html',
+    return render_to_response('emailconfirmation.html',
                                   locals(),
                                   context_instance=RequestContext(request))
 
@@ -246,7 +246,7 @@ def after(request):
 
 
 def resetpass(request, email):
-    
+    print email
     c={}
     c.update(csrf(request))
     form = ResetPassForm(request.POST or None)
