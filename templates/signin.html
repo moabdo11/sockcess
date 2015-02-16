@@ -63,6 +63,18 @@
                 </div>
             </div>
             
+{% if form.errors %}
+            
+                <div class='col-sm-10 col-sm-offset-1'>
+    {% for field in form %}
+      
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="successful">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+
 
             {% if messages %}
 
