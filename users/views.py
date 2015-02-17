@@ -18,7 +18,6 @@ from mailchimp import utils
 
 This document is split into 3 sections: USER SIGNUP FUNCTIONS, USER ACCOUNT FUNCTIONS, and CHANGE USER ACCOUNT FUNCTION
 
-
 """
 
 ####################################### USER SIGNUP FUNCTIONS #########################################################
