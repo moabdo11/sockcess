@@ -304,11 +304,11 @@ def signin(request):
                     login(request, user)
                     pk = request.user.id
                     u = User.objects.get(pk = pk)
-                    o = Order.objects.get(customer = u)
-                    if o:
+                    try:
+                        o = Order.objects.get(customer = u)
                         return HttpResponseRedirect('/home')
-                    # ensure user exists in stripe           
-                    else:
+                    except:
+                        messages.success(request,"we need some info from you.")
                         return HttpResponseRedirect('/first')
                 else:
                     #user exists but account has been disabled
