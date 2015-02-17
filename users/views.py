@@ -144,7 +144,7 @@ def billinginfo(request):
         except:
             messages.success(request, "Please Enter Your Billing Info Again.")
             return HttpResponseRedirect('/billinginfo')
-            
+
         c = {}
         c.update(csrf(request))
         title = 'Subscribe Now'
@@ -202,6 +202,11 @@ def billinginfo(request):
                 )
 
                 order.save()
+                try:
+                    list = mailchimp.utils.get_connection().get_list_by_id('4d3d1b0805')
+                    list.subscribe(emai, {'EMAIL': emai})
+                except:
+                    title=emai
                 messages.success(request, "Welcome to the family. Your socks are being prepared. We will notify you when they ship.")
             
                 return HttpResponseRedirect('/home')

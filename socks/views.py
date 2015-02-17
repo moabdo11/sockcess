@@ -41,12 +41,6 @@ def home(request):
                 if user is not None:
                     if user.is_active:
                         login(request, user)
-                        
-                        try:
-                            list = mailchimp.utils.get_connection().get_list_by_id('4d3d1b0805')
-                            list.subscribe(emai, {'EMAIL': emai})
-                        except:
-                            title=emai
                             
                         return HttpResponseRedirect('/thankyou')
                     
@@ -93,11 +87,7 @@ def signup(request):
                                             email = emai,
                                             password = passw,)
             
-            try:
-                list = mailchimp.utils.get_connection().get_list_by_id('4d3d1b0805')
-                list.subscribe(emai, {'EMAIL': emai})
-            except:
-                title=emai
+
             
             user.save()
 
