@@ -309,7 +309,7 @@ def signin(request):
                         o = Order.objects.get(customer = u)
                         return HttpResponseRedirect('/home')
                     except:
-                        messages.success(request,"we need some info from you.")
+                        messages.success(request,"let us know your style.")
                         return HttpResponseRedirect('/first')
                 else:
                     #user exists but account has been disabled
