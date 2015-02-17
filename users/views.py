@@ -204,10 +204,11 @@ def billinginfo(request):
 
                 order.save()
                 try:
+                    
                     list = mailchimp.utils.get_connection().get_list_by_id('4d3d1b0805')
-                    list.subscribe(emai, {'EMAIL': emai})
+                    list.subscribe(email, {'EMAIL': email})
                 except:
-                    title=emai
+                    title=email
                 messages.success(request, "Welcome to the family. Your socks are being prepared. We will notify you when they ship.")
             
                 return HttpResponseRedirect('/home')
