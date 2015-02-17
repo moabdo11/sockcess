@@ -138,7 +138,7 @@ def billinginfo(request):
         return HttpResponseRedirect('/signin')
     else:
         try:
-            pk = session.user.id
+            pk = request.user.id
             user = User.objects.get(pk=pk)
             s = Subscriber.objects.get(customer=user)
         except:
