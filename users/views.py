@@ -196,7 +196,7 @@ def billinginfo(request):
                 order.save()
                 messages.success(request, "Welcome to the family. Your socks are being prepared. We will notify you when they ship.")
             
-                return HttpResponseRedirect('/home')
+                return HttpResponseRedirect('/welcomeaboard')
 
     return render_to_response('billinginfo.html',
                               locals(),
@@ -206,7 +206,19 @@ def billinginfo(request):
 def confirmemail(request):
 
     title = "Thanks!"
-    messages.success(request,"Thanks for confirming your email.")
+    heading = "Enjoy The Socks"
+    text = "Thanks for confirming your email, you will receive an email notification when your socks have shipped."
+
+    return render_to_response('emailconfirmation.html',
+                                  locals(),
+                                  context_instance=RequestContext(request))
+
+
+def welcomeaboard(request):
+
+    title = "Thanks!"
+    heading = "Welcome To The Family"
+    text = "Thanks for signing up."
 
     return render_to_response('emailconfirmation.html',
                                   locals(),
