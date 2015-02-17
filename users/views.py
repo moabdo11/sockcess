@@ -463,7 +463,7 @@ def change_address_info(request):
 def change_billing_info(request):
     
     title = 'Change How You Pay'
-    email = request.user.username
+    email = request.user.id
     c = {}
     c.update(csrf(request))
 
@@ -471,9 +471,9 @@ def change_billing_info(request):
     if request.POST:
         
         try:
-            user = User.objects.get(email=email)
+            user = User.objects.get(pk=email)
         except:
-            user = User.objects.filter(email = email)[0]
+            user = User.objects.filter(pk = email)[0]
         subscriber = Subscriber.objects.get(customer=user)
         stripe_id = subscriber.stripe_id
         stripe.api_key ="sk_test_KSTtdSq7rzZAPRYKOlol91J4" #"sk_live_honqsfBszGpd3pFfSXCpdYCT"
@@ -496,14 +496,14 @@ def change_sock(request):
     c = {}
     c.update(csrf(request))
     title = 'Time For A Change'
-    email = request.user.username
+    email = request.user.id
     business = Sock.objects.filter(style = 'business').latest('id')
     pleasure = Sock.objects.filter(style = 'pleasure').latest('id')
     
     if request.POST:
         
         sock_style = request.POST.get('selection')
-        user = User.objects.get(email = email)
+        user = User.objects.get(pk = email)
         addr = Subscriber.objects.get(customer = user)
         
         if sock_style == 'random':
