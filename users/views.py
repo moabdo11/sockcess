@@ -239,58 +239,7 @@ def welcomeaboard(request):
                                   context_instance=RequestContext(request))
 
 
-def forgotpass(request):
-    
-    title="Forgot Password"
-    c = {}
-    c.update(csrf(request))
-    form = ForgotPassForm(request.POST or None)
-    message = "Give us the email associated with your account, and we will send your password"
-    
-    if request.POST:
-        if form.is_valid():
-            email = form.cleaned_data['email']
-            email = email.lower()
-            user = User.objects.get(email = email)
-            idd = user.id
-            if user:
-                send_mail('Team Sockcess Password Reset', 'click here to reset your password: http://www.besockcessful.com/resetpassword/%d' % idd,'besockcessful.tali@gmail.com',[email], fail_silently=False )
-                message = "We've sent you an email with a link to reset your password"
-                return HttpResponseRedirect('/after')
-            
-    return render_to_response('forgotpass.html',
-                                  locals(),
-                                  context_instance=RequestContext(request))
 
-
-def after(request):
-    title = "Forgot Password"
-    
-    return render_to_response('after.html',
-                              locals(),
-                              context_instance=RequestContext(request))
-
-
-def resetpass(request, email):
-    print email
-    c={}
-    c.update(csrf(request))
-    form = ResetPassForm(request.POST or None)
-    
-    if request.POST:
-        if form.is_valid():
-            password = form.cleaned_data['password']
-            
-            u = User.objects.get(id=email)
-            u.set_password(password)
-            u.save()
-            
-            messages.success(request,'Your password has been reset')
-            return HttpResponseRedirect('/signin')
-    
-    return render_to_response('resetpass.html',
-                              locals(),
-                              context_instance=RequestContext(request))
 
 ####################################### USER ACCOUNT FUNCTIONS #########################################################
 
@@ -353,10 +302,14 @@ def signin(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-
-                    return HttpResponseRedirect('/home')
+                    pk = request.user.id
+                    u = User.objects.get(pk = pk)
+                    o = Order.objects.get(customer = u)
+                    if o:
+                        return HttpResponseRedirect('/home')
                     # ensure user exists in stripe           
-
+                    else:
+                        return HttpResponseRedirect('/first')
                 else:
                     #user exists but account has been disabled
                     user.is_active = True
@@ -387,6 +340,60 @@ def myaccount(request):
     return render_to_response('myaccount.html',
                              locals(),
                              context_instance=RequestContext(request))
+
+def forgotpass(request):
+    
+    title="Forgot Password"
+    c = {}
+    c.update(csrf(request))
+    form = ForgotPassForm(request.POST or None)
+    message = "Give us the email associated with your account, and we will send your password"
+    
+    if request.POST:
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            email = email.lower()
+            user = User.objects.get(email = email)
+            idd = user.id
+            if user:
+                send_mail('Team Sockcess Password Reset', 'click here to reset your password: http://www.besockcessful.com/resetpassword/%d' % idd,'besockcessful.tali@gmail.com',[email], fail_silently=False )
+                message = "We've sent you an email with a link to reset your password"
+                return HttpResponseRedirect('/after')
+            
+    return render_to_response('forgotpass.html',
+                                  locals(),
+                                  context_instance=RequestContext(request))
+
+
+def after(request):
+    title = "Forgot Password"
+    
+    return render_to_response('after.html',
+                              locals(),
+                              context_instance=RequestContext(request))
+
+
+def resetpass(request, email):
+    print email
+    c={}
+    c.update(csrf(request))
+    form = ResetPassForm(request.POST or None)
+    
+    if request.POST:
+        if form.is_valid():
+            password = form.cleaned_data['password']
+            
+            u = User.objects.get(id=email)
+            u.set_password(password)
+            u.save()
+            
+            messages.success(request,'Your password has been reset')
+            return HttpResponseRedirect('/signin')
+    
+    return render_to_response('resetpass.html',
+                              locals(),
+                              context_instance=RequestContext(request))
+
 
 
 ####################################### USER CHANGE-ACCOUNT FUNCTIONS #########################################################
