@@ -98,14 +98,14 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <form name="sentMessage" id="contactForm" method="POST" novalidate> {% csrf_token %}
                         <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <div class="form-group col-md-8 col-sm-12 col-xs-12 col-md-offset-2 col-sm-offset-0 xs-offset-0 floating-label-form-group controls">
                                 <label>Email Address</label>
                                 {{ form.email }}
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <div class="form-group col-md-8 col-sm-12 col-xs-12 col-md-offset-2 col-sm-offset-0 xs-offset-0 floating-label-form-group controls">
                                 <label>Password</label>
                                 {{ form.password }}
                                 <p class="help-block text-danger"></p>
@@ -114,7 +114,7 @@
                         <br>
                         <div id="success"></div>
                         <div class="row">
-                            <div class="form-group col-xs-12">
+                            <div class="form-group col-md-8 col-sm-12 col-xs-12 col-md-offset-2 col-sm-offset-0 xs-offset-0">
                                 <button type="submit" class="btn btn-outline-dark">Sign Me In</button>
                                 
                                 

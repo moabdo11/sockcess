@@ -57,8 +57,9 @@
     <div class='col-sm-10 col-sm-offset-1'>
     {% for message in messages %}
     <div class="successful">
-        <strong>{{ message }}</strong>
+        <strong>{{ message }}</strong>   
     {% endfor %}
+   
     </div>
     </div>
 {% endif %}
@@ -72,7 +73,9 @@
     {% endfor %}
     {% for error in form.non_field_errors %}
         <div class="successful">
+
             <strong>{{ error|escape }}</strong>
+            <br /><a href="/signin"><strong>Sign In</strong></a>
         </div>
     {% endfor %}
 
@@ -696,7 +699,7 @@
                     <form name="sentMessage" id="contactForm" method="POST"> {% csrf_token %}
                         <div class="row control-group">
 
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <div class="form-group col-md-8 col-sm-12 col-xs-12 col-md-offset-2 col-sm-offset-0 xs-offset-0 floating-label-form-group controls">
                                 <label>Email Address</label>
                                 {{ form.email }}
                                 <p class="help-block text-danger"></p>
@@ -704,14 +707,14 @@
                         </div>
 
                         <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <div class="form-group col-md-8 col-sm-12 col-xs-12 col-md-offset-2 col-sm-offset-0 xs-offset-0 floating-label-form-group controls">
                                 <label>Password</label>
                                 {{ form.password }}
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <div class="form-group col-md-8 col-sm-12 col-xs-12 col-md-offset-2 col-sm-offset-0 xs-offset-0 floating-label-form-group controls">
                                 <label>Re-Enter Password</label>
                                 {{ form.verify_password }}
                                 <p class="help-block text-danger"></p>
@@ -720,7 +723,7 @@
                         <br>
                         <div id="success"></div>
                         <div class="row">
-                            <div class="form-group col-xs-12">
+                            <div class="form-group col-md-8 col-sm-12 col-xs-12 col-md-offset-2 col-sm-offset-0 xs-offset-0">
                                 <button type="submit" class="btn btn-outline-dark">Sign Me Up</button>
                             </div>
                         </div>
