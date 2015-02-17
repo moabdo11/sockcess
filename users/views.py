@@ -137,6 +137,14 @@ def billinginfo(request):
     if not request.user.is_authenticated():
         return HttpResponseRedirect('/signin')
     else:
+        try:
+            pk = session.user.id
+            user = User.objects.get(pk=pk)
+            s = Subscriber.objects.get(customer=user)
+        except:
+            messages.success(request, "Please Enter Your Billing Info Again.")
+            return HttpResponseRedirect('/billinginfo')
+            
         c = {}
         c.update(csrf(request))
         title = 'Subscribe Now'
@@ -196,7 +204,7 @@ def billinginfo(request):
                 order.save()
                 messages.success(request, "Welcome to the family. Your socks are being prepared. We will notify you when they ship.")
             
-                return HttpResponseRedirect('/welcomeaboard')
+                return HttpResponseRedirect('/home')
 
     return render_to_response('billinginfo.html',
                               locals(),
