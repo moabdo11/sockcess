@@ -142,8 +142,8 @@ def billinginfo(request):
             user = User.objects.get(pk=pk)
             s = Subscriber.objects.get(customer=user)
         except:
-            messages.success(request, "Please Enter Your Billing Info Again.")
-            return HttpResponseRedirect('/billinginfo')
+            messages.success(request, "Please Enter Your Shipping Info Again.")
+            return HttpResponseRedirect('/shippinginfo')
 
         c = {}
         c.update(csrf(request))
