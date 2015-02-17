@@ -240,8 +240,6 @@ def welcomeaboard(request):
                                   context_instance=RequestContext(request))
 
 
-
-
 ####################################### USER ACCOUNT FUNCTIONS #########################################################
 
 
@@ -342,6 +340,7 @@ def myaccount(request):
                              locals(),
                              context_instance=RequestContext(request))
 
+
 def forgotpass(request):
     
     title="Forgot Password"
@@ -396,8 +395,8 @@ def resetpass(request, email):
                               context_instance=RequestContext(request))
 
 
-
 ####################################### USER CHANGE-ACCOUNT FUNCTIONS #########################################################
+
 
 def change_address_info(request):
     if not request.user.is_authenticated():
