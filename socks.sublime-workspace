@@ -35,94 +35,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "socks/urls.py",
-			"settings":
-			{
-				"buffer_size": 1823,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "users/views.py",
-			"settings":
-			{
-				"buffer_size": 22268,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "users/newforms.py",
-			"settings":
-			{
-				"buffer_size": 5458,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/emailconfirmation.html",
-			"settings":
-			{
-				"buffer_size": 4619,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/base.html",
-			"settings":
-			{
-				"buffer_size": 7727,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/deleteuser.html",
-			"settings":
-			{
-				"buffer_size": 3080,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/index.html",
-			"settings":
-			{
-				"buffer_size": 43954,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/signin.html",
-			"settings":
-			{
-				"buffer_size": 4147,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/forgotpass.html",
-			"settings":
-			{
-				"buffer_size": 4058,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/first.html",
-			"settings":
-			{
-				"buffer_size": 3125,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/after.html",
-			"settings":
-			{
-				"buffer_size": 2663,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -149,15 +61,27 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/home/dev/webdev/newsockcess/socks",
-		"/home/dev/webdev/newsockcess/socks/socks",
-		"/home/dev/webdev/newsockcess/socks/templates",
-		"/home/dev/webdev/newsockcess/socks/users"
-	],
 	"file_history":
 	[
+		"/home/dev/webdev/newsockcess/socks/templates/emailconfirmation.html",
+		"/home/dev/webdev/newsockcess/socks/templates/signin.html",
+		"/home/dev/webdev/newsockcess/socks/templates/index.html",
+		"/home/dev/webdev/newsockcess/socks/templates/shipping.html",
+		"/home/dev/webdev/newsockcess/socks/templates/changeaddress.html",
+		"/home/dev/webdev/newsockcess/socks/templates/changebillinginfo.html",
+		"/home/dev/webdev/newsockcess/socks/templates/home.html",
+		"/home/dev/webdev/newsockcess/socks/socks/settings/base.py",
+		"/home/dev/webdev/newsockcess/socks/socks/settings/production.py",
+		"/home/dev/webdev/newsockcess/socks/socks/settings/local.py",
+		"/home/dev/webdev/newsockcess/socks/templates/billinginfo.html",
+		"/home/dev/webdev/newsockcess/socks/users/views.py",
+		"/home/dev/webdev/newsockcess/socks/socks/urls.py",
+		"/home/dev/webdev/newsockcess/socks/users/newforms.py",
+		"/home/dev/webdev/newsockcess/socks/templates/base.html",
+		"/home/dev/webdev/newsockcess/socks/templates/deleteuser.html",
+		"/home/dev/webdev/newsockcess/socks/templates/forgotpass.html",
+		"/home/dev/webdev/newsockcess/socks/templates/first.html",
+		"/home/dev/webdev/newsockcess/socks/templates/after.html",
 		"/home/dev/webdev/whosnext/templates/barberinfo.html",
 		"/home/dev/webdev/whosnext/barber_signups/models.py",
 		"/home/dev/webdev/whosnext/OpenChair/settings.py",
@@ -166,31 +90,20 @@
 		"/home/dev/webdev/whosnext/barber_signups/signup_views.py",
 		"/home/dev/webdev/whosnext/templates/base.html",
 		"/home/dev/webdev/whosnext/templates/signup.html",
-		"/home/dev/webdev/newsockcess/socks/users/views.py",
 		"/home/dev/webdev/whosnext/OpenChair/urls.py",
 		"/home/dev/webdev/whosnext/templates/welcome.html",
 		"/home/dev/webdev/newsockcess/socks/socks/views.py",
 		"/home/dev/webdev/newsockcess/socks/templates/changesockselection.html",
 		"/home/dev/webdev/newsockcess/socks/static/assets/css/bootstrap/custom.css",
 		"/home/dev/webdev/newsockcess/socks/users/models.py",
-		"/home/dev/webdev/newsockcess/socks/templates/index.html",
-		"/home/dev/webdev/newsockcess/socks/templates/home.html",
-		"/home/dev/webdev/newsockcess/socks/templates/first.html",
-		"/home/dev/webdev/newsockcess/socks/socks/urls.py",
 		"/home/dev/webdev/newsockcess/socks/templates/onlysignup.html",
-		"/home/dev/webdev/newsockcess/socks/templates/signin.html",
 		"/home/dev/webdev/newsockcess/socks/templates/presignup.html",
-		"/home/dev/webdev/newsockcess/socks/templates/billinginfo.html",
-		"/home/dev/webdev/newsockcess/socks/templates/after.html",
 		"/home/dev/webdev/pre-signup_sockcess_env/socks/templates/pre-signup.html",
 		"/home/dev/webdev/newsockcess/socks/templates/basehome.html",
-		"/home/dev/webdev/newsockcess/socks/templates/base.html",
 		"/home/dev/webdev/newsockcess/socks/static/assets/js/vitality.js",
 		"/home/dev/webdev/newsockcess/socks/templates/myaccount.html",
 		"/home/dev/webdev/newsockcess/socks/templates/first_choice.html",
-		"/home/dev/webdev/newsockcess/socks/templates/firstchoice.html",
-		"/home/dev/webdev/newsockcess/socks/templates/changeaddress.html",
-		"/home/dev/webdev/newsockcess/socks/templates/changebillinginfo.html"
+		"/home/dev/webdev/newsockcess/socks/templates/firstchoice.html"
 	],
 	"find":
 	{
@@ -225,339 +138,8 @@
 	"groups":
 	[
 		{
-			"selected": 3,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "socks/urls.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1823,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								250,
-								250
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "users/views.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 22268,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								9467,
-								9467
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1224.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "users/newforms.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5458,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3238,
-								3238
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 867.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "templates/emailconfirmation.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4619,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4169,
-								4169
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1581.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "templates/base.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7727,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5459,
-								5459
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2227.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "templates/deleteuser.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3080,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3034,
-								3034
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 612.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "templates/index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 43954,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								33025,
-								33025
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 12140.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "templates/signin.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4147,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1155,
-								1155
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "templates/forgotpass.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4058,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2358,
-								2358
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 497.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "templates/first.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3125,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								497,
-								497
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "templates/after.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2663,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2663,
-								2663
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				}
 			]
 		}
 	],

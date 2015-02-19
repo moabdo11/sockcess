@@ -82,6 +82,62 @@
 
 
 
+
+<style>
+
+nav ul ul {
+  display: none;
+}
+
+  nav ul li:hover > ul {
+    display: block;
+    background-color: #000;
+        width:135%;
+        border-radius: 15px;
+  }
+
+  nav ul {
+ 
+  list-style: none;
+  position: relative;
+  display: inline-table;
+}
+  nav ul:after {
+    content: ""; clear: both; display: block;
+  }
+
+nav ul ul {
+   border-radius: 0px; padding-left: 10px; padding-right: 10px;
+  position: absolute; top: 100%;
+
+}
+
+nav ul ul:hover {
+
+}
+
+
+  nav ul ul li {
+ 
+    width:120%;
+    position: relative;
+   
+  }
+nav ul ul li:hover {
+  font-size: 1.1em;
+    
+}
+
+</style>
+
+
+
+
+
+
+
+
+
     <!-- IE8 support for HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -165,6 +221,7 @@ function validate(){
   
   {% block team %}
   {% endblock %}
+
   
   {% block filler2 %}
   {% endblock %}
@@ -180,9 +237,17 @@ function validate(){
   {% block faq %}
   {% endblock %}
   -->
+
+
   {% block signup %}
   {% endblock %}
   
+
+
+  {% block contact %}
+  {% endblock %}
+
+
   {% block footer %}
   {% endblock %}
   
