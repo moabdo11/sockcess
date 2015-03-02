@@ -15,7 +15,7 @@ urlpatterns = patterns('',
     # BasePage URLS
     url(r'^$', 'socks.views.home', name='home'),
     url(r'signup/', 'socks.views.signup', name='signup'),
-
+    url(r'contact/', 'socks.views.contact', name='contact'),
 
     # User URLS
     url(r'signin/', 'users.views.signin', name='signin'),

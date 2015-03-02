@@ -1,6 +1,7 @@
 from django.shortcuts import render, render_to_response, RequestContext, HttpResponseRedirect, get_object_or_404
 from django.conf import settings
 from django.contrib import messages
+from django.core.mail import send_mail
 from django.contrib.auth import authenticate, login
 from django.core.context_processors import csrf
 from django.contrib.auth.models import User
@@ -117,6 +118,27 @@ def signup(request):
 
 
 
+def contact(request):
+
+    try:
+        name = request.POST['name']
+        email = request.POST['email']
+        message = request.POST['message']
+
+        send_mail('Sockcess Contact Us', message ,'besockcessful.tali@gmail.com',['info@besockcessful.com'], fail_silently=False )
+
+
+    except:
+        messages.success(request,"please try again")
+        return HttpResponseRedirect('/')
+
+    print name
+    print email
+    print message
+    messages.success(request, "We'll be in touch")
+    return render_to_response('index.html',
+                                locals(),
+                                context_instance=RequestContext(request))
 
 
 
