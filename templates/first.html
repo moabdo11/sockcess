@@ -43,7 +43,7 @@
                 <form method="post" style="margin:auto;">{% csrf_token %} 
 
                 
-                    <div class="col-sm-4 sock-selection img-responsive" style="background: url('{{ business.picture.url }}'); background-size:100% 100%;">
+                    <div class="col-sm-4 sock-selection img-responsive" style="background: url('{{ business.selection_picture.url }}'); background-size:100% 100%;">
                        
                                     <div class="caption">
                                         <h3>Business</h3>
@@ -67,7 +67,7 @@
                     </div>
 
                 
-                    <div class="col-sm-4 item sock-selection img-responsive" style="background: url('{{ pleasure.picture.url }}');background-size:100% 100%;">
+                    <div class="col-sm-4 item sock-selection img-responsive" style="background: url('{{ pleasure.selection_picture.url }}');background-size:100% 100%;">
 
                                 <div class="caption">
                                         <h3>Pleasure</h3>
